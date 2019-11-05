@@ -6,6 +6,9 @@ import com.qcby.entity.Account;
 import com.qcby.entity.Blog;
 import com.qcby.entity.User;
 import com.qcby.service.BlogService;
+import com.qcby.util.CacheUtil;
+import com.qcby.util.JwtUtil;
+import com.qcby.util.SnowflakeIdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -18,7 +21,9 @@ import org.springframework.web.servlet.ModelAndView;
 import sun.text.resources.cldr.id.FormatData_id;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassNameTestController
@@ -136,5 +141,36 @@ public class TestController {
         List<Blog> blogs = blogService.selectAllRecords();
         model.addAttribute("data",blogs);
         return "show";
+    }
+
+    @RequestMapping("testRedis")
+    public String testRedis(Model model){
+        try {
+            boolean b = CacheUtil.setString("token", "redis");//向redis里存字符串 key-value
+            System.out.println(b);//true成功，
+            System.out.println(CacheUtil.getString("token"));//从radis里取数据 key
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return "showDate";
+    }
+
+    @RequestMapping("loginToken")
+    @ResponseBody
+    public Map loginToken(Model model, @RequestParam("account") String name, @RequestParam("pwd") String pwd) {
+        System.out.println("****************************************");
+
+        System.out.println(name);
+        System.out.println(pwd);
+        Map map = new HashMap();
+        if(name.equals("myr") && pwd .equals("666")){
+            String token = JwtUtil.sign("uuid");
+            //CacheUtil.setString("token",token);
+            System.out.println(token + "----------------------------");
+            map.put("token",token);
+            map.put("code",1);
+        }
+        return map;
     }
 }

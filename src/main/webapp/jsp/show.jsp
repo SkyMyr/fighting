@@ -25,9 +25,9 @@
 myr
 ${account}<br>
 
-<c:forEach items="${data}" var="d">
-    ${d.author} --  ${d.content} --${d.title}<br>
-</c:forEach>
+<%--<c:forEach items="${data}" var="d">--%>
+    <%--${d.author} --  ${d.content} --${d.title}<br>--%>
+<%--</c:forEach>--%>
 
 <div class="row">
     <div class="col-md-6 col-md-offset-3">

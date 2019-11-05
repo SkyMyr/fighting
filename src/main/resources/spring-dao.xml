@@ -37,6 +37,17 @@
         <property name="typeAliasesPackage" value="com.qcby.entity"/>
         <!-- 扫描sql配置文件:mapper需要的xml文件 -->
         <property name="mapperLocations" value="classpath:com/qcby/mapping/*.xml"/>
+        <!--开启redis缓存 -->
+        <property name="configurationProperties">
+            <props>
+                <!--全局映射器启用缓存-->
+                <prop key ="cacheEnabled">true</prop>
+                <!--查询时，关闭关连对象即时加载以提高性能-->
+                <prop key="lazyLoadingEnabled">false</prop>
+                <!-- 设置关联对象加载的形态，此处为按需要加载字段（加载字段由sql决定），不会加载关联表的所有字段，以提高性能-->
+                <prop key="aggressiveLazyLoading">true</prop>
+            </props>
+        </property>
     </bean>
 
     <!-- 4.配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->

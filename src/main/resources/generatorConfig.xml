@@ -45,7 +45,7 @@
     </javaClientGenerator>
 
 <!--     对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等 -->
-      <table tableName="t_blog" domainObjectName="Blog" enableCountByExample="false"
+      <table tableName="users" domainObjectName="Users" enableCountByExample="false"
        enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
         delimitIdentifiers="true">
         <property name="useActualColumnNames" value="true" />
@@ -95,6 +95,6 @@
 <!--        delimitIdentifiers="true">  -->
 <!--       <property name="useActualColumnNames" value="true" />  -->
 <!--            </table>  -->
-
+      <!--mybatis-generator:generate-->
   </context>
 </generatorConfiguration>
