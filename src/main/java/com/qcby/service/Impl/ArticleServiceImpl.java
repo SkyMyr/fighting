@@ -2,19 +2,19 @@ package com.qcby.service.Impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qcby.dao.ArticleMapper;
 import com.qcby.entity.Article;
 import com.qcby.service.ArticleService;
-
+//Ctrl + i
 @Service("articleService")
 public class ArticleServiceImpl implements ArticleService {
+
 	@Autowired
 	private ArticleMapper articleMapper;
+
 	@Override
 	public Article selectByPrimaryKey(Integer id) {
 		// TODO Auto-generated method stub

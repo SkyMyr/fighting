@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+<title>国外社交平台</title>
+
+<link  rel="stylesheet" href="css/css.css">
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body  class="bg">
+  <div ><a href="login.html"> <div style="background: url(../images/titlebg.png) center no-repeat;height: 42px;border-radius: 42px;width: 125px;float: left;
+    margin-left: 15px;z-index: 10000;position: absolute;color: #FFF;text-align: center;line-height: 42px;padding: 0 32px;margin: 50px 0 0 20px;"><span class="left"><i class="lnr lnr-chevron-left"></i></span>返回</div></a></div>
+<div class="loginw">
+ <div class="loginjz"> <div class="login_l"><span class="title">见济志愿者组织端</span><img src="images/login_l_pic1.png" width="671" height="495"></div></div>
+ 
+ <div class="loginjz1">
+ <div class="login_r">
+   <div class="login_r_tbg">
+      <div align="center" class="title">忘记密码</div>
+     <div class="logingg"><input name="phone" id="phone" placeholder="电话" type="text" class="logingginput" style="color:#fff; outline:none;" onfocus="this.value=''" ></div>
+     <div class="logingg"><input name="nation" id="nation" placeholder="国家" type="text" class="logingginput" style="color:#fff; outline:none;" onfocus="this.value=''" ></div>      
+      <div class="logingg"><input name="code" id="code" placeholder="验证码" type="text" class="logingginput1 left" style="color:#fff; outline:none;" onfocus="this.value=''" ><a href="javascript:;" onclick="get_code();"><span class="right loginsubbtn">发送</span></a></div> 
+        <div class="logingg"><input name="password" id="password" placeholder="重置密码" type="text" class="logingginput" style="color:#fff; outline:none;" onfocus="this.value=''" ></div> 
+
+        <div class="logingg"><input name="repassword" id="repassword" placeholder="再次输入登录密码" type="text" class="logingginput" style="color:#fff; outline:none;" onfocus="this.value=''" ></div>          
+     <span class="blank10"></span>
+      <a href="javascript:;" onclick="submit();"><div class="font18 login_subbtn">确定</div></a>
+                
+   </div>
+   <div class="login_r_bbg">
+    <!-- <a href="login.html"><p align="center" class="colorblue lineheight">返回</p> </a> -->  
+     </div>
+
+ </div>
+  </div>
+ 
+ 
+ </div>
+<script type="text/javascript">
+    //报500错误
+    function get_code(){
+      var phone = $('#phone').val();
+      var nation = $('#nation').val();
+        $.ajax({
+          url: "http://140.143.243.113:8190/users/resetPassword/captcha/mobile",
+          type: "get",
+          data:{phone:phone},
+          dataType: 'json',
+          success: function (data) {
+            console.log(data)
+            if(data.code == 1){
+                alert(data.msg);
+            }else{
+                alert(data.msg);
+                location.href="/volunteer/forget.html";
+                // location.href="http://www.webss1.com/teacher/forget.html";
+            }
+            
+            // location.href="http://www.webss1.com/teacher/index.html";
+          },
+          error: function () {
+              console.log("出错了");
+          }
+      });
+    }
+
+    function submit(){
+      var phone = $('#phone').val();
+      var nation = $('#nation').val();
+      var code = $('#code').val();
+      var password = $('#password').val();
+      var repassword = $('#repassword').val();
+        $.ajax({
+          url: "http://140.143.243.113:8190/teacher/set/updatepwd",
+          type: "get",
+          data:{phone:phone,nation:nation,code:code,password:password,repassword:repassword},
+          dataType: 'json',
+          success: function (data) {
+            console.log(data)
+            if(data.code == 1){
+                alert(data.msg);
+            }else{
+                alert(data.msg);
+                location.href="/teacher/forget.html";
+                // location.href="http://www.webss1.com/teacher/forget.html";
+            }
+            // location.href="http://www.webss1.com/teacher/index.html";
+          },
+          error: function () {
+              console.log("出错了");
+          }
+      });
+    }
+
+</script>
+
+</body>
+</html>

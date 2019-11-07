@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcby.dao.FeedbackImgMapper">
+  <resultMap id="BaseResultMap" type="com.qcby.entity.FeedbackImg">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="feedback_id" jdbcType="BIGINT" property="feedback_id" />
+    <result column="img_url" jdbcType="VARCHAR" property="img_url" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, feedback_id, img_url
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from "t_feedback_img"
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from "t_feedback_img"
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qcby.entity.FeedbackImg">
+    insert into "t_feedback_img" (id, feedback_id, img_url
+      )
+    values (#{id,jdbcType=BIGINT}, #{feedback_id,jdbcType=BIGINT}, #{img_url,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qcby.entity.FeedbackImg">
+    insert into "t_feedback_img"
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="feedback_id != null">
+        feedback_id,
+      </if>
+      <if test="img_url != null">
+        img_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="feedback_id != null">
+        #{feedback_id,jdbcType=BIGINT},
+      </if>
+      <if test="img_url != null">
+        #{img_url,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.FeedbackImg">
+    update "t_feedback_img"
+    <set>
+      <if test="feedback_id != null">
+        feedback_id = #{feedback_id,jdbcType=BIGINT},
+      </if>
+      <if test="img_url != null">
+        img_url = #{img_url,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qcby.entity.FeedbackImg">
+    update "t_feedback_img"
+    set feedback_id = #{feedback_id,jdbcType=BIGINT},
+      img_url = #{img_url,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

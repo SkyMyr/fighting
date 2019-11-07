@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+<title>国外社交平台</title>
+
+<link  rel="stylesheet" href="css/css.css">
+<link rel="stylesheet" href="css/main.css" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body  class="bg">
+  <div ><a href="login.html"> <div style="background: url(../images/titlebg.png) center no-repeat;height: 42px;border-radius: 42px;width: 125px;float: left;
+    margin-left: 15px;z-index: 10000;position: absolute;color: #FFF;text-align: center;line-height: 42px;padding: 0 32px;margin: 50px 0 0 20px;"><span class="left"><i class="lnr lnr-chevron-left"></i></span>返回</div></a></div>
+<div class="loginw">
+ <div class="loginjz"> <div class="login_l"><span class="title">见济教师端</span><img src="images/login_l_pic1.png" width="671" height="495"></div></div>
+ 
+ <div class="loginjz100">
+ <div class="login_r">
+   <div class="login_r_tbg" style="margin-top: 150px;margin-left: 150px;">
+      <div align="center" class="title">用户注册</div>
+  <div class="logingg"><input name="school" id="school" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="学校名称"></div>
+  <div class="logingg"><input name="college" id="college" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="学院名称"></div>
+  <div class="logingg"><input name="weburl" id="weburl" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="学校网站"></div>
+  <div class="logingg"><input name="username" id="username" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="教师姓名"></div>
+     
+      <div class="xingbie">
+      <div class="left" style="width:60px; line-height:22px; text-align: center">性别</div>
+ <div class="nannv">
+       <span class="left" > <input id="item1" type="radio" name="sex" value="1" checked style="margin-left:20px;">
+        <label for="item1" style="margin-left:30px;"></label></span>
+        <span  >男</span>
+    </div>
+    <div class="nannv">
+         <span class="left" ><input id="item2" type="radio" name="sex" value="2" >
+        <label for="item2"  style="margin-left:130px; "></label>
+         </span>
+        <span  >女</span> 
+    </div>
+</div> 
+        
+         <div class="logingg"><input name="nation" id="nation" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="国家"></div>
+         <div class="logingg"><input name="phone" id="phone" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="电话"></div>
+         <div class="logingg"><input name="code1" id="code1" type="text" class="logingginput1 left" style="color:#fff; outline:none;" placeholder="验证码"><span class="right loginsubbtn">发送</span></div>
+         <div class="logingg"><input name="password" id="password" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="登录密码"></div>
+         <div class="logingg"><input name="reg_code" id="reg_code" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="注册优惠码"></div>
+        
+       <div class="colorwirth font12" style="margin-left:65px;" >
+       
+<input type="checkbox" name="state" id="state" value="1" class="tongyixieyi left">通过注册表示您同意接受本公司的</input>
+
+<button type="button" id="ClickMe" class="colorblue" style="outline:none">《服务与隐私权政策》</button>
+ </div>
+     <!--  <a href="javascript:;"  onclick="register();"><div class="font18 login_subbtn">注册</div></a> -->
+       <a href="javascript:;" id="register" onclick="register();"><div class="font18 login_subbtn">注册</div></a>         
+   </div>
+   <div class="login_r_bbg" style="margin-left: 150px;"><a href="login.html"><p align="center" class="colorblue lineheight">已有账户？请登录</p> </a>  
+     </div>
+
+ </div>
+  </div>
+ 
+ 
+ </div>
+
+<div id="goodcover"></div>
+	
+<div id="code">
+  <div class="close1"><a href="javascript:void(0)" id="closebt"><img src="images/close.gif"></a></div>
+  <div class="goodtxt">
+    <h3 align="center" class="colorwirth"><strong>XX公司的服务于隐私权政策</strong></h3>
+    <p align="left">XX公司的服务于隐私权政和iodsavolnilcbsli 和iuoghuidfshihgupwsai策XX公司的服务于
+隐私权政和iodsavolnilcbsli 和iuoghuidfshihgupwsai策XX公司的服务于隐私权政和iodsa
+volnilcbsli 和iuoghuidfshihgupwsai策</p>
+    <p>XX有限公司~</p>
+  </div>
+  
+</div>
+<!-- <script src="./request.js" type="text/javascript"></script> -->
+<script src="js/systemdata.js"></script>
+<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script> 
+<script type="text/javascript">
+    function register(){
+    var school = $('#school').val();
+    var college = $('#college').val();
+    var username = $('#username').val();
+    var weburl = $('#weburl').val();
+    var sex = $('input[name="sex"]:checked').val(); 
+    var nation = $('#nation').val();
+    var phone = $('#phone').val();
+    var code = $('#code1').val();
+    var password = $('#password').val();
+    var reg_code = $('#reg_code').val();
+    var state = $('#state').val();
+     $.ajax({
+          url:apihost+"/pub/other/register",
+          type: requesttype,
+          data:{schoolName:school,college:college,loginName:username,url:weburl,gender:sex,countryName:nation,mobile:phone,password:md5(password),couponCode:reg_code,type:1},
+          dataType: 'json',
+          success: function (result) {
+            console.log(result)
+            if(result.code == 1){
+                alert(result.msg);
+                location.href="/teacher/login.html";
+            }else{
+                alert(result.msg);
+                location.href="/teacher/reg.html";
+            }
+          },
+          error: function () {
+              console.log("出错了");
+          }
+      });
+  } 
+
+  //发送验证码
+  function sendCode(){
+      var phone = $("#phone").val();
+      $.ajax({
+          url: apihost+"/pub/other/pub/sendSmsCode",
+          type: requesttype,
+          data:{mobile:phone},
+          dataType: 'json',
+          success: function (data) {
+            console.log(data)
+            if(data.code == 1){
+                // alert(data.msg);
+            }else{
+                // alert(data.msg);
+                location.href="/teacher/reg.html";
+            }
+          },
+          error: function () {
+              console.log("出错了");
+          }
+      });
+  }
+
+</script>
+
+<script>
+// $(function() {
+//     //alert($(window).height());
+//     $('#ClickMe').click(function() {
+//         $('#code').center();
+//         $('#goodcover').show();
+//         $('#code').fadeIn();
+//     });
+//     $('#closebt').click(function() {
+//         $('#code').hide();
+//         $('#goodcover').hide();
+//     });
+// 	$('#goodcover').click(function() {
+//         $('#code').hide();
+//         $('#goodcover').hide();
+//     });
+//     /*var val=$(window).height();
+// 	var codeheight=$("#code").height();
+//     var topheight=(val-codeheight)/2;
+// 	$('#code').css('top',topheight);*/
+//     jQuery.fn.center = function(loaded) {
+//         var obj = this;
+//         body_width = parseInt($(window).width());
+//         body_height = parseInt($(window).height());
+//         block_width = parseInt(obj.width());
+//         block_height = parseInt(obj.height());
+
+//         left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+//         if (body_width < block_width) {
+//             left_position = 0 + $(window).scrollLeft();
+//         };
+
+//         top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+//         if (body_height < block_height) {
+//             top_position = 0 + $(window).scrollTop();
+//         };
+
+//         if (!loaded) {
+
+//             obj.css({
+//                 'position': 'absolute'
+//             });
+//             obj.css({
+//                 'top': ($(window).height() - $('#code').height()) * 0.5,
+//                 'left': left_position
+//             });
+//             $(window).bind('resize', function() {
+//                 obj.center(!loaded);
+//             });
+//             $(window).bind('scroll', function() {
+//                 obj.center(!loaded);
+//             });
+
+//         } else {
+//             obj.stop();
+//             obj.css({
+//                 'position': 'absolute'
+//             });
+//             obj.animate({
+//                 'top': top_position
+//             }, 200, 'linear');
+//         }
+//     }
+
+// })
+</script>
+</body>
+</html>

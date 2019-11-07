@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+<title>国外社交平台</title>
+
+<link  rel="stylesheet" href="css/css.css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body  class="bg">
+  <div ><a href="/main.html"> <div style="background: url(../images/titlebg.png) center no-repeat;height: 42px;border-radius: 42px;width: 125px;float: left;
+    margin-left: 15px;z-index: 10000;position: absolute;color: #FFF;text-align: center;line-height: 42px;padding: 0 32px;margin: 50px 0 0 20px;"><span class="left"><i class="lnr lnr-chevron-left"></i></span>返回</div></a></div>
+<div class="loginw">
+ <div class="loginjz"> <div class="login_l"><span class="title" style="margin-left: 60px;"><img src="/images/jianjilogo_pic.png"></span><img src="images/login_l_pic1.png" width="671" height="495"></div></div>
+ 
+ <div class="loginjz1">
+ <div class="login_r">
+   <div class="login_r_tbg">
+  <!--   <form id="form1" method="get" action="http://www.lzgjxcx.com/app/webss/login" onsubmit = "return login();"> -->
+<!--   <form id="form1" method="get" action="http://www.lzgjxcx.com/app/webss/login" > -->
+   <!--  <form id="form1" name="form1"> -->
+      <div align="center" class="title">用户登录</div>
+      <input type='hidden' id="type" name='type' value="3" />
+      <!-- <div class="logingg"><input name="" type="text" class="logingginput" style="color:#fff; outline:none;"value="用户名" onfocus="this.value=''" onblur="this.value='用户名'"></div>
+      <div class="logingg"><input name="" type="text" class="logingginput" style="color:#fff; outline:none;"value="密码" onfocus="this.value=''" onblur="this.value='密码'"></div> -->
+      <div class="logingg"><input name="username" id="username" placeholder="用户名" type="text" class="logingginput" style="color:#fff; outline:none;"></div>
+      <div class="logingg"><input name="password" id="password" placeholder="密码" type="text" class="logingginput" style="color:#fff; outline:none;"></div> 
+
+    
+      
+      
+       <div class="xingbie font14" >       
+       <a href="reg.html" class="colorwirth"><span class="left">注册 </span></a> 
+       <a href="forget.html" class="colorwirth"><span class="right">忘记密码？</span></a> 
+       </div>
+       
+       <span class="blank10"></span>
+    <!--  <a href="index.html"> <div class="font18 login_subbtn">登录</div></a> --> 
+<!--      <a  href="#"><div class="font18 login_subbtn"> <input type='submit' value="登录" style="height: 45px;width:100%;background: #1ed8f8;font-size: 18px;border:0px"/></div></a>  -->
+           <a href="javascript:;" onclick="login();">
+            <div class="font18 login_subbtn"> <input type='button' value="登录"  style="height: 45px;width:100%;background: #1ed8f8;font-size: 18px;border:0px"/></div>
+          </a> 
+ <!--     <form> -->      
+ <!--       <iframe name='hidden_frame' id="hidden_frame" style='display: none'></iframe>       -->  
+   </div>
+   <div class="login_r_bbg">
+     </div>
+
+ </div>
+  </div>
+ 
+ 
+ </div>
+<script src="js/systemdata.js"></script>
+<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script>     
+<script>        
+  function login(){
+    var type = document.getElementById("type").value; 
+    var username = document.getElementById("username").value; 
+    var password = document.getElementById("password").value;
+     $.ajax({
+          url: apihost+"/pub/other/login",
+          type: requesttype,
+          data:{type:3,loginName:username,password:md5(password)},
+          dataType: 'json',
+          success: function (data) {
+             if(data.code == 1){
+                sessionStorage.setItem('token',data.data.token);
+                location.href="/volunteer/index.html?num=1";
+            }else{
+                console.log('登录失败')
+                location.href="/volunteer/login.html";
+            }
+          },
+          error: function () {
+              console.log("出错了");
+          }
+          error: function () {
+              console.log("出错了");
+          }
+      });
+  } 
+</script>
+
+</body>
+</html>

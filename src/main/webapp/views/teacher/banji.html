@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="en">
+<style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+        html {font-size: 14px; }
+        header {
+            height: 40px;
+            width: 100%;
+            min-width: 320px;
+            background: #000;
+            text-align: center;
+            color: #fff;
+            font-size: 1.2rem;
+            line-height: 40px;
+        }
+        footer {
+            height: 52px;
+            width: 100%;
+            min-width: 320px;
+            background: #000;
+            text-align: center;
+            color: #fff;
+            font-size: 1.2rem;
+            line-height: 52px;
+            position: absolute;
+            bottom: 0;
+        }
+        #wrapper {
+            /*width: 100%;*/
+            min-width: 320px;
+            position: auto;
+            left: 0;
+            top: 180px;
+            bottom: 52px;
+            overflow: hidden;
+            z-index: 1;
+       /*     background-color: #eee;*/
+ 
+            /* 防止本机Windows上的触摸事件 */
+            -ms-touch-action: none;
+ 
+            /* 防止callout tap-hold和文本的选择 */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+ 
+            /* 防止文本调整取向变化对web应用程序很有用 */
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+        .pull-loading {
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #scroller ul li {
+           /* padding: 20px 10px;*/
+            border-bottom: solid 1px #ccc;
+           /* background: #fff;*/
+        }
+    </style>
+    <script src="jquery-2.2.4.min.js"></script>
+<head>
+	<title>国外社交平台</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+	<link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css">
+
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/demo.css">
+	<link rel="stylesheet" href="assets/css/my.css">
+    
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/.png">
+</head>
+
+<body class="bg">
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar banjitop_pic">
+        			 <div class="yuyan">
+                     <ul>
+                     <a href="index.html" ><li class="aa">English</li></a>  
+                      <a href="index.html" > <li>中文</li></a>
+                      </ul>
+                     </div>
+			         <h2 align="center" class="colorblue font40 banjiziw">见济教师后台</h2>
+            
+        
+            <div class="banjiw">
+              <div class="banji_btn">
+              <div class="banji_btn1 padright fleft">
+                 <ul class="fright">
+                <a href="index.html" ><li>班级</li></a>
+               <a href="mission.html"> <li>使命图</li></a>
+               </ul>
+              </div>
+              <div class="banji_btn1 padleft fright">
+                 <ul class="fleft">
+                <a href="set.html" ><li>设置</li></a>
+               <a href="help.html"> <li>帮助</li></a>
+               </ul>
+              </div>
+              
+            </div>
+            
+            </div>
+            <div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth" onclick="show1()"><img  id="saveimg" src="assets/images/jtgray.png" width="25px" height="25px" ></button>
+				</div>
+                
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+	  <div id="sidebar-nav" id="show" class="sidebar">
+            <div><img src="assets/images/banji_left1.png" width="273" height="57"></div>
+			<div class="sidebar-scroll">
+               
+				<nav>
+					<ul class="nav">
+                    <a href="index.html"  ><div id="fanhui"><i class="lnr lnr-chevron-left"></i><span>返回</span></div></a>
+						<li><a href="addstudents.html" class=""><span>添加学生</span></a></li>
+                        <li><a href="screen.html"  class=""> <span>筛选</span> </a></li> 
+						<li><a href="xzgly.html" class=""><span>协作管理员</span></a></li>
+                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+
+                        
+					</ul>
+				</nav>
+			</div>
+             <div><img src="assets/images/banji_left3.png" width="273" height="222"></div>
+</div>
+
+    <script>
+                            function show() {
+                                if ($("#show").css("display") == "none") {
+                                    $("#show").show();
+                                } else {
+                                    $("#show").hide();
+                                }
+
+                            }
+                            function show1() {
+                                if ($("#show").css("display") != "none") {
+                                	$('#saveimg').attr('src','assets/images/jtblue.png');
+                                    $("#show").hide();
+                                }
+                                if($("#sidebar-nav").css("display") != "none"){
+                                    $("#sidebar-nav").hide();
+                                }else{
+                                	$('#saveimg').attr('src','assets/images/jtgray.png');
+                                     $("#sidebar-nav").show();
+                                }
+
+                            }
+                        </script>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+				  <div class="panel"> 
+                    <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+                     <span class="clearfix"></span>
+                     <div>
+                       <div class="fleft"> <div class="leftyd"><img src="assets/images/banjileft1.png"  ></div></div>
+                       <div class="search">
+                  <div class="search_left">
+                    <div class="searchg_left"><span class="left"><img src="assets/images/banji_pic7.png" width="28" height="26"></span></div>
+                    <div class="searchg_mid"><input name="students" id="students" placeholder="请输入学生名称" type="text" class="bjlogingginput" style="color:#fff; outline:none;" onfocus="this.value=''" ></div>
+                    <div class="searchg_right"></div>
+                  </div>
+                  <a href="javascript:;" onclick="find_student();"><div class="search_right">搜索</div></a>
+                </div>
+                       <div class="banji_rightrr" >
+                       
+                         <div class="biaoge">
+                             <ul>
+                              <li style="width: 11%;">全选</li>
+                              <li style="width: 15%;">姓名</li> 
+                              <li style="width: 10%;">性别</li> 
+                              <li style="width: 10%;"> 好人好事<img src="assets/images/jiantoured.png" width="10" height="18"></li>
+                              <li style="width: 16%;">社区服务时间<img src="assets/images/jiantougreen.png" width="10" height="18"></li>
+                              <li style="width: 9%;"> 66天</li>
+                              <li style="width: 9%;">删除</li>
+                              <li style="width: 9%;">状态<img src="assets/images/jiantoured.png" width="10" height="18">  </li>
+                              <li style="width: 10%;">  </li>
+                             </ul>
+                           </div>
+							<div class="biaoge1" id="scroller">
+                             <!-- <ul>
+                              <li><label class="control-inline fancy-checkbox" ><input type="checkbox"><span></span></label></li>
+                             <a href="studentdetails.html"> <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>
+                              <li>男 </li> 
+                              <a href="gooddeeds.html"> <li>100</li></a>
+                              <a href="serviceshime.html"><li> 5 H 12 Min </li></a>
+                             <a href="days.html"> <li> 是</li></a>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>拒绝</li>
+                               <li> <div class="biaogebtn">重新发送</div>  </li>
+                             </ul>
+                             <ul>
+                              <li><label class="control-inline fancy-checkbox" ><input type="checkbox"><span></span></label></li>
+                             <a href="studentdetails.html"> <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>
+                              <li>男 </li> 
+                              <a href="gooddeeds.html"> <li>100</li></a>
+                              <a href="serviceshime.html"><li> 5 H 12 Min </li></a>
+                             <a href="days.html"> <li> 是</li></a>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>审核 </li>
+                               <li> <div class="biaogebtn">重新发送</div>  </li>
+                             </ul>
+                        <ul>
+                              <li><label class="control-inline fancy-checkbox" ><input type="checkbox"><span></span></label></li>
+                             <a href="studentdetails.html"> <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>
+                              <li>男 </li> 
+                              <a href="gooddeeds.html"> <li>100</li></a>
+                              <a href="serviceshime.html"><li> 5 H 12 Min </li></a>
+                             <a href="days.html"> <li> 是</li></a>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>拒绝</li>
+                               <li> <div class="biaogebtn">重新发送</div>  </li>
+                             </ul>
+                             <ul>
+                              <li><label class="control-inline fancy-checkbox" ><input type="checkbox"><span></span></label></li>
+                              <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> 
+                              <li>男 </li> 
+                              <li> 100</li>
+                              <li> 5 H 12 Min  </li>
+                              <li> 是</li>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>拒绝</li>
+                               <li> <div class="biaogebtn">重新发送</div>  </li>
+                             </ul>                             
+                        <ul>
+                              <li><label class="control-inline fancy-checkbox" ><input type="checkbox"><span></span></label></li>
+                              <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> 
+                              <li>男 </li> 
+                              <li> 100</li>
+                              <li> 5 H 12 Min  </li>
+                              <li> 是</li>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>拒绝 </li>
+                               <li> <div class="biaogebtn">重新发送</div>  </li>
+                             </ul>
+                             <ul>
+                              <li><label class="control-inline fancy-checkbox" ><input type="checkbox"><span></span></label></li>
+                              <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> 
+                              <li>男 </li> 
+                              <li> 100</li>
+                              <li> 5 H 12 Min  </li>
+                              <li> 是</li>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>确认 </li>
+                               <li> <div class="biaogebtn">重新发送</div>  </li>
+                             </ul>                             
+                        <ul>
+                              <li><label class="control-inline fancy-checkbox" ><input type="checkbox"><span></span></label></li>
+                              <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> 
+                              <li>男 </li> 
+                              <li> 100</li>
+                              <li> 5 H 12 Min  </li>
+                              <li> 是</li>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>确认 </li>
+                               <li> <div class="biaogebtn">重新发送</div>  </li>
+                             </ul>
+                             <ul>
+                              <li><label class="control-inline fancy-checkbox" ><input type="checkbox"><span></span></label></li>
+                              <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> 
+                              <li>男 </li> 
+                              <li> 100</li>
+                              <li> 5 H 12 Min  </li>
+                              <li> 是</li>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>确认 </li>
+                               <li> <div class="biaogebtn">重新发送</div>  </li>
+                             </ul> 
+                        <ul>
+                              <li><label class="control-inline fancy-checkbox" ><input type="checkbox"><span></span></label></li>
+                              <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> 
+                              <li>男 </li> 
+                              <li> 100</li>
+                              <li> 5 H 12 Min  </li>
+                              <li> 是</li>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>确认 </li>
+                               <li>  </li>                               
+                             </ul>
+                             <ul>
+                              <li><label class="control-inline fancy-checkbox" ><input type="checkbox"><span></span></label></li>
+                              <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> 
+                              <li>男 </li> 
+                              <li> 100</li>
+                              <li> 5 H 12 Min  </li>
+                              <li> 是</li>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>确认 </li>
+                               <li> <div class="biaogebtn">重新发送</div>  </li>
+                             </ul>   
+                    <ul>
+                              <li><label class="control-inline fancy-checkbox" ><input type="checkbox"><span></span></label></li>
+                              <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> 
+                              <li>男 </li> 
+                              <li> 100</li>
+                              <li> 5 H 12 Min  </li>
+                              <li> 是</li>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>确认 </li>
+                               <li>  </li>                               
+                             </ul>
+                             <ul>
+                              <li><label class="control-inline fancy-checkbox" ><input type="checkbox"><span></span></label></li>
+                              <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> 
+                              <li>男 </li> 
+                              <li> 100</li>
+                              <li> 5 H 12 Min  </li>
+                              <li> 是</li>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>确认 </li>
+                               <li> <div class="biaogebtn">重新发送</div>  </li>
+                             </ul> 
+                   <ul>
+                              <li><label class="control-inline fancy-checkbox">
+												<input type="checkbox"><span></span>
+											</label></li>
+                              <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> 
+                              <li>男 </li> 
+                              <li> 100</li>
+                              <li> 5 H 12 Min  </li>
+                              <li> 是</li>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>确认 </li>
+                               <li>  </li>                               
+                             </ul>
+                             <ul>
+                              <li><label class="control-inline fancy-checkbox">
+												<input type="checkbox"><span></span>
+											</label></li>
+                              <li><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> 
+                              <li>男 </li> 
+                              <li> 100</li>
+                              <li> 5 H 12 Min  </li>
+                              <li> 是</li>
+                              <li><img src="assets/images/banji_pic5.png" width="40" height="41"></li>
+                              <li>确认 </li>
+                               <li> <div class="biaogebtn">重新发送</div>  </li>
+                             </ul>   -->                            
+                             
+                             
+                                                                                                               
+                           </div>	
+                       </div>
+                       <div class="fright"><div class="leftyd"><img src="assets/images/banjileft1_1.png"  ></div></div>
+                     </div>
+                     <span class="clearfix"></span>
+                   <div class="leftydb"></div>
+                     <div ><span class="fleft jiaocorlor_2"></span><span class="fright jiaocorlor_3"></span></div>
+                     
+                     
+                  </div>
+                  
+                  
+                  
+                 <div class="panel" id="jianbian">
+                    <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+                    <div class="leftydb1"></div>
+                      <span class="clearfix"></span>
+                    <div id="jianbianwhite"> </div>
+                  </div> 
+                  
+              
+              </div> 
+              </div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright"></p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+  <script type="text/javascript" src="iscroll.js"></script>
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
+	<script src="assets/scripts/klorofil-common.js"></script>
+  <script src="js/tankuang.js"></script>
+    <script src="js/systemdata.js"></script>
+ <script type="text/javascript">
+      
+//     (function() {
+//     $.MsgBox = {
+//         Alert: function(title, msg) {
+//             GenerateHtml("alert", title, msg);
+//             btnOk(); //alert只是弹出消息，因此没必要用到回调函数callback
+//             btnNo();
+//         },
+//         Confirm: function(title, msg, callback) {
+//             GenerateHtml("confirm", title, msg);
+//             btnOk(callback);
+//             btnNo();
+//         }
+//     }
+//     //生成Html
+//     var GenerateHtml = function(type, title, msg) {
+//         var _html = "";
+//         _html += '<div id="mb_box"></div><div id="mb_con"><span id="mb_tit">' + title + '</span>';
+//         _html += '<a id="mb_ico">x</a><div id="mb_msg">' + msg + '</div><div id="mb_btnbox">';
+//         if (type == "alert") {
+//             _html += '<input id="mb_btn_ok" type="button" value="确定" />';
+//         }
+//         if (type == "confirm") {
+//             _html += '<input id="mb_btn_ok" type="button" value="确定" />';
+//             _html += '<input id="mb_btn_no" type="button" value="取消" />';
+//         }
+//         _html += '</div></div>';
+//         //必须先将_html添加到body，再设置Css样式
+//         $("body").append(_html);
+//         //生成Css
+//         GenerateCss();
+//     }
+
+//     //生成Css
+//     var GenerateCss = function() {
+//         $("#mb_box").css({
+//             width: '100%',
+//             height: '100%',
+//             zIndex: '99999',
+//             position: 'fixed',
+//             filter: 'Alpha(opacity=60)',
+//             backgroundColor: 'black',
+//             top: '0',
+//             left: '0',
+//             opacity: '0.6'
+//         });
+//         $("#mb_con").css({
+//             zIndex: '999999',
+//             width: '400px',
+//             position: 'fixed',
+//             backgroundColor: 'White',
+//             borderRadius: '15px'
+//         });
+//         $("#mb_tit").css({
+//             display: 'block',
+//             fontSize: '14px',
+//             color: '#444',
+//             padding: '10px 15px',
+//             backgroundColor: '#DDD',
+//             borderRadius: '15px 15px 0 0',
+//             borderBottom: '3px solid #009BFE',
+//             fontWeight: 'bold'
+//         });
+//         $("#mb_msg").css({
+//             padding: '20px',
+//             lineHeight: '20px',
+//             borderBottom: '1px dashed #DDD',
+//             fontSize: '13px'
+//         });
+//         $("#mb_ico").css({
+//             display: 'block',
+//             position: 'absolute',
+//             right: '10px',
+//             top: '9px',
+//             border: '1px solid Gray',
+//             width: '18px',
+//             height: '18px',
+//             textAlign: 'center',
+//             lineHeight: '16px',
+//             cursor: 'pointer',
+//             borderRadius: '12px',
+//             fontFamily: '微软雅黑'
+//         });
+//         $("#mb_btnbox").css({
+//             margin: '15px 0 10px 0',
+//             textAlign: 'center'
+//         });
+//         $("#mb_btn_ok,#mb_btn_no").css({
+//             width: '85px',
+//             height: '30px',
+//             color: 'white',
+//             border: 'none'
+            
+//         });
+//         $("#mb_btn_ok").css({
+//             backgroundColor: '#168bbb'
+//         });
+//         $("#mb_btn_no").css({
+//             backgroundColor: 'gray',
+//             // marginLeft: '20px'
+//         });
+//         //右上角关闭按钮hover样式
+//         $("#mb_ico").hover(function() {
+//             $(this).css({
+//                 backgroundColor: 'Red',
+//                 color: 'White'
+//             });
+//         }, function() {
+//             $(this).css({
+//                 backgroundColor: '#DDD',
+//                 color: 'black'
+//             });
+//         });
+//         var _widht = document.documentElement.clientWidth; //屏幕宽
+//         var _height = document.documentElement.clientHeight; //屏幕高
+//         var boxWidth = $("#mb_con").width();
+//         var boxHeight = $("#mb_con").height();
+//         //让提示框居中
+//         $("#mb_con").css({
+//             top: (_height - boxHeight) / 2 + "px",
+//             left: (_widht - boxWidth) / 2 + "px"
+//         });
+//     }
+//     //确定按钮事件
+//     var btnOk = function(callback) {
+//         $("#mb_btn_ok").click(function() {
+//             $("#mb_box,#mb_con").remove();
+//             if (typeof(callback) == 'function') {
+//                 callback();
+//             }
+//         });
+//     }
+//     //取消按钮事件
+//     var btnNo = function() {
+//         $("#mb_btn_no,#mb_ico").click(function() {
+//             $("#mb_box,#mb_con").remove();
+//         });
+//     }
+// })();
+ </script>
+<script type="text/javascript">
+var token1 = sessionStorage.getItem('token');
+var test = window.location.href;   
+var classid = getCaption(test);
+sessionStorage.setItem('classid',classid);
+        window.onscroll=function(){
+        var marginBot = 0;
+        if (document.documentElement.scrollTop){
+            var X=document.documentElement.scrollHeight;
+            var Y=document.documentElement.scrollTop+document.body.scrollTop;
+            var Z=document.documentElement.clientHeight;
+            marginBot=X-Y-Z;
+        } else {
+            var J=document.body.scrollHeight;
+            var I=document.body.scrollTop;
+            var K=document.body.clientHeight;
+            marginBot=J-I-K;
+        }
+        if(marginBot<=0) {
+          pullOnLoad();
+            // alert("到底了");
+        }
+        // console.log(a)      
+         // pullOnLoad();
+    } 
+
+    //上拉加载函数,ajax
+    var num = 0;
+    var page = 4; //每次加载4条
+    function pullOnLoad() {
+        setTimeout(function () {
+            $.ajax({
+                url: apihost+"/teacher/stu/goodThings",
+                headers: {
+                    "token":token1//此处放置请求到的用户token
+                },
+                type: requesttype,
+                data:{classId:classid},
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result)
+                    var data =result.data;
+                    var data_length = data.length;//数据的总长度
+                    var remainder = data_length % page;//余数
+                    if ( data_length >= (num+page)){
+                        for (var j = num; j < num + page; j++){
+                            var date = data[j].serviceTime;//服务时间
+                            var name = data[j].userName;//用户名
+                            // var bumen = data[j].departmentName;//部门名称
+                            var sex1 = data[j].gender;//性别
+                            var status1 = data[j].smsStatus;//短信状态
+                            var nums = data[j].goodThing;//好人好事数量
+                            var type1 = data[j].sixSixDays;//66天
+                            var email = data[j].email;//邮箱
+                            var image = data[j].headerImg;//头像地址
+                            // var state = data[j].innerHelp;//内部互助
+                            var mobile = data[j].mobile;//手机
+                            var type = type1 == 1 ? "是" : "否";
+                            var sex = sex1 == 1 ? "男" : "女";
+                            var status = status1 == 1 ? "拒绝" : "确认";
+                            $("#scroller").append('<ul><input type="hidden" id="id" name="id" value="'+mobile+'" /><li style="width: 11%;"><input name="" type="radio2" value="" id="quanxian"></li><a href="studentdetails.html"><li style="width: 15%;"><div class="biaoge_pic"><img src="'+image+'" ></div>'+name+'</li></a><li style="width: 10%;">'+sex+'</li><a href="gooddeeds.html"><li style="width: 10%;">'+nums+'</li></a><a href="gooddeeds1.html"><li style="width: 16%;">'+date+'</li></a><a href="days.html"><li style="width: 9%;">'+type+'</li></a><li style="width: 9%;"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li><li style="width: 9%;">'+status+' </li><li style="width: 10%;"><div class="biaogebtn" onclick="send_new();">重新发送</div></li></ul>');
+                        }
+                        num+=page;
+                    }else if (remainder != 0 && data_length-num == remainder){
+                        for (var j = num; j < num + remainder; j++){
+                            var date = data[j].serviceTime;//服务时间
+                            var name = data[j].userName;//用户名
+                            // var bumen = data[j].departmentName;//部门名称
+                            var sex1 = data[j].gender;//性别
+                            var status1 = data[j].smsStatus;//短信状态
+                            var nums = data[j].goodThing;//好人好事数量
+                            var type1 = data[j].sixSixDays;//66天
+                            var email = data[j].email;//邮箱
+                            var image = data[j].headerImg;//头像地址
+                            // var state = data[j].innerHelp;//内部互助
+                            var mobile = data[j].mobile;//手机
+                            var type = type1 == 1 ? "是" : "否";
+                            var sex = sex1 == 1 ? "男" : "女";
+                            var status = status1 == 1 ? "拒绝" : "确认";
+                            $("#scroller").append('<ul><input type="hidden" id="id" name="id" value="'+mobile+'" /><li style="width: 11%;"><input name="" type="radio2" value="" id="quanxian"></li><a href="studentdetails.html"><li style="width: 15%;"><div class="biaoge_pic"><img src="'+image+'" ></div>'+name+'</li></a><li style="width: 10%;">'+sex+'</li><a href="gooddeeds.html"><li style="width: 10%;">'+nums+'</li></a><a href="gooddeeds1.html"><li style="width: 16%;">'+date+'</li></a><a href="days.html"><li style="width: 9%;">'+type+'</li></a><li style="width: 9%;"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li><li style="width: 9%;">'+status+' </li><li style="width: 10%;"><div class="biaogebtn" onclick="send_new();">重新发送</div></li></ul>');
+                        }
+                        num+=page;
+                    }else{
+                        $('.pull-loading').html("没有了哟");
+                    }
+                    myscroll.refresh();
+                },
+                error: function () {
+                    console.log("出错了");
+                }
+            });
+            // myscroll.refresh();
+        }, 500);
+    }
+
+    function find_student(){
+        var students = $('#students').val();
+        $.ajax({
+              url: apihost+"/teacher/stu/goodThingByName",
+              headers: {
+                    "token":token1//此处放置请求到的用户token
+                },
+              type: requesttype,
+              data:{userName:students,classId:classid},
+              dataType: 'json',
+              success: function (result) {
+                console.log(data)
+                var data =result.data[0];
+
+                  var date = data.serviceTime;//服务时间
+                  var name = data.userName;//用户名
+                  // var bumen = data[j].departmentName;//部门名称
+                  var sex1 = data.gender;//性别
+                  var status1 = data.smsStatus;//短信状态
+                  var nums = data.goodThing;//好人好事数量
+                  var type1 = data.sixSixDays;//66天
+                  var email = data.email;//邮箱
+                  var image = data.headerImg;//头像地址
+                  // var state = data[j].innerHelp;//内部互助
+                  var mobile = data.mobile;//手机
+                  var type = type1 == 1 ? "是" : "否";
+                  var sex = sex1 == 1 ? "男" : "女";
+                  var status = status1 == 1 ? "拒绝" : "确认";
+
+                studentslist ='<ul><input type="hidden" id="id" name="id" value="'+mobile+'" /><li style="width: 11%;"><input name="" type="radio2" value="" id="quanxian"></li><a href="studentdetails.html"><li style="width: 15%;"><div class="biaoge_pic"><img src="'+image+'" ></div>'+name+'</li></a><li style="width: 10%;">'+sex+'</li><a href="gooddeeds.html"><li style="width: 10%;">'+nums+'</li></a><a href="gooddeeds1.html"><li style="width: 16%;">'+date+'</li></a><a href="days.html"><li style="width: 9%;">'+type+'</li></a><li style="width: 9%;"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li><li style="width: 9%;">'+status+' </li><li style="width: 10%;"><div class="biaogebtn" onclick="send_new();">重新发送</div></a></li></ul>';
+                document.getElementById("scroller").innerHTML = studentslist;
+                
+              },
+              error: function () {
+                  console.log("出错了");
+              }
+          }); 
+      }
+
+  function del_students(){
+        var sid = $('#id').val();
+        $.MsgBox.Confirm("温馨提示", "执行删除后将无法恢复，确定继续吗？温馨提示", function () {
+              $.ajax({
+                url: apihost+"/teacher/stu/delstu",
+                headers: {
+                    "token":token1//此处放置请求到的用户token
+                },
+                type: requesttype,
+                data:{classid:classid,mobile:sid},
+                dataType: 'json',
+                success: function (result) {
+                  console.log(result)
+                  if(result.code == 1){
+                      // alert(result.msg);
+                  }else{
+                      alert(result.msg);
+                      location.href="/teacher/banji.html";
+                       // location.href="http://www.webss1.com/teacher/banji.html";
+                  }               
+                },
+                error: function () {
+                    console.log("出错了");
+                }
+            }); 
+
+        });
+        
+  }
+
+  function send_new(){
+    var id = $('#id').val();
+        $.ajax({
+              url: "http://140.143.243.113:8190/teacher/stu/repost",
+              type: "get",
+              data: {sid:id},
+              dataType: 'json',
+              success: function (data) {
+                console.log(data)
+                if(data.code == 1){
+                    // alert(data.msg);
+                    $.MsgBox.Alert("消息", "邀请已经重新发送");
+                }else{
+                    alert(data.msg);
+                    location.href="/teacher/banji.html";
+                    // location.href="http://www.webss1.com/teacher/banji.html";
+                }               
+              },
+              error: function () {
+                  console.log("出错了");
+              }
+          });
+  }
+
+      function getCaption(obj){
+            var index=obj.lastIndexOf("\=");
+            obj=obj.substring(index+1,obj.length);
+        //  console.log(obj);
+            return obj;
+        }
+</script>
+	<script>
+	// $(function() {
+	// 	var data, options;
+
+	// 	// headline charts
+	// 	data = {
+	// 		labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+	// 		series: [
+	// 			[23, 29, 24, 40, 25, 24, 35],
+	// 			[14, 25, 18, 34, 29, 38, 44],
+	// 		]
+	// 	};
+
+	// 	options = {
+	// 		height: 300,
+	// 		showArea: true,
+	// 		showLine: false,
+	// 		showPoint: false,
+	// 		fullWidth: true,
+	// 		axisX: {
+	// 			showGrid: false
+	// 		},
+	// 		lineSmooth: false,
+	// 	};
+
+	// 	new Chartist.Line('#headline-chart', data, options);
+
+
+	// 	// visits trend charts
+	// 	data = {
+	// 		labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+	// 		series: [{
+	// 			name: 'series-real',
+	// 			data: [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
+	// 		}, {
+	// 			name: 'series-projection',
+	// 			data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
+	// 		}]
+	// 	};
+
+	// 	options = {
+	// 		fullWidth: true,
+	// 		lineSmooth: false,
+	// 		height: "270px",
+	// 		low: 0,
+	// 		high: 'auto',
+	// 		series: {
+	// 			'series-projection': {
+	// 				showArea: true,
+	// 				showPoint: false,
+	// 				showLine: false
+	// 			},
+	// 		},
+	// 		axisX: {
+	// 			showGrid: false,
+
+	// 		},
+	// 		axisY: {
+	// 			showGrid: false,
+	// 			onlyInteger: true,
+	// 			offset: 0,
+	// 		},
+	// 		chartPadding: {
+	// 			left: 20,
+	// 			right: 20
+	// 		}
+	// 	};
+
+	// 	new Chartist.Line('#visits-trends-chart', data, options);
+
+
+	// 	// visits chart
+	// 	data = {
+	// 		labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+	// 		series: [
+	// 			[6384, 6342, 5437, 2764, 3958, 5068, 7654]
+	// 		]
+	// 	};
+
+	// 	options = {
+	// 		height: 300,
+	// 		axisX: {
+	// 			showGrid: false
+	// 		},
+	// 	};
+
+	// 	new Chartist.Bar('#visits-chart', data, options);
+
+
+	// 	// real-time pie chart
+	// 	var sysLoad = $('#system-load').easyPieChart({
+	// 		size: 130,
+	// 		barColor: function(percent) {
+	// 			return "rgb(" + Math.round(200 * percent / 100) + ", " + Math.round(200 * (1.1 - percent / 100)) + ", 0)";
+	// 		},
+	// 		trackColor: 'rgba(245, 245, 245, 0.8)',
+	// 		scaleColor: false,
+	// 		lineWidth: 5,
+	// 		lineCap: "square",
+	// 		animate: 800
+	// 	});
+
+	// 	var updateInterval = 3000; // in milliseconds
+
+	// 	setInterval(function() {
+	// 		var randomVal;
+	// 		randomVal = getRandomInt(0, 100);
+
+	// 		sysLoad.data('easyPieChart').update(randomVal);
+	// 		sysLoad.find('.percent').text(randomVal);
+	// 	}, updateInterval);
+
+	// 	function getRandomInt(min, max) {
+	// 		return Math.floor(Math.random() * (max - min + 1)) + min;
+	// 	}
+
+	// });
+	</script>
+</body>
+
+</html>

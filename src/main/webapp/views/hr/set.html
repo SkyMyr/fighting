@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>国外社交平台</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+	<link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css">
+
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/demo.css">
+	<link rel="stylesheet" href="assets/css/my.css">
+	<link rel="stylesheet" href="assets/css/chioes.css">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/.png">
+    <style>
+        .setAddmsg{
+            height: 35px;
+            width: 400px;
+            margin: 0 auto;
+            color: red;
+            font-size: 18px;
+        }
+        button{
+            border: 0;
+        }
+    </style>
+</head>
+
+<body class="bg">
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar banjitop_pic">
+        			 <div class="yuyan">
+                     <ul>
+                     <a href="index.html" ><li class="aa">English</li></a>  
+                      <a href="index.html" > <li>中文</li></a>
+                      </ul>
+                     </div>
+			         <h2 align="center" class="colorblue font40 banjiziw">见济人力资源后台</h2>
+            
+        
+            <div class="banjiw">
+              <div class="banji_btn">
+              <div class="banji_btn1 padright fleft">
+                 <ul class="fright">
+                <a href="index.html" ><li>员工管理</li></a>
+               <a href="mission.html"> <li>使命图</li></a>
+               </ul>
+              </div>
+              <div class="banji_btn1 padleft fright">
+                 <ul class="fleft">
+                <a href="set.html" ><li>设置</li></a>
+               <a href="help.html"> <li>帮助</li></a>
+               </ul>
+              </div>
+              
+            </div>
+            
+            </div>
+            <div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth" onclick="show1()"><img  id="saveimg" src="assets/images/jtgray.png" width="25px" height="25px" ></button>
+				</div>
+                
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+	  <div id="sidebar-nav" id="show" class="sidebar">
+            <div><img src="assets/images/banji_left1.png" width="273" height="57"></div>
+			<div class="sidebar-scroll">
+               
+				<nav>
+					<ul class="nav">
+						<li><a href="set.html" class="active"><span>我</span></a></li>						
+						<li><a href="set_word.html" class=""><span>更改密码</span></a></li>
+						<li><a href="set_reg.html" class=""><span>更改注册账号</span></a></li>						
+						<li><a href="set_feedback.html" class=""><span>吐槽</span></a></li>
+						<li><a href="set_destroy.html" class=""><span>销毁账号</span></a></li>						
+						<li><a href="set_out.html" class=""><span>退出</span></a></li>
+            <li style="background: none;"><a href="#" style="background: none;"></a></li>
+                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+ 
+					</ul>
+				</nav>
+			</div>
+             <div><img src="assets/images/banji_left3.png" width="273" height="222"></div>
+</div>
+<script>
+                            function show() {
+                                if ($("#show").css("display") == "none") {
+                                    $("#show").show();
+                                } else {
+                                    $("#show").hide();
+                                }
+
+                            }
+                            function show1() {
+                                if ($("#show").css("display") != "none") {
+                                	$('#saveimg').attr('src','assets/images/jtblue.png');
+                                    $("#show").hide();
+                                }
+                                if($("#sidebar-nav").css("display") != "none"){
+                                    $("#sidebar-nav").hide();
+                                }else{
+                                	$('#saveimg').attr('src','assets/images/jtgray.png');
+                                     $("#sidebar-nav").show();
+                                }
+
+                            }
+                        </script>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+				  <div class="panel"> 
+                    <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+                     <span class="clearfix"></span>
+                     <div>
+                       <div class="fleft"> <div class="leftyd"><img src="assets/images/banjileft1.png"  ></div></div>
+                       
+                       <div class="banji_rightrr pad20" >
+                          <div class="set_w" id="marginb">
+                            <div class="search_left_n">
+                   <div class="fleft search_nearzi">公司名称</div> 
+                   <div class=" fleft"> 
+                    <div class="searchg_left"></div>
+                    <div class="searchg_mid_n" id="setm_w">
+                    <div class="fleft">
+                    <!-- <input name="" type="text"  id="set_w" style="color:#FFF; outline:none; " value="公司名称" onfocus="this.value=''" onblur="this.value='公司名称'"> -->
+                    <input name="username" id="set_w" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="公司名称">
+                    </div>    
+                                       
+                    </div>
+                    <div class="searchg_right"></div>
+                    </div>                    
+                  </div>                          
+                </div>
+                  
+  <!--                         <div class="set_w" id="marginb">
+                            <div class="search_left_n">
+                   <div class="fleft search_nearzi">学院名称</div> 
+                   <div class=" fleft"> 
+                    <div class="searchg_left"></div>
+                    <div class="searchg_mid_n" id="setm_w">
+                    <div class="fleft">
+                    <input name="" type="text"  id="set_w" style="color:#FFF; outline:none; " value="华南师范大学" onfocus="this.value=''" onblur="this.value='华南师范大学'">
+                    </div>    
+                                       
+                    </div>
+                    <div class="searchg_right"></div>
+                    </div>                    
+                  </div>                          
+                </div> -->                             
+                      
+                          <div class="set_w" id="marginb">
+                            <div class="search_left_n">
+                   <div class="fleft search_nearzi">网站</div> 
+                   <div class=" fleft"> 
+                    <div class="searchg_left"></div>
+                    <div class="searchg_mid_n" id="setm_w">
+                    <div class="fleft">
+                    <!-- <input name="" type="text"  id="set_w" style="color:#FFF; outline:none; " value="华南师范大学" onfocus="this.value=''" onblur="this.value='华南师范大学'"> -->
+                    <input name="weburl" id="set_w" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="www.baidu.com">
+                    </div>    
+                                       
+                    </div>
+                    <div class="searchg_right"></div>
+                    </div>                    
+                  </div>                          
+                </div>                      
+                      
+<div class="set_w" id="marginb">
+                            <div class="search_left_n">
+                   <div class="fleft search_nearzi">HR 经理姓名</div> 
+                   <div class=" fleft"> 
+                    <div class="searchg_left"></div>
+                    <div class="searchg_mid_n" id="setm_w">
+                    <div class="fleft">
+                    <!-- <input name="" type="text"  id="set_w" style="color:#FFF; outline:none; " value="蓝小姐" onfocus="this.value=''" onblur="this.value='蓝小姐'"> -->
+                    <input name="nickname" id="set_w" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="蓝小姐">
+                    </div>    
+                                       
+                    </div>
+                    <div class="searchg_right"></div>
+                    </div>                    
+                  </div>                          
+                </div>                                                                                                               
+<!--  <div class="set_w" id="marginb">
+ <div class="fleft search_nearzi">性别</div> 
+   <div class="xingbie"> 
+   
+ <div class="nannv">
+       <span class="left"> <input id="item1" type="radio" name="item" value="选项一" checked="" style="margin-left:0px;">
+        <label for="item1" style="margin-left:-10px;"></label></span>
+        <span>男</span>
+    </div>
+    <div class="nannv">
+         <span class="left"><input id="item2" type="radio" name="item" value="选项二">
+        <label for="item2" style="margin-left:100px; "></label> </span>
+        <span>女</span> 
+    </div>
+</div>                         
+                </div>  --> 
+                <div class="set_w" id="marginb">
+                            <div class="search_left_n">
+                   <div class="fleft search_nearzi">省</div> 
+                   <div class=" fleft"> 
+                    <div class="searchg_left"></div>
+                    <div class="searchg_mid_n" id="setm_w">
+                    <div class="fleft">
+                    <!-- <input name="" type="text"  id="set_w" style="color:#FFF; outline:none; " value="广东" onfocus="this.value=''" onblur="this.value='广东'"> -->
+                    <input name="province" id="set_w" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="广东">
+                    </div>    
+                                       
+                    </div>
+                    <div class="searchg_right"></div>
+                    </div>                    
+                  </div>                          
+                </div>
+                 <div class="set_w" id="marginb">
+                            <div class="search_left_n">
+                   <div class="fleft search_nearzi">城市</div> 
+                   <div class=" fleft"> 
+                    <div class="searchg_left"></div>
+                    <div class="searchg_mid_n" id="setm_w">
+                    <div class="fleft">
+                    <!-- <input name="" type="text"  id="set_w" style="color:#FFF; outline:none; " value="广东" onfocus="this.value=''" onblur="this.value='广东'"> -->
+                    <input name="city" id="set_w" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="广州">
+                    </div>    
+                                       
+                    </div>
+                    <div class="searchg_right"></div>
+                    </div>                    
+                  </div>                          
+                </div>
+
+                <div class="set_w" id="marginb">
+                    <div class="search_left_n">
+                   <div class="fleft search_nearzi" style="float: left">地址</div>
+                   <div class=" fleft" style="float: left">
+                    <div class="searchg_left"></div>
+                    <div class="searchg_mid_n" id="setm_w">
+                    <div class="fleft">
+                   <!--  <input name="" type="text"  id="set_w" style="color:#FFF; outline:none; " value="广州天河区" onfocus="this.value=''" onblur="this.value='广州天河区'"> -->
+                   <input name="address" id="set_w" type="text" class="logingginput" style="float:left;color:#fff; outline:none;" placeholder="天河区棠东">
+                    </div>    
+
+                    </div>
+                       <div class="searchg_right"></div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="set_w" id="marginb">
+                            <div class="search_left_n">
+                   <div class="fleft search_nearzi">电话</div> 
+                   <div class=" fleft marginr"> 
+                    <div class="searchg_left"></div>
+                    <div class="searchg_mid_n" id="setm_w1">
+                    <div class="fleft">
+
+                        <select name="nation" id="nation" class="selet">
+                          <!--  <option value="10000">国家</option>
+                            <option value="1">中国</option>
+                            <option value="2">美国</option>
+                            <option value="3">日本</option>
+                            <option value="4">韩国</option>-->
+                        </select>
+
+                    </div>    
+                                       
+                    </div>
+                    <div class="searchg_right"></div>
+                    </div> 
+                    <div class=" fleft"> 
+                    <div class="searchg_left"></div>
+                    <div class="searchg_mid_n" id="setm_w2">
+                    <div class="fleft">
+                    <!-- <input name="" type="text"  id="set_w1" style="color:#FFF; outline:none; " value="手机号码" onfocus="this.value=''" onblur="this.value='手机号码'"> -->
+                    <input name="phone" id="set_w" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="手机号码">
+                    </div>    
+                                       
+                    </div>
+                    <div class="searchg_right"></div>
+                    </div>                   
+                  </div>                          
+                </div>                   
+              
+                <div class="set_w" id="marginb">
+                   <div class="search_left_n">
+                   <div class="fleft search_nearzi">验证码</div> 
+                   <div class=" fleft  marginr"> 
+                    <div class="searchg_left"></div>
+                    <div class="searchg_mid_n" id="setm_w4">
+                    <div class="fleft">
+                    <!-- <input name="" type="text"  id="set_w2" style="color:#FFF; outline:none; " value="******" onfocus="this.value=''" onblur="this.value='******'"> -->
+                     <input name="code1" id="set_w2" type="text" class="logingginput" style="color:#fff; outline:none;" placeholder="验证码">
+                    </div>    
+                                       
+                    </div>
+                    <div class="searchg_right"></div>
+                    </div>
+                   <button id="send" class=" fleft hqyzm_btn">
+                       获取验证码
+                    </button>
+                                       
+                  </div>                          
+                </div>              
+              
+ <div class="set_w_w" id="marginb"> <a href="javascript:;" id="updates"><div class="baocun_btn fleft">保存</div></a>  <a href="#"><div class="baocun_btn fright">取消</div></a></div>
+                     	
+                       </div>
+                       <div class="fright"><div class="leftyd"><img src="assets/images/banjileft1_1.png" ></div></div>
+                     </div>
+                     <span class="clearfix"></span>
+                   <div class="leftydb"></div>
+                     <div ><span class="fleft jiaocorlor_2"></span><span class="fright jiaocorlor_3"></span></div>
+                     
+                     
+                  </div>
+                  
+                  
+                  
+                 <div class="panel" id="jianbian">
+                    <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+                    <div class="leftydb1"></div>
+                      <span class="clearfix"></span>
+                    <div id="jianbianwhite"> </div>
+                  </div> 
+                  
+              
+              </div> 
+              </div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright"></p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
+	<script src="assets/scripts/klorofil-common.js"></script>
+    <script src="js/common.js"></script>
+
+
+    <script type="text/javascript">
+
+        //获取国家列表
+        $(function () {
+            $.ajax({
+                url: nation + "users/regist/nations",
+                type: "get",
+                dataType: 'json',
+                success: function (data) {
+                    //console.log(data)
+                    if(data.code == 000000) {
+                        var option="";
+                        $.each(data.data, function(index,values){ // 解析出data对应的Object数组
+                            //alert(values.code);
+                            option += "<option value=" + values.code + ">" +  values.name + "</option>";
+                        });
+                        $('#nation').append(option);
+                    }
+                    else{
+                        alert(data.msg);
+                    }
+                },
+                error: function () {
+                    console.log("出错了");
+                }
+            });
+        })
+
+
+        //发送验证码
+        $("#send").click(function () {
+            $("#phoneMsg").remove();
+            var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+            var phones=$('input[name="phone"]').val();
+            var txt=$('#nation').val() + phones ;
+            //把手机号加前缀发送到后台
+            if( myreg.test(phones)){
+                alert(txt);
+                /*$.ajax({
+                    url: nation + "users/regist/nations",
+                    type: "get",
+                    dataType: 'json',
+                    data:{
+                        txt:txt,
+                        type:1
+                    },
+                    success: function (data) {
+                        if(data.code == 1) {
+                            alert("发送成功！")
+                        }
+                        else{
+                            alert(data.msg);
+                        }
+                    },
+                    error: function () {
+                        console.log("出错了");
+                    }
+                });*/
+            }else{
+                var phoneError = "请输入格式正确的电话号码且不能为空！";
+                $('input[name="phone"]').parents(".set_w").after("<div id='phoneMsg' class='setAddmsg'>" + phoneError + "</div>");
+            }
+        })
+
+
+        //表单提交
+        $("#updates").click(function(){
+
+            $("#usernameMsg").remove();
+            $("#weburlMsg").remove();
+            $("#nicknameMsg").remove();
+            $("#provinceMsg").remove();
+            $("#cityMsg").remove();
+            $("#addressMsg").remove();
+            $("#nationMsg").remove();
+            $("#phoneMsg").remove();
+            $("#code1Msg").remove();
+
+
+            var username = $('input[name="username"]');
+            var weburl = $('input[name="weburl"]');
+            var nickname = $('input[name="nickname"]');
+            var province =$('input[name="province"]');
+            var city = $('input[name="city"]');
+            var address = $('input[name="address"]');
+            var nation = $("#nation");
+            var phone = $('input[name="phone"]');
+            var code = $('input[name="code1"]');//验证码
+
+            var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+            var ch=/[\u4E00-\u9FA5]/g;
+
+
+            //验证公司名称
+            if( username.val() ==""){
+                var usernameError = "公司名称不能为空！";
+                username.parents(".set_w").after("<div id='usernameMsg' class='setAddmsg'>" + usernameError + "</div>");
+            }//验证网址
+            else if( weburl.val() =="") {
+                var weburlError = "网址不能为空！";
+                weburl.parents(".set_w").after("<div id='weburlMsg' class='setAddmsg'>" + weburlError + "</div>");
+            }//验证HR 经理姓名
+            else if( nickname.val() =="") {
+                var nicknameError = "HR 经理姓名不能为空！";
+                nickname.parents(".set_w").after("<div id='nicknameMsg' class='setAddmsg'>" + nicknameError + "</div>");
+            }//验证省份
+            else if( province.val() =="") {
+                var provinceError = "省份不能为空！";
+                province.parents(".set_w").after("<div id='provinceMsg' class='setAddmsg'>" + provinceError + "</div>");
+            }//验证城市
+            else if( city.val() =="") {
+                var cityError = "城市不能为空！";
+                city.parents(".set_w").after("<div id='cityMsg' class='setAddmsg'>" + cityError + "</div>");
+            }//验证地址
+            else if( address.val() =="") {
+                var addressError = "地址不能为空！";
+                address.parents(".set_w").after("<div id='addressMsg' class='setAddmsg'>" + addressError + "</div>");
+            }//验证国家
+            else if( nation.val() =="") {
+                var nationError = "国家不能为空！";
+                nation.parents(".set_w").after("<div id='nationMsg' class='setAddmsg'>" + nationError + "</div>");
+            }//验证电话
+            else if( phone.val() =="" || !myreg.test($('input[name="phone"]').val())) {
+                var phoneError = "请输入格式正确的电话号码且不能为空！";
+                phone.parents(".set_w").after("<div id='phoneMsg' class='setAddmsg'>" + phoneError + "</div>");
+            }//验证验证码
+            else if( code.val() =="") {
+                var code1Error = "验证码不能为空！";
+                code.parents(".set_w").after("<div id='code1Msg' class='setAddmsg'>" + code1Error + "</div>");
+            }
+            else{
+                $.ajax({
+                    url: host + "ssm/company/updateData"    ,
+                    type: "post",
+                    data:{
+                        company:username.val(),
+                        url:weburl.val(),
+                        loginName:nickname.val(),
+                        provinceName:province.val(),
+                        cityName:city.val(),
+                        address:address.val(),
+                        type:2,
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data)
+                        if(data.code == 1){
+                            alert(data.msg);
+                        }else{
+                            alert(data.msg);
+
+                        }
+                         location.href="/ssm/views/hr/index.html";
+                    },
+                    error: function () {
+                        console.log("出错了");
+                    }
+                });
+            }
+
+
+        });
+
+
+
+  </script>
+</body>
+
+</html>

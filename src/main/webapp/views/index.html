@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+<title>国外社交平台</title>
+<script src="js/top.js"></script>
+<link  rel="stylesheet" href="css/css.css">
+<link  rel="stylesheet" href="css/fudong.css">
+</head>
+<body>
+ <script type="text/javascript">
+        var system ={};  
+        var p = navigator.platform;      
+        system.win = p.indexOf("Win") == 0;          
+        system.mac = p.indexOf("Mac") == 0;  
+        system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+        if(system.win||system.mac||system.xll){//如果是电脑跳转到
+                // console.log(system) 
+                // window.location.href="index.html";
+              // location.href="http://www.webss1.com/index1.html";
+              location.href="/index1.html";
+                
+        }else{  //如果是手机,跳转到
+              // location.href="http://www.webss1.com/phone/index.html"; 
+              location.href="/phone/index.html";  
+               // window.location.href="index1.html";  
+        }
+</script>
+
+</body>
+</html>

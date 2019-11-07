@@ -36,7 +36,7 @@
         <!-- 扫描entity包 使用别名 -->
         <property name="typeAliasesPackage" value="com.qcby.entity"/>
         <!-- 扫描sql配置文件:mapper需要的xml文件 -->
-        <property name="mapperLocations" value="classpath:com/qcby/mapping/*.xml"/>
+        <property name="mapperLocations" value="classpath:mapping/mapping/*.xml"/>
         <!--开启redis缓存 -->
         <property name="configurationProperties">
             <props>

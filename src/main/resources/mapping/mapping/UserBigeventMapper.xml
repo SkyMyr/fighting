@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcby.dao.UserBigeventMapper">
+  <resultMap id="BaseResultMap" type="com.qcby.entity.UserBigevent">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="bigevent_id" jdbcType="BIGINT" property="bigevent_id" />
+    <result column="user_id" jdbcType="INTEGER" property="user_id" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="create_at" jdbcType="BIGINT" property="create_at" />
+    <result column="parent_mobile" jdbcType="VARCHAR" property="parent_mobile" />
+    <result column="user_name" jdbcType="VARCHAR" property="user_name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="parent_name" jdbcType="VARCHAR" property="parent_name" />
+    <result column="parent_email" jdbcType="VARCHAR" property="parent_email" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, bigevent_id, user_id, mobile, status, create_at, parent_mobile, user_name, email, 
+    parent_name, parent_email
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from "t_user_bigevent"
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from "t_user_bigevent"
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qcby.entity.UserBigevent">
+    insert into "t_user_bigevent" (id, bigevent_id, user_id, 
+      mobile, status, create_at, 
+      parent_mobile, user_name, email, 
+      parent_name, parent_email)
+    values (#{id,jdbcType=BIGINT}, #{bigevent_id,jdbcType=BIGINT}, #{user_id,jdbcType=INTEGER}, 
+      #{mobile,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{create_at,jdbcType=BIGINT}, 
+      #{parent_mobile,jdbcType=VARCHAR}, #{user_name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{parent_name,jdbcType=VARCHAR}, #{parent_email,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qcby.entity.UserBigevent">
+    insert into "t_user_bigevent"
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bigevent_id != null">
+        bigevent_id,
+      </if>
+      <if test="user_id != null">
+        user_id,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="create_at != null">
+        create_at,
+      </if>
+      <if test="parent_mobile != null">
+        parent_mobile,
+      </if>
+      <if test="user_name != null">
+        user_name,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="parent_name != null">
+        parent_name,
+      </if>
+      <if test="parent_email != null">
+        parent_email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="bigevent_id != null">
+        #{bigevent_id,jdbcType=BIGINT},
+      </if>
+      <if test="user_id != null">
+        #{user_id,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="create_at != null">
+        #{create_at,jdbcType=BIGINT},
+      </if>
+      <if test="parent_mobile != null">
+        #{parent_mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="user_name != null">
+        #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="parent_name != null">
+        #{parent_name,jdbcType=VARCHAR},
+      </if>
+      <if test="parent_email != null">
+        #{parent_email,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.UserBigevent">
+    update "t_user_bigevent"
+    <set>
+      <if test="bigevent_id != null">
+        bigevent_id = #{bigevent_id,jdbcType=BIGINT},
+      </if>
+      <if test="user_id != null">
+        user_id = #{user_id,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="create_at != null">
+        create_at = #{create_at,jdbcType=BIGINT},
+      </if>
+      <if test="parent_mobile != null">
+        parent_mobile = #{parent_mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="user_name != null">
+        user_name = #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="parent_name != null">
+        parent_name = #{parent_name,jdbcType=VARCHAR},
+      </if>
+      <if test="parent_email != null">
+        parent_email = #{parent_email,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qcby.entity.UserBigevent">
+    update "t_user_bigevent"
+    set bigevent_id = #{bigevent_id,jdbcType=BIGINT},
+      user_id = #{user_id,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      create_at = #{create_at,jdbcType=BIGINT},
+      parent_mobile = #{parent_mobile,jdbcType=VARCHAR},
+      user_name = #{user_name,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      parent_name = #{parent_name,jdbcType=VARCHAR},
+      parent_email = #{parent_email,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

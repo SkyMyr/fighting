@@ -1,0 +1,14 @@
+.floating_ck{position:fixed;left:20px;top:30%; border:1px solid #27ade4; background:#27ade4; border-radius:8px;}
+.floating_ck dl dd{position:relative;width:50px;height:60px;text-align:center;background-repeat:no-repeat;background-position:center;cursor:pointer;}
+.consult{background-image:url(../images/icon0701/facebook.png);}
+.words{background-image:url(../images/icon0701/twitter.png);}
+.qrcord{background-image:url(../images/icon0701/social-youtube-outline.png);}
+.return{background-image:url(../images/icon0701/top.png);}
+.floating_ck dd span{color:#fff;display:block;padding-top:54px;font-family:微软雅黑; font-size:14px}
+.floating_left{position:absolute;left:-160px;top:0px;width:160px;height:80px;background-color:#e40231;border-bottom:solid 1px #a40324;display:none;}
+.floating_left a{color:#fff;line-height:80px;}
+.floating_ewm{height:260px;top:-180px;}
+.floating_ewm i{background-image:url(images/erweima.png);display:block;width:145px;height:145px;margin:auto;margin-top:7px;}
+.floating_ewm p{color:#fff;margin-top:5px;}
+.floating_ewm .qrcord_p01{font-size:12px;line-height:20px;}
+.floating_ewm .qrcord_p02{font-size:18px;}

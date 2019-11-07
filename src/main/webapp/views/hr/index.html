@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+        html {font-size: 14px; }
+        header {
+            height: 40px;
+            width: 100%;
+            min-width: 320px;
+            background: #000;
+            text-align: center;
+            color: #fff;
+            font-size: 1.2rem;
+            line-height: 40px;
+        }
+        footer {
+            height: 52px;
+            width: 100%;
+            min-width: 320px;
+            background: #000;
+            text-align: center;
+            color: #fff;
+            font-size: 1.2rem;
+            line-height: 52px;
+            position: absolute;
+            bottom: 0;
+        }
+        #wrapper {
+            /*width: 100%;*/
+            min-width: 320px;
+            position: auto;
+            left: 0;
+            top: 180px;
+            bottom: 52px;
+            overflow: hidden;
+            z-index: 1;
+       /*     background-color: #eee;*/
+ 
+            /* 防止本机Windows上的触摸事件 */
+            -ms-touch-action: none;
+ 
+            /* 防止callout tap-hold和文本的选择 */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+ 
+            /* 防止文本调整取向变化对web应用程序很有用 */
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+        .pull-loading {
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #scroller ul li {
+           /* padding: 20px 10px;*/
+            border-bottom: solid 1px #ccc;
+           /* background: #fff;*/
+        }
+    </style>
+    <script src="jquery-2.2.4.min.js"></script>
+    <head>
+        <title>国外社交平台</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+        <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+        <link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css">
+
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/demo.css">
+        <link rel="stylesheet" href="assets/css/my.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+        <!-- ICONS -->
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="assets/img/.png">
+    </head>
+
+    <body class="bg">
+        <!-- WRAPPER -->
+        <div id="wrapper">
+            <!-- NAVBAR -->
+            <nav class="navbar banjitop_pic">
+                <div class="yuyan">
+                    <ul>
+                        <a href="index.html" ><li class="aa">English</li></a>  
+                        <a href="index.html" > <li >中文</li></a>
+                    </ul>
+                </div>
+                <h2 align="center" class="colorblue font40 banjiziw">见济人力资源后台</h2>
+
+
+                <div class="banjiw">
+                    <div class="banji_btn">
+                        <div class="banji_btn1 padright fleft">
+                            <ul class="fright">
+                                <a href="index.html" ><li >员工管理</li></a>
+                                <a href="mission.html"> <li >使命图</li></a>
+                            </ul>
+                        </div>
+                        <div class="banji_btn1 padleft fright">
+                            <ul class="fleft">
+                                <a href="set.html" ><li >设置</li></a>
+                                <a href="help.html"> <li >帮助</li></a>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="navbar-btn">
+                    <button type="button" class="btn-toggle-fullwidth" onclick="show1()"><img  id="saveimg" src="assets/images/jtgray.png" width="25px" height="25px" ></button>
+                </div>
+
+            </nav>
+            <!-- END NAVBAR -->
+            <!-- LEFT SIDEBAR -->
+            <div id="sidebar-nav" class="sidebar">
+                <div><img src="assets/images/banji_left1.png" width="273" height="57"></div>
+                <div class="sidebar-scroll">
+
+                    <nav>
+                        <ul class="nav">
+                            <li ><a href="addhr.html" class=""><span>添加员工</span></a></li>
+                            <li ><a href="screen.html"  class=""> <span>筛选</span> </a></li> 
+                            <li onclick="show2();"><a href="javascript:;"  class=""> <span>部门</span> <i class="icon-submenu lnr fright"><img src="assets/images/jt_right.png"></i></a></li> 
+                            <!--                        <li style="width:9%">
+                                                                                    <a href="#subPages" data-toggle="collapse" class="collapsed"> <span>部门</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                                                                                    <div id="subPages" class="collapse ">
+                                                                                            <ul class="nav">
+                                                                    <li style="width:9%"><a href="#.html" class="">市场部</a></li>
+                                                                                <li style="width:9%"><a href="#.html" class="">管理部</a></li>
+                                                                                            </ul>
+                                                                                    </div>
+                                                                            </li>-->
+
+
+                            <li ><a href="hrxzgly.html" class=""><span>协作管理员</span></a></li>
+                            <li style="background: none;"><a href="#" style="background: none;"></a></li>
+                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+
+
+                        </ul>
+                    </nav>
+                </div>
+                <div><img src="assets/images/banji_left3.png" width="273" height="222"></div>
+            </div>
+            <div id="show2" class="sidebar" style="width: 273px;background-color: rgba(0,0,0,0.95);z-index:9999;position: absolute;left: 273px;top: 190px;display: none">
+                <ul class="nav">
+                    <li >
+                        <ul class="nav" style="background:none;background-color:none;" id="bumen">
+                            <!-- <li ><a href="#.html" class="">市场部</a></li>
+                            <li ><a href="#.html" class="">管理部</a></li> -->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+                        <script>
+                            function show() {
+                                if ($("#show").css("display") == "none") {
+                                    $("#show").show();
+                                } else {
+                                    $("#show").hide();
+                                }
+
+                            }
+                            function show1() {
+                                if ($("#show").css("display") != "none") {
+                                	$('#saveimg').attr('src','assets/images/jtblue.png');
+                                    $("#show").hide();
+                                }
+                                if($("#sidebar-nav").css("display") != "none"){
+                                    $("#sidebar-nav").hide();
+                                }else{
+                                	$('#saveimg').attr('src','assets/images/jtgray.png');
+                                     $("#sidebar-nav").show();
+                                }
+
+                            }
+
+                            function show2() {
+                                if ($("#show2").css("display") == "none") {
+                                    $("#show2").show();
+                                }else{
+                                    $("#show2").hide();
+                                }
+
+                            }
+                        </script>
+                        <!-- END LEFT SIDEBAR -->
+                        <!-- MAIN -->
+                        <div class="main">
+                            <!-- MAIN CONTENT -->
+                            <div class="main-content">
+                                <div class="container-fluid">
+                                    <div class="panel"> 
+                                        <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+                                        <span class="clearfix"></span>
+                                        <div>
+                                            <div class="fleft"> <div class="leftyd"><img src="assets/images/banjileft1.png"  ></div></div>
+                                            <div class="search">
+                                                <div class="search_left">
+                                                    <div class="searchg_left"><span class="left"><img src="assets/images/banji_pic7.png" width="28" height="26"></span></div>
+                                                    <div class="searchg_mid"><input name="students" id="students" placeholder="请输入员工姓名" type="text" class="bjlogingginput" style="color:#fff; outline:none;" onfocus="this.value=''" ></div>
+                                                    <div class="searchg_right"></div>
+                                                </div>
+                                            <!--     <div class="search_right">搜索</div> -->
+                                                 <a href="javascript:;" onclick="find_student();"><div class="search_right">搜索</div></a>
+                                            </div>
+                                            <div class="banji_rightrr" >
+
+                                                <div class="biaoge">
+                                                    <ul>
+                                                        <li style="width:11%">全选</li>
+                                                        <li style="width:12%">姓名</li> 
+                                                        <li style="width:6%">性别</li> 
+                                                        <li style="width:9%">部门</li> 
+                                                        <li style="width:10%"> 好人好事<img src="assets/images/jiantoured.png" width="10" height="18"></li>
+                                                        <li style="width:12%">社区服务时间<img src="assets/images/jiantougreen.png" width="10" height="18"></li>
+                                                        <li style="width:6%"> 66天</li>
+                                                        <li style="width:9%"> 内部互助</li>
+                                                        <li style="width:6%">删除</li>
+                                                        <li style="width:9%">状态<img src="assets/images/jiantoured.png" width="10" height="18">  </li>
+                                                        <li style="width:9%">  </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="biaoge1" id="scroller">
+                                                    <ul>
+                                                        <li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>
+                                                        <a href="studentdetails.html"> <li style="width:12%"><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>
+                                                        <li style="width:6%">男 </li> 
+                                                        <li style="width:9%">市场部</li> 
+                                                        <a href="gooddeeds.html"> <li style="width:10%">100</li></a>
+                                                        <a href="gooddeeds1.html"><li style="width:12%"> 5 H 12 Min </li></a>
+                                                        <a href="days.html"> <li style="width:6%"> 是</li></a>
+                                                        <a href="helpeach.html"> <li style="width:9%"> 5</li></a>
+                                                        <li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li>
+                                                        <li style="width:9%">拒绝</li>
+                                                        <li style="width:9%"> <div class="biaogebtn" onclick="send_new();">重新发送</div>  </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>
+                                                        <a href="studentdetails.html"> <li style="width:12%"><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>
+                                                        <li style="width:6%">男 </li> 
+                                                        <li style="width:9%">市场部</li> 
+                                                        <a href="gooddeeds.html"> <li style="width:10%">100</li></a>
+                                                        <a href="gooddeeds1.html"><li style="width:12%"> 5 H 12 Min </li></a>
+                                                        <a href="days.html"> <li style="width:6%"> 是</li></a>
+                                                        <a href="helpeach.html"> <li style="width:9%"> 5</li></a>
+                                                        <li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li>
+                                                        <li style="width:9%">拒绝</li>
+                                                        <li style="width:9%"> <div class="biaogebtn" onclick="send_new();">重新发送</div>  </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>
+                                                        <a href="studentdetails.html"> <li style="width:12%"><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>
+                                                        <li style="width:6%">男 </li> 
+                                                        <li style="width:9%">市场部</li> 
+                                                        <a href="gooddeeds.html"> <li style="width:10%">100</li></a>
+                                                        <a href="gooddeeds1.html"><li style="width:12%"> 5 H 12 Min </li></a>
+                                                        <a href="days.html"> <li style="width:6%"> 是</li></a>
+                                                        <a href="helpeach.html"> <li style="width:9%"> 5</li></a>
+                                                        <li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li>
+                                                        <li style="width:9%">拒绝</li>
+                                                        <li style="width:9%"> <div class="biaogebtn" onclick="send_new();">重新发送</div>  </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>
+                                                        <a href="studentdetails.html"> <li style="width:12%"><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>
+                                                        <li style="width:6%">男 </li> 
+                                                        <li style="width:9%">市场部</li> 
+                                                        <a href="gooddeeds.html"> <li style="width:10%">100</li></a>
+                                                        <a href="gooddeeds1.html"><li style="width:12%"> 5 H 12 Min </li></a>
+                                                        <a href="days.html"> <li style="width:6%"> 是</li></a>
+                                                        <a href="helpeach.html"> <li style="width:9%"> 5</li></a>
+                                                        <li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li>
+                                                        <li style="width:9%">拒绝</li>
+                                                        <li style="width:9%"> <div class="biaogebtn" onclick="send_new();">重新发送</div>  </li>
+                                                    </ul>                        
+                                                    <ul>
+                                                        <li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>
+                                                        <a href="studentdetails.html"> <li style="width:12%"><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>
+                                                        <li style="width:6%">男 </li> 
+                                                        <li style="width:9%">市场部</li> 
+                                                        <a href="gooddeeds.html"> <li style="width:10%">100</li></a>
+                                                        <a href="gooddeeds1.html"><li style="width:12%"> 5 H 12 Min </li></a>
+                                                        <a href="days.html"> <li style="width:6%"> 是</li></a>
+                                                        <a href="helpeach.html"> <li style="width:9%"> 5</li></a>
+                                                        <li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li>
+                                                        <li style="width:9%">拒绝</li>
+                                                        <li style="width:9%"> <div class="biaogebtn" onclick="send_new();">重新发送</div>  </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>
+                                                        <a href="studentdetails.html"> <li style="width:12%"><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>
+                                                        <li style="width:6%">男 </li> 
+                                                        <li style="width:9%">市场部</li> 
+                                                        <a href="gooddeeds.html"> <li style="width:10%">100</li></a>
+                                                        <a href="gooddeeds1.html"><li style="width:12%"> 5 H 12 Min </li></a>
+                                                        <a href="days.html"> <li style="width:6%"> 是</li></a>
+                                                        <a href="helpeach.html"> <li style="width:9%"> 5</li></a>
+                                                        <li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li>
+                                                        <li style="width:9%">拒绝</li>
+                                                        <li style="width:9%"> <div class="biaogebtn" onclick="send_new();">重新发送</div>  </li>
+                                                    </ul>                          
+                                                    
+                                                </div>	
+                                            </div>
+                                            <div class="fright"><div class="leftyd"><img src="assets/images/banjileft1_1.png"  ></div></div>
+                                        </div>
+                                        <span class="clearfix"></span>
+                                        <div class="leftydb"></div>
+                                        <div ><span class="fleft jiaocorlor_2"></span><span class="fright jiaocorlor_3"></span></div>
+
+
+                                    </div>
+
+
+
+                                    <div class="panel" id="jianbian">
+                                        <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+                                        <div class="leftydb1"></div>
+                                        <span class="clearfix"></span>
+                                        <div id="jianbianwhite"> </div>
+                                    </div> 
+
+
+                                </div> 
+                            </div>
+                            <!-- END MAIN CONTENT -->
+                        </div>
+                        <!-- END MAIN -->
+                        <div class="clearfix"></div>
+                        <footer>
+                            <div class="container-fluid">
+                                <p class="copyright"></p>
+                            </div>
+                        </footer>
+                        </div>
+                        <!-- END WRAPPER -->
+                        <!-- Javascript -->
+                        <script type="text/javascript" src="iscroll.js"></script>
+                        <script src="assets/vendor/jquery/jquery.min.js"></script>
+                        <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+                        <script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+                        <script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+                        <script src="assets/vendor/chartist/js/chartist.min.js"></script>
+                        <script src="assets/scripts/klorofil-common.js"></script>
+                        <script src="js/tankuang.js"></script>
+                        <script src="js/systemdata.js"></script>
+
+<script type="text/javascript">
+        window.onscroll=function(){
+        var marginBot = 0;
+        if (document.documentElement.scrollTop){
+            var X=document.documentElement.scrollHeight;
+            var Y=document.documentElement.scrollTop+document.body.scrollTop;
+            var Z=document.documentElement.clientHeight;
+            marginBot=X-Y-Z;
+        } else {
+            var J=document.body.scrollHeight;
+            var I=document.body.scrollTop;
+            var K=document.body.clientHeight;
+            marginBot=J-I-K;
+        }
+        if(marginBot<=0) {
+          pullOnLoad();
+            // alert("到底了");
+        }
+        // console.log(a)      
+         // pullOnLoad();
+    } 
+
+    //上拉加载函数,ajax
+    var num = 0;
+    var page = 4; //每次加载4条
+    var test = window.location.href;
+    var token1 = sessionStorage.getItem('token');
+    
+    var num1 = getCaption(test);
+    if(num1 == 1){
+            $.MsgBox.Alert("消息", "请到帮助中心查看操作说明");                   
+    }
+
+    window.onload=function(){
+        $.ajax({
+                headers: {
+                    "token":token1//此处放置请求到的用户token
+                },
+                url: apihost+"/company/getAllDepartment",
+                type: requesttype,
+                data:{pageNum:1,pageSize:10},
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result)
+                    var data =result.data;
+                    var data_length = data.length;//数据的总长度
+                    for (var j = 0; j < data_length; j++){
+                        var name = data[j].name;//服务时间
+                        $("#bumen").append('<li ><a href="#.html" class="">'+name+'</a><button onclick="delbumen(this.value);" value="'+name+'" style="position: relative;top: -60px;margin-left: 220px;width: 35px;height: 35px;border-radius: 50%;border: none;background-color:green"><font color="white">X<font></button></li>');
+                    }    
+                },
+                error: function (){
+
+                }
+        })        
+    }
+
+    function delbumen(name){
+        // alert(name)
+        $.MsgBox.Confirm(name, "您是否确认要删除整个部门？");
+    }
+
+    function pullOnLoad() {
+        setTimeout(function () {
+            $.ajax({
+                headers: {
+                    "token":token1//此处放置请求到的用户token
+                },
+                url: apihost+"/company/employee/goodList",
+                type: requesttype,
+                data:{pageNum:1,pageSize:20,departmentId:''},
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result)
+                    var data =result.data;                
+                    var data_length = data.length;//数据的总长度
+                    var remainder = data_length % page;//余数
+                    if ( data_length >= (num+page)){
+                        for (var j = num; j < num + page; j++){
+                            var date = data[j].serviceTime;//服务时间
+                            var name = data[j].userName;//用户名
+                            var bumen = data[j].departmentName;//部门名称
+                            var sex1 = data[j].gender;//性别
+                            var status1 = data[j].status;//短信状态
+                            var nums = data[j].goodNum;//好人好事数量
+                            var type1 = data[j].status;//66天
+                            var email = data[j].email;//邮箱
+                            var image = data[j].headerImg;//头像地址
+                            var state = data[j].innerHelp;//内部互助
+                            var type = type1 == 1 ? "是" : "否";
+                            var sex = sex1 == 1 ? "男" : "女";
+                            var status = status1 == 1 ? "拒绝" : "同意";
+                            // var state = data[j].state;
+                            $("#scroller").append('<ul><input type="hidden" id="id" name="id" value="'+data.mobile+'" /><li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="" width="10" height="18"></span></label></li><a href="studentdetails.html"><li style="width:12%"><div class="biaoge_pic"><img src="'+image+'" ></div>'+name+'</li></a><li style="width:6%">'+sex+'</li><li style="width:9%">'+bumen+'</li><a href="gooddeeds.html"><li style="width:10%">'+nums+'</li></a><a href="gooddeeds.html"><li style="width:12%">'+date+'</li></a><a href="days.html"><li style="width:6%">'+type+'</li></a></a><a href="days.html"><li style="width:9%">'+state+'</li></a><li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li><li style="width:9%">'+status+'</li><li style="width:9%"><div class="biaogebtn" onclick="send_new();">重新发送</div></li></ul>');
+                        }
+                        num+=page;
+                    }else if (remainder != 0 && data_length-num == remainder){
+                        for (var j = num; j < num + remainder; j++){
+                            var date = data[j].serviceTime;//服务时间
+                            var name = data[j].userName;//用户名
+                            var bumen = data[j].departmentName;//部门名称
+                            var sex1 = data[j].gender;//性别
+                            var status1 = data[j].status;//短信状态
+                            var nums = data[j].goodNum;//好人好事数量
+                            var type1 = data[j].status;//66天
+                            var email = data[j].email;//邮箱
+                            var image = data[j].headerImg;//头像地址
+                            var state = data[j].innerHelp;//内部互助
+                            var type = type1 == 1 ? "是" : "否";
+                            var sex = sex1 == 1 ? "男" : "女";
+                            var status = status1 == 1 ? "拒绝" : "同意";
+                            $("#scroller").append('<ul><input type="hidden" id="id" name="id" value="'+data.mobile+'" /><li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="" width="10" height="18"></span></label></li><a href="studentdetails.html"><li style="width:12%"><div class="biaoge_pic"><img src="'+image+'" ></div>'+name+'</li></a><li style="width:6%">'+sex+'</li><li style="width:9%">'+bumen+'</li><a href="gooddeeds.html"><li style="width:10%">'+nums+'</li></a><a href="gooddeeds.html"><li style="width:12%">'+date+'</li></a><a href="days.html"><li style="width:6%">'+type+'</li></a></a><a href="days.html"><li style="width:9%">'+state+'</li></a><li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li><li style="width:9%">'+status+'</li><li style="width:9%"><div class="biaogebtn" onclick="send_new();">重新发送</div></li></ul>');
+                        }
+                        num+=page;
+                    }else{
+                        $('.pull-loading').html("没有了哟");
+                    }
+                    myscroll.refresh();
+                },
+                error: function () {
+                    console.log("出错了");
+                }
+            });
+            // myscroll.refresh();
+        }, 500);
+    }
+
+    function getCaption(obj){
+            var index=obj.lastIndexOf("\=");
+            obj=obj.substring(index+1,obj.length);
+        //  console.log(obj);
+            return obj;
+        }
+
+    function find_student(){
+        var students = $('#students').val();
+        $.ajax({
+              url: apihost+'/company/employee/searchByName?userName='+students+'&pageNum=1&pageSize=10',
+              // url: apihost+'/company/employee/searchByName',
+              headers: {
+                    "token":token1//此处放置请求到的用户token
+                },
+              type: requesttype,
+              // data:{userName:students,pageNum:1,pageSize:10},
+              dataType: 'json',
+              success: function (result) {
+                console.log(data)
+                var data =result.data[0];
+                studentslist ='<ul><input type="hidden" id="id" name="id" value="'+data.mobile+'" /><li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/jiantoured.png" width="10" height="18"></span></label></li><a href="studentdetails.html"><li style="width:12%"><div class="biaoge_pic"><img src="'+data.headerImg+'" ></div>'+data.userName+'</li></a><li style="width:6%">'+data.gender+'</li><a href="gooddeeds.html"><li style="width:9%">'+data.departmentName+'</li></a><a href="days.html"><li style="width:10%">'+data.goodNum+'</li></a><a href="gooddeeds.html"><li style="width:12%">'+data.serviceTime+'</li></a><li style="width:6%">'+data.status+'</li><a href="days.html"><li style="width:9%">'+data.innerHelp+'</li></a><li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li><li style="width:9%">'+data.status+'</li><li style="width:9%"><a href="javascript:;" onclick="send_new();"><div class="biaogebtn">重新发送</div></a></li></ul>';
+                document.getElementById("scroller").innerHTML = studentslist;
+                
+              },
+              error: function () {
+                  console.log("出错了");
+              }
+          }); 
+      }
+
+   function del_students(){
+        var sid = $('#id').val();
+        $.MsgBox.Confirm("温馨提示", "执行删除后将无法恢复，确定继续吗？温馨提示", function () {
+              $.ajax({
+                url: apihost+'/company/deleteEmployee',
+                headers: {
+                    "token":token1//此处放置请求到的用户token
+                },
+                type: requesttype,
+                data:{mobile:sid},
+                dataType: 'json',
+                success: function (data) {
+                  console.log(data)
+                  if(data.code == 1){
+                      alert(data.msg);
+                  }else{
+                      alert(data.msg);
+                      location.href="/hr/index.html";
+                       // location.href="http://www.webss1.com/teacher/banji.html";
+                  }               
+                },
+                error: function () {
+                    console.log("出错了");
+                }
+            }); 
+
+        });
+        
+  }
+
+  function send_new(){
+    var id = $('#id').val();
+        $.ajax({
+              url: "http://140.143.243.113:8190/teacher/stu/repost",
+              type: "get",
+              data: {sid:id},
+              dataType: 'json',
+              success: function (data) {
+                console.log(data)
+                if(data.code == 1){
+                    // alert(data.msg);
+                    $.MsgBox.Alert("消息", "邀请已经重新发送");
+                }else{
+                    alert(data.msg);
+                    location.href="/hr/index.html";
+                    // location.href="http://www.webss1.com/hr/index.html";
+                }               
+              },
+              error: function () {
+                  console.log("出错了");
+              }
+          });
+  }
+</script>
+</body>
+
+</html>

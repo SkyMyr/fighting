@@ -1,0 +1,94 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+/*按钮样式*/
+button{ outline:none;}
+#ClickMe {
+	width: 200px;
+	height: 30px;
+	border: none; background:none;
+	color:#00fcf9;
+	margin:0 auto;
+}
+#goodcover {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 133%;
+	background-color: black;
+	z-index: 1001;
+	-moz-opacity: 0.9;
+	opacity: 0.90;
+	filter: alpha(opacity=90);
+}
+#code {
+	width: 760px;
+	height: 580px;
+	
+	padding: 10px 20px;
+	position: absolute;
+	display: none;
+	left: 45%;
+	z-index: 1002; border: 1px solid #1ed8f8;
+    border-radius: 8px;
+    background-color: rgba(4,20,37,0.9);
+    box-shadow: inset 5px 10px 60px #1ed8f8;
+}
+.close1 {
+	width: 760px;
+	height: 60px;
+}
+#closebt {
+	float: right;
+}
+#closebt img {
+	width: 20px;
+}
+.goodtxt {
+	text-align: center;
+}
+.goodtxt p {
+	height: auto;
+	line-height: 25px;
+	font-size: 14px;
+	color:#FFF;
+	font-weight: 100; margin:10px 0; text-align:left; text-indent:2em;
+}
+.code-img {
+	width: 250px;
+	margin: 30px auto 0 auto;
+	padding: 10px;
+}
+.code-img img {
+	width: 240px;
+}
+
+
+/*add*/
+
+.addmsg{
+	height:20px;
+	color:red;
+}
+#registers button{
+	background: #1ed8f8;
+	color: #000;
+	height: 43px;
+	line-height: 45px;
+	text-align: center;
+	width: 100%;
+	border: 0;
+	font-size: 18px;
+}
+.logingg #nation{
+	height: 100%;
+	width: 100%;
+}
+.logingg #nation option{
+	line-height:50px;
+	color: #000;
+
+}

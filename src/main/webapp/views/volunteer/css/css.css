@@ -1,0 +1,212 @@
+@charset "utf-8";
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+    padding: 0;
+    margin: 0; list-style:none;list-style-type: none;
+	display: block;
+}
+
+a {
+    text-decoration: none;
+    font-family:微软雅黑;
+}
+.colorblue{ color:#00fcf9}
+.colorwirth{ color:#FFF}
+.font12{ font-size:12px}
+.font18{ font-size:18px}
+.lineheight{ line-height:50px;}
+body{    font-family:微软雅黑;}
+.left{float: left}
+.right{float: right;}
+.blank10 {
+	margin: 0;
+	padding: 0;
+	height: 10px;
+	clear: both;
+	display: block;
+	overflow: hidden
+}
+
+
+/*选择页*/
+.bg{ background:url(../images/bg.jpg) top center no-repeat  #010c26; -moz-background-size: 100% 100%;  
+
+-o-background-size: 100% 100%;  
+
+-webkit-background-size: 100% 100%;  
+
+background-size: 100% 100%;  background-size:cover; width:100%;  }
+
+.sfbggg{ background:url(../images/sfxzgg.png) top center no-repeat;  width:1920px; height:1080px; margin:0 auto }
+
+.sfxzgg{position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); width:1146px;}
+ .sfxzgg ul{}
+ .sfxzgg ul li{ width:316px; height:167px; float:left; background:url(../images/sfxz_03.png) no-repeat center;color:#FFF; font-size:24px; line-height:167px; text-align:center; text-shadow: 0 0 0.7em #3de4db,
+                -0 -0 0.7em #3de4db;display: block;}
+ .sfxzgg ul li:hover{background:url(../images/sfxz_06.png) no-repeat center;display: block;}
+ .sfxzgg ul li.aa{ margin:0 90px;}
+ 
+ /*登录*/
+ .loginw{ width:1488px; margin:0 auto}
+   .loginjz{position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);}
+	 .loginjz1{position: absolute;
+    top: 50%; right: 0;
+    transform: translate(-50%, -50%);}
+    .loginjz100{position: relative;
+    top: 50%; right: -35%;
+    transform: translate(-50%, -50%);}
+  .login_l{ width:671px; height:495px; float:left}
+	.title{ color:#FFF; font-size:28px; line-height:50px;}
+.login_r{ width:447px; float:right}
+.login_r_tbg{ width:347px; background:url(../images/reg_rt_pic_03.png) top center no-repeat; float:left; padding:30px 50px 0;}
+
+  .logingg{ height:50px; width:347px; margin:10px auto; background: rgba(30, 216, 248, 0.25); border:1px solid #00ffff}
+    .logingginput{ background:none; border:none; padding:5px 2.5%; line-height:40px; text-align:left; width:95%; font-size:16px}
+	    .logingginput1{ background:none; border:none; padding:5px 2.5%; line-height:40px; text-align:left; width:62%; font-size:16px}
+		.loginsubbtn{ font-size:14px;background:url(../images/subbtn.jpg) repeat-x; height:40px; border-radius:5px; width:103px; margin:5px 2px 0 0; text-align:center; color:#FFF; line-height:44px;}
+.login_r_bbg{ width:447px; background:url(../images/reg_rt_pic1_03.png) top center no-repeat; float:left; height:73px;}
+
+.xingbie{width:347px;margin:14px auto; height:22px; color:#FFF}
+/*男女选项*/
+.nannv {
+            position: relative;
+            line-height: 22px; 
+        }
+        
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            opacity: 0;
+        }
+.nannv span {  width:50px; float:left; text-align:center
+        }        
+        label {
+	position: absolute;
+	left: 64px;
+	top: 3px;
+	width: 20px;
+	height: 20px;
+	
+	border: 1px solid #999;
+	　　　　　　　cursor: pointer;
+        }
+        
+        /*设置选中的input的样式*/
+        /* + 是兄弟选择器,获取选中后的label元素*/
+        input:checked+label { 
+            background-color: #134c6d;
+            border: 1px solid #00ffff; 
+        }
+         /*添加的加号与label进行拼接(一个矩形边框去掉上和左的边框),再旋转45度*/
+        input:checked+label::after {
+            position: absolute;
+            content: "";
+            width: 5px;
+            height: 10px;
+            top: 3px;
+            left: 6px;
+            border: 2px solid #fff;
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+		}
+		.anniubtn{  background-color: #134c6d;
+            border: 1px solid #00ffff; }
+			.anniubtn:after {
+            position: absolute;
+            content: "";
+            width: 5px;
+            height: 10px;
+            top: 3px;
+            left: 6px;
+            border: 1px solid #fff;
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+		}
+			input[type="radio1"] {
+            width: 15px;
+            height: 15px;
+            opacity: 80;
+        }.login_subbtn{ background:#1ed8f8; color:#000; height:45px; line-height:45px; text-align:center; margin:12px 0 0 }
+		
+		.screen_title1 {
+    background: url(../images/titlebg.png) center no-repeat;
+    height: 42px;
+    border-radius: 42px;
+    width: 125px;
+    float: left;
+    margin-left: 15px;
+    z-index: 10000;
+    position: absolute;
+    color: #FFF;
+    text-align: center;
+    line-height: 42px;
+    padding: 0 32px;
+    margin: 90px 0 0 165px;
+}
+
+.fwbg{ background:url(../images/fwbg.png) bottom repeat-x #000; width:100%; height:auto}
+.padd125{ padding-top:239px;}
+
+.title1{border-top:1px solid  #353535; height:70px; line-height:70px; margin:80px auto;}
+.colorred{ color:#F00}
+.contentrr{ font-size:16px; float:left; line-height:30px; text-indent:2em; padding:10px 0} 
+ .pad20{ padding:20px; 0}
+ .fwbtn{ width:50px; height:50px; padding-top:9px;}
+ 
+ 
+ .help {
+    width: 1195px;
+    margin: 30px 2% 15px;
+    margin: 0 auto;
+    padding: 20px 0 5px;
+}
+.helprr {
+    width:1195px;
+    height: 100px;
+    background: #1e1e1f;
+}
+.btn {
+    background: #1d1f1f;
+    text-align: center;
+    border: none;
+    height: 100px;
+    float: left;
+    width: 10%; color:#FFF; border-radius:0px
+}
+.btn-primary:hover {
+    background: #a166b5;
+    border: none;
+}
+.btn-primary:focus {
+    background: #a166b5;
+    border: none;
+}
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px; background:none;    border: none;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05); color:#FFF
+}
+.helprrr {
+    width:90%;
+    background: #26292a;
+    height: 100px;
+    float: right;
+    line-height: 30px;
+    color: #FFF;
+    padding: 10px;
+}
+.tongyixieyi{  background-color: #134c6d;
+            border: 1px solid #00ffff; width:20px; height:20px; background:none ; margin-right:8px}
+			#agreement{  background-color: #134c6d;
+            border: 1px solid #00ffff; width:20px; height:20px; background:none ; margin-right:8px}

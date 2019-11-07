@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>国外社交平台</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+	<link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css">
+
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/demo.css">
+	<link rel="stylesheet" href="assets/css/my.css">
+    
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/.png">
+</head>
+
+<body class="bg">
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar banjitop_pic">
+        			 <div class="yuyan">
+                     <ul>
+                     <a href="index.html" ><li class="aa">English</li></a>  
+                      <a href="index.html" > <li>中文</li></a>
+                      </ul>
+                     </div>
+			         <h2 align="center" class="colorblue font40 banjiziw">见济教师后台</h2>
+            
+        
+            <div class="banjiw">
+              <div class="banji_btn">
+              <div class="banji_btn1 padright fleft">
+                 <ul class="fright">
+                <a href="index.html" ><li>班级</li></a>
+               <a href="mission.html"> <li>使命图</li></a>
+               </ul>
+              </div>
+              <div class="banji_btn1 padleft fright">
+                 <ul class="fleft">
+                <a href="set.html" ><li>设置</li></a>
+               <a href="help.html"> <li>帮助</li></a>
+               </ul>
+              </div>
+              
+            </div>
+            
+            </div>
+            <div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth" onclick="show1()"><img  id="saveimg" src="assets/images/jtgray.png" width="25px" height="25px" ></button>
+				</div>
+                
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+	  <div id="sidebar-nav" id="show" class="sidebar">
+            <div><img src="assets/images/banji_left1.png" width="273" height="57"></div>
+			<div class="sidebar-scroll">
+               
+				<nav>
+					<ul class="nav">
+                    
+						<li><a href="index.html" class="active"><span>班级</span></a></li>
+						
+						<li><a href="addclass.html" class=""><span>添加班级</span></a></li>
+            <li style="background: none;"><a href="#" style="background: none;"></a></li>
+            <li style="background: none;"><a href="#" style="background: none;"></a></li>
+            <li style="background: none;"><a href="#" style="background: none;"></a></li>
+            <li style="background: none;"><a href="#" style="background: none;"></a></li>
+            <li style="background: none;"><a href="#" style="background: none;"></a></li>
+            <li style="background: none;"><a href="#" style="background: none;"></a></li>
+ 
+
+            
+                        
+					</ul>
+				</nav>
+			</div>
+             <div><img src="assets/images/banji_left3.png" width="273" height="222"></div>
+</div>
+
+						<script>
+                            function show() {
+                                if ($("#show").css("display") == "none") {
+                                    $("#show").show();
+                                }else {
+                                    $("#show").hide();
+                                }
+
+                            }
+                            function show1() {
+                                if ($("#show").css("display") != "none") {
+                                	$('#saveimg').attr('src','assets/images/jtblue.png');
+                                    $("#show").hide();
+                                }
+                                if($("#sidebar-nav").css("display") != "none"){
+                                    $("#sidebar-nav").hide();
+                                }else{
+                                	$('#saveimg').attr('src','assets/images/jtgray.png');
+                                     $("#sidebar-nav").show();
+                                }
+
+                            }
+                        </script>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+				  <div class="panel"> 
+                    <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+                     <span class="clearfix"></span>
+                     <div>
+                       <div class="fleft"> <div class="leftyd"><img src="assets/images/banjileft1.png"  ></div></div>
+                       <div class="search">
+                  <div class="search_left">
+                    <div class="searchg_left"><span class="left"><img src="assets/images/banji_pic7.png" width="28" height="26"></span></div>
+                    <div class="searchg_mid"><input name="classname" id="classname" placeholder="请输入班级名称" type="text" class="bjlogingginput" style="color:#fff; outline:none;" onfocus="this.value=''" ></div>
+                    <div class="searchg_right"></div>
+                  </div>
+                  <a href="javascript:;" onclick="find();"><div class="search_right">搜索</div></a>
+                </div>
+                       <div class="banji_rightrr pad20" >
+                       
+                         <div class="search">
+                  <div class="search_left_n">
+                   <div class="fleft search_nearzi" >起始时间</div> 
+                   <div class=" fleft"> 
+                    <div class="searchg_left"></div>
+                    <div class="searchg_mid_n">
+                    <div class="fleft">
+                    <input name="year" id="year" placeholder="2019" type="text" class="bjlogingginput_n " style="color:#2fd3f6; outline:none; " onfocus="this.value=''" >年
+                    </div>
+                                        <div class="fleft">
+                    <input name="month" id="month" placeholder="2" type="text" class="bjlogingginput_n " style="color:#2fd3f6; outline:none;" onfocus="this.value=''" >月
+                    </div>
+                                        <div class="fleft">
+                    <input name="day" id="day" placeholder="18" type="text" class="bjlogingginput_n " style="color:#2fd3f6; outline:none;" onfocus="this.value=''" >日
+                    </div>
+                    </div>
+                    <div class="searchg_right"></div>
+                    </div>
+                    
+                  </div>
+                                    <div class="search_left_n">
+                   <div class="fleft search_nearzi">终止时间</div> 
+                   <div class=" fleft"> 
+                    <div class="searchg_left"></div>
+                    <div class="searchg_mid_n">
+                    <div class="fleft">
+                    <input name="year1" id="year1" placeholder="2019" type="text" class="bjlogingginput_n " style="color:#2fd3f6; outline:none;"onfocus="this.value=''">年
+                    </div>
+                                        <div class="fleft">
+                    <input name="month1" id="month1" placeholder="2" type="text" class="bjlogingginput_n " style="color:#2fd3f6; outline:none;" onfocus="this.value=''" >月
+                    </div>
+                                        <div class="fleft">
+                    <input name="day1" id="day1" placeholder="18" type="text" class="bjlogingginput_n " style="color:#2fd3f6; outline:none;" onfocus="this.value=''" >日
+                    </div>
+                    </div>
+                    <div class="searchg_right"></div>
+                    </div>
+                    
+                  </div>
+                  
+                  <a href="javascript:;" onclick="time_find();"><div class="search_right">搜索</div></a>
+                </div>
+                      
+       
+           
+                      
+                      
+       <div class="sfxzgg_n">
+                    
+         <div class="row" id="banji">
+<!--   <div class="col-md-3" > <a href="banji.html"> <div class="banjibg">班级1</div></a></div>
+  <div class="col-md-3"><a href="banji.html"> <div class="banjibg">班级2</div></a></div>
+  <div class="col-md-3"><a href="banji.html"> <div class="banjibg">班级3</div></a></div>
+  <div class="col-md-3"><a href="banji.html"> <div class="banjibg">班级4</div></a></div>
+  <div class="col-md-3" > <a href="banji.html"> <div class="banjibg">班级5</div></a></div>
+  <div class="col-md-3"><a href="banji.html"> <div class="banjibg">班级6</div></a></div>
+  <div class="col-md-3"><a href="banji.html"> <div class="banjibg">班级7</div></a></div>
+  <div class="col-md-3"><a href="banji.html"> <div class="banjibg">班级8</div></a></div>
+  <div class="col-md-3"> <a href="banji.html"> <div class="banjibg">班级9</div></a></div>
+  <div class="col-md-3"><a href="banji.html"> <div class="banjibg">班级10</div></a></div>
+  <div class="col-md-3"><a href="banji.html"> <div class="banjibg">班级11</div></a></div>
+  <div class="col-md-3"><a href="banji.html"> <div class="banjibg">班级12</div></a></div> -->
+  
+  
+</div>  
+           
+   </div>               
+                      
+                      
+                      
+                      
+                         
+                         
+                       </div>
+                       <div class="fright"><div class="leftyd"><img src="assets/images/banjileft1_1.png"  ></div></div>
+                     </div>
+                     <span class="clearfix"></span>
+                   <div class="leftydb"></div>
+                     <div ><span class="fleft jiaocorlor_2"></span><span class="fright jiaocorlor_3"></span></div>
+                     
+                     
+                  </div>
+                  
+                  
+                  
+                 <div class="panel" id="jianbian">
+                    <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+                    <div class="leftydb1"></div>
+                      <span class="clearfix"></span>
+                    <div id="jianbianwhite"> </div>
+                  </div> 
+                  
+              
+              </div> 
+              </div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright"></p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
+	<script src="assets/scripts/klorofil-common.js"></script>
+  <script src="js/tankuang.js"></script>
+  <script src="js/systemdata.js"></script>
+<script type="text/javascript">
+var token1 = sessionStorage.getItem('token');
+	window.onload = function () {
+			// var userid = sessionStorage.getItem('userid');
+			
+			var test = window.location.href;
+    
+      		var num1 = getCaption(test);
+	        if(num1 == 1){
+	              $.MsgBox.Alert("消息", "请到帮助中心查看操作说明");                   
+	        }
+			
+			$.ajax({
+                url: apihost+"/teacher/stu/classList",
+                headers: {
+                    "token":token1//此处放置请求到的用户token
+                },
+                type: requesttype,
+                data:{pageNum:1,pageSize:20},
+                dataType: 'json',
+                success: function (result) {
+                	console.log(result)
+                	// console.log(data.msg)
+                	var tab = result.data;
+		            var orderBody = '';
+		            $.each(tab, function (index, val) {
+		                orderBody += '<div class="col-md-3" > <a href="banji.html?id='+ val.id +'"> <div class="banjibg">'+ val.name +'</div></a><button onclick="delbanji(this.value);" value="'+val.name+'" style="height: 30px;width: 30px;background-color: red;border: none;float: right;position: relative;top: -150px;">X</button></div>'
+		            })
+		            $('#banji').append(orderBody);
+                },
+                error: function () {
+                    console.log("出错了");
+                }
+        	});
+
+    }
+
+        function getCaption(obj){
+            var index=obj.lastIndexOf("\=");
+            obj=obj.substring(index+1,obj.length);
+        //  console.log(obj);
+            return obj;
+        }
+
+        function find(){
+        	var  classname= $('#classname').val();
+        		$.ajax({
+		          url: apihost+"/teacher/stu/searchClass",
+		          headers: {
+                    "token":token1//此处放置请求到的用户token
+                  },
+		          type: requesttype,
+		          data:{name:classname},
+		          dataType: 'json',
+		          success: function (result) {
+		            console.log(result)
+		            var tab = result.data.records;
+		            var orderBody = '';
+		            $.each(tab, function (index, val) {
+		                orderBody += '<div class="col-md-3" > <a href="banji.html?id='+ val.id +'"> <div class="banjibg">'+ val.name +'</div></a><button onclick="delbanji(this.value);" value="'+val.name+'" style="height: 30px;width: 30px;background-color: red;border: none;float: right;position: relative;top: -150px;">X</button></div>'
+		            })
+		            // $('#banji').append(orderBody);
+		            document.getElementById("banji").innerHTML = orderBody;
+		          },
+		          error: function () {
+		              console.log("出错了");
+		          }
+		      });
+        }
+
+        function delbanji(name){
+            $.MsgBox.Confirm(name, "您是否要删除此班级？");
+        }
+
+        function time_find(){
+        		var  year= $('#year').val();
+        		var  month= $('#month').val();
+        		var  day= $('#day').val();
+        		var  year1= $('#year1').val();
+        		var  month1= $('#month1').val();
+        		var  day1= $('#day1').val();
+        		var starttime = year+"/"+month+"/"+day;
+        		var endtime = year1+"/"+month1+"/"+day1;
+  
+        		$.ajax({
+		          url: "http://39.108.14.240/app/webss/time_sousuo?starttime="+starttime+"&endtime="+endtime,
+		          type: "get",
+		          dataType: 'json',
+		          success: function (data) {
+		            console.log(data)
+		            var tab = data.data;
+		            var orderBody = '';
+		            $.each(tab, function (index, val) {
+		                orderBody += '<div class="col-md-3" > <a href="banji.html?id='+ val.id +'"> <div class="banjibg">'+ val.classname +'</div></a></div>'
+		            })
+		            // $('#banji').append(orderBody);
+		            document.getElementById("banji").innerHTML = orderBody;
+		          },
+		          error: function () {
+		              console.log("出错了");
+		          }
+		      });
+        }
+
+
+
+    	
+	</script>
+
+</body>
+
+</html>

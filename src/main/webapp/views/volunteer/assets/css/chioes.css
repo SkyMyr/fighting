@@ -1,0 +1,67 @@
+/*男女选项*/
+.nannv {
+            position: relative;
+            line-height: 22px; 
+        }
+        
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            opacity: 0;
+        }
+		input[type="radio2"] {
+            width: 20px;
+            height: 20px;
+            opacity: 10;
+        }
+.nannv span {  width:60px; float:left; text-align: center
+        }        
+        label {
+	position: absolute;
+	left: 64px;
+	top: 3px;
+	width: 20px;
+	height: 20px;
+	
+	border: 1px solid #999;
+	　　　　　　　cursor: pointer;
+        }
+        
+        /*设置选中的input的样式*/
+        /* + 是兄弟选择器,获取选中后的label元素*/
+        input:checked+label { 
+            background-color: #134c6d;
+            border: 1px solid #00ffff; 
+        }
+         /*添加的加号与label进行拼接(一个矩形边框去掉上和左的边框),再旋转45度*/
+        input:checked+label::after {
+            position: absolute;
+            content: "";
+            width: 5px;
+            height: 10px;
+            top: 3px;
+            left: 6px;
+            border: 2px solid #fff;
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+		}
+		.anniubtn{  background-color: #134c6d;
+            border: 1px solid #00ffff; }
+			.anniubtn:after {
+            position: absolute;
+            content: "";
+            width: 5px;
+            height: 10px;
+            top: 3px;
+            left: 6px;
+            border: 1px solid #fff;
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+		}
+			input[type="radio1"] {
+            width: 15px;
+            height: 15px;
+            opacity: 80;
+        }

@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<style type="text/css">
+        #map {
+            width: 95;
+            height: 650px;
+        }
+    </style>
+<head>
+	<title>国外社交平台</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+	<link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css">
+
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/demo.css">
+	<link rel="stylesheet" href="assets/css/my.css">
+    
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/.png">
+
+</head>
+
+<body class="bg">
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar banjitop_pic">
+        			 <div class="yuyan">
+                     <ul>
+                     <a href="index.html" ><li class="aa">English</li></a>  
+                      <a href="index.html" > <li>中文</li></a>
+                      </ul>
+                     </div>
+			         <h2 align="center" class="colorblue font40 banjiziw">见济教师后台</h2>
+            
+        
+            <div class="banjiw">
+              <div class="banji_btn">
+              <div class="banji_btn1 padright fleft">
+                 <ul class="fright">
+                <a href="index.html" ><li>班级</li></a>
+               <a href="mission.html"> <li>使命图</li></a>
+               </ul>
+              </div>
+              <div class="banji_btn1 padleft fright">
+                 <ul class="fleft">
+                <a href="set.html" ><li>设置</li></a>
+               <a href="help.html"> <li>帮助</li></a>
+               </ul>
+              </div>
+              
+            </div>
+            
+            </div>
+            <div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth" onclick="show1()"><img  id="saveimg" src="assets/images/jtgray.png" width="25px" height="25px" ></button>
+				</div>
+                
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+	  <div id="sidebar-nav" class="sidebar">
+            <div><img src="assets/images/banji_left1.png" width="273" height="57"></div>
+			<div class="sidebar-scroll">
+               
+				<nav>
+					<ul class="nav">
+                    
+						<li><a href="mission.html" class="active"><span>我的学生</span></a></li>
+						
+						<li><a href="chinastudents.html" class=""><span>中国所有学生</span></a></li>
+						<li style="background: none;"><a href="#" style="background: none;"></a></li>
+                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+					<li style="background: none;"><a href="#" style="background: none;"></a></li>
+					<li style="background: none;"><a href="#" style="background: none;"></a></li>
+                        
+					</ul>
+				</nav>
+			</div>
+             <div><img src="assets/images/banji_left3.png" width="273" height="222"></div>
+</div>
+<script>
+                            function show() {
+                                if ($("#show").css("display") == "none") {
+                                    $("#show").show();
+                                } else {
+                                    $("#show").hide();
+                                }
+
+                            }
+                            function show1() {
+                                if ($("#show").css("display") != "none") {
+                                	$('#saveimg').attr('src','assets/images/jtblue.png');
+                                    $("#show").hide();
+                                }
+                                if($("#sidebar-nav").css("display") != "none"){
+                                    $("#sidebar-nav").hide();
+                                }else{
+                                	$('#saveimg').attr('src','assets/images/jtgray.png');
+                                     $("#sidebar-nav").show();
+                                }
+
+                            }
+                        </script>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+				  <div class="panel" > 
+                    <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+                     <span class="clearfix"></span>
+                     <div>
+                       <div class="fleft"> <div class="leftyd"><img src="assets/images/banjileft1.png"  ></div></div>
+                       <div class="title">
+        <h4 class="colorwhite" align="center"> 让助人为乐在全中国成为一种生活方式</h4>
+ <div class="fright"><div class="quanbing_btn"><img src="assets/images/quanbing_btn.png" width="30" height="30"></div></div>
+         
+                  
+                </div>
+           
+                       <div class="banji_rightrr">
+                      
+                          <div align="center" id="map">
+                          	<img src="assets/images/right.png">
+                          </div>
+                  
+                             
+                                                                                                               
+                     	
+                       </div>
+                       <div class="fright"><div class="leftyd"><img src="assets/images/banjileft1_1.png" width="20" height="672"  ></div></div>
+                     </div>
+                     <span class="clearfix"></span>
+                   <div class="leftydb"></div>
+                     <div ><span class="fleft jiaocorlor_2"></span><span class="fright jiaocorlor_3"></span></div>
+                     
+                     
+                  </div>
+                  
+                  
+                  
+                 <div class="panel" id="jianbian">
+                    <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+                    <div class="leftydb1"></div>
+                      <span class="clearfix"></span>
+                    <div id="jianbianwhite"> </div>
+                  </div> 
+                  
+              
+              </div> 
+              </div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright"></p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=1XjLLEhZhQNUzd93EjU5nOGQ"></script>
+    <script type="text/javascript" src="../build/mapv.js"></script>
+
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
+	<script src="assets/scripts/klorofil-common.js"></script>
+	<script type="text/javascript">
+		// 百度地图API功能
+        // var map = new BMap.Map("map", {
+        //     enableMapClick: false
+        // });    // 创建Map实例
+        var map = new BMap.Map("map",{minZoom:5,maxZoom:8}); // 创建Map实例,设置地图允许的最小/大级别
+      
+        map.centerAndZoom(new BMap.Point(104.996095, 34.222722),5);  // 初始化地图,设置中心点坐标和地图级别
+        // map.setCurrentCity("中国");          // 设置地图显示的城市 此项是必须设置的
+        map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
+
+        map.setMapStyle({
+            style: 'midnight'
+        });
+
+    //     var randomCount = 300;
+
+    //     var data = [];
+
+    //     var citys = ["北京","天津","上海","重庆","石家庄","太原","呼和浩特","哈尔滨","长春","沈阳","济南","南京","合肥","杭州","南昌","福州","郑州","武汉","长沙","广州","南宁","西安","银川","兰州","西宁","乌鲁木齐","成都","贵阳","昆明","拉萨","海口"];
+
+    //     //构造数据
+    //     while (randomCount--) {
+    //         var cityCenter = mapv.utilCityCenter.getCenterByCityName(citys[parseInt(Math.random() * citys.length)]);
+    //         data.push({
+    //             geometry: {
+    //                 type: 'Point',
+    //                 coordinates: [cityCenter.lng - 2 + Math.random() * 4, cityCenter.lat - 2 + Math.random() * 4]
+    //             },
+    //             count: 30 * Math.random()
+    //         });
+    //     }
+
+    //     var dataSet = new mapv.DataSet(data);
+
+    //     var options = {
+    //         fillStyle: 'rgba(255, 50, 50, 0.6)',
+    //         maxSize: 20,
+    //         max: 30,
+    //         draw: 'bubble'
+    //     }
+
+    //     var mapvLayer = new mapv.baiduMapLayer(map, dataSet, options);
+
+    // var point = new BMap.Point(116.404, 39.915);
+    // map.centerAndZoom(point, 15);
+    // 编写自定义函数,创建标注
+    function addMarker(point){
+      var marker = new BMap.Marker(point);
+      map.addOverlay(marker);
+    }
+    var arr = [["116.399014","39.904947"],["113.274879","23.204708"],["106.633454","26.676394"],["121.516868","31.284979"],["87.629047","43.839421"]];
+    for (var i = 0; i < 5; i ++) {
+         var point = new BMap.Point(arr[i][0],arr[i][1]);
+        addMarker(point);
+    }
+	</script>
+	<script>
+	$(function() {
+		var data, options;
+
+		// headline charts
+		data = {
+			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+			series: [
+				[23, 29, 24, 40, 25, 24, 35],
+				[14, 25, 18, 34, 29, 38, 44],
+			]
+		};
+
+		options = {
+			height: 300,
+			showArea: true,
+			showLine: false,
+			showPoint: false,
+			fullWidth: true,
+			axisX: {
+				showGrid: false
+			},
+			lineSmooth: false,
+		};
+
+		new Chartist.Line('#headline-chart', data, options);
+
+
+		// visits trend charts
+		data = {
+			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+			series: [{
+				name: 'series-real',
+				data: [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
+			}, {
+				name: 'series-projection',
+				data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
+			}]
+		};
+
+		options = {
+			fullWidth: true,
+			lineSmooth: false,
+			height: "270px",
+			low: 0,
+			high: 'auto',
+			series: {
+				'series-projection': {
+					showArea: true,
+					showPoint: false,
+					showLine: false
+				},
+			},
+			axisX: {
+				showGrid: false,
+
+			},
+			axisY: {
+				showGrid: false,
+				onlyInteger: true,
+				offset: 0,
+			},
+			chartPadding: {
+				left: 20,
+				right: 20
+			}
+		};
+
+		new Chartist.Line('#visits-trends-chart', data, options);
+
+
+		// visits chart
+		data = {
+			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+			series: [
+				[6384, 6342, 5437, 2764, 3958, 5068, 7654]
+			]
+		};
+
+		options = {
+			height: 300,
+			axisX: {
+				showGrid: false
+			},
+		};
+
+		new Chartist.Bar('#visits-chart', data, options);
+
+
+		// real-time pie chart
+		var sysLoad = $('#system-load').easyPieChart({
+			size: 130,
+			barColor: function(percent) {
+				return "rgb(" + Math.round(200 * percent / 100) + ", " + Math.round(200 * (1.1 - percent / 100)) + ", 0)";
+			},
+			trackColor: 'rgba(245, 245, 245, 0.8)',
+			scaleColor: false,
+			lineWidth: 5,
+			lineCap: "square",
+			animate: 800
+		});
+
+		var updateInterval = 3000; // in milliseconds
+
+		setInterval(function() {
+			var randomVal;
+			randomVal = getRandomInt(0, 100);
+
+			sysLoad.data('easyPieChart').update(randomVal);
+			sysLoad.find('.percent').text(randomVal);
+		}, updateInterval);
+
+		function getRandomInt(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+	});
+	</script>
+</body>
+
+</html>
