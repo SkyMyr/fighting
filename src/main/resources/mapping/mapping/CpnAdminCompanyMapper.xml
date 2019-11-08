@@ -14,21 +14,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from "cpn_admin_company"
+    from cpn_admin_company
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from "cpn_admin_company"
+    delete from cpn_admin_company
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.CpnAdminCompany">
-    insert into "cpn_admin_company" (id, admin_id, company_id, 
+    insert into cpn_admin_company (id, admin_id, company_id, 
       status, create_at)
     values (#{id,jdbcType=BIGINT}, #{admin_id,jdbcType=BIGINT}, #{company_id,jdbcType=BIGINT}, 
       #{status,jdbcType=TINYINT}, #{create_at,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.CpnAdminCompany">
-    insert into "cpn_admin_company"
+    insert into cpn_admin_company
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -65,7 +65,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.CpnAdminCompany">
-    update "cpn_admin_company"
+    update cpn_admin_company
     <set>
       <if test="admin_id != null">
         admin_id = #{admin_id,jdbcType=BIGINT},
@@ -83,7 +83,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.CpnAdminCompany">
-    update "cpn_admin_company"
+    update cpn_admin_company
     set admin_id = #{admin_id,jdbcType=BIGINT},
       company_id = #{company_id,jdbcType=BIGINT},
       status = #{status,jdbcType=TINYINT},

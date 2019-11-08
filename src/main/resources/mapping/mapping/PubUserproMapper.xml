@@ -33,15 +33,15 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from "pub_userpro"
+    from pub_userpro
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from "pub_userpro"
+    delete from pub_userpro
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.PubUserpro">
-    insert into "pub_userpro" (id, third_type, third_uid, 
+    insert into pub_userpro (id, third_type, third_uid, 
       mobile, email, header_img, 
       gender, birthday, nick_name, 
       first_name, middle_name, last_name, 
@@ -59,7 +59,7 @@
       #{update_at,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.PubUserpro">
-    insert into "pub_userpro"
+    insert into pub_userpro
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -198,7 +198,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubUserpro">
-    update "pub_userpro"
+    update pub_userpro
     <set>
       <if test="third_type != null">
         third_type = #{third_type,jdbcType=SMALLINT},
@@ -267,7 +267,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubUserpro">
-    update "pub_userpro"
+    update pub_userpro
     set third_type = #{third_type,jdbcType=SMALLINT},
       third_uid = #{third_uid,jdbcType=VARCHAR},
       mobile = #{mobile,jdbcType=VARCHAR},

@@ -42,15 +42,15 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from "pub_appr"
+    from pub_appr
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from "pub_appr"
+    delete from pub_appr
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.PubAppr">
-    insert into "pub_appr" (id, title, custom_service_type, 
+    insert into pub_appr (id, title, custom_service_type, 
       service_type, service_time, bigevent_id, 
       occur_at, content, address, 
       longitude, latitude, country_id, 
@@ -74,7 +74,7 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.PubAppr">
-    insert into "pub_appr"
+    insert into pub_appr
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -261,7 +261,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubAppr">
-    update "pub_appr"
+    update pub_appr
     <set>
       <if test="title != null">
         title = #{title,jdbcType=VARCHAR},
@@ -354,7 +354,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubAppr">
-    update "pub_appr"
+    update pub_appr
     set title = #{title,jdbcType=VARCHAR},
       custom_service_type = #{custom_service_type,jdbcType=VARCHAR},
       service_type = #{service_type,jdbcType=INTEGER},

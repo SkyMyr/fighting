@@ -23,15 +23,15 @@
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
-    from "pub_medal"
+    from pub_medal
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from "pub_medal"
+    delete from pub_medal
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.PubMedal">
-    insert into "pub_medal" (id, grant_to, medal_type, 
+    insert into pub_medal (id, grant_to, medal_type, 
       donate_fee, grant_at, status, 
       grant_desc)
     values (#{id,jdbcType=INTEGER}, #{grant_to,jdbcType=BIGINT}, #{medal_type,jdbcType=SMALLINT}, 
@@ -39,7 +39,7 @@
       #{grant_desc,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.PubMedal">
-    insert into "pub_medal"
+    insert into pub_medal
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -88,7 +88,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubMedal">
-    update "pub_medal"
+    update pub_medal
     <set>
       <if test="grant_to != null">
         grant_to = #{grant_to,jdbcType=BIGINT},
@@ -112,7 +112,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.qcby.entity.PubMedal">
-    update "pub_medal"
+    update pub_medal
     set grant_to = #{grant_to,jdbcType=BIGINT},
       medal_type = #{medal_type,jdbcType=SMALLINT},
       donate_fee = #{donate_fee,jdbcType=BIGINT},
@@ -122,7 +122,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubMedal">
-    update "pub_medal"
+    update pub_medal
     set grant_to = #{grant_to,jdbcType=BIGINT},
       medal_type = #{medal_type,jdbcType=SMALLINT},
       donate_fee = #{donate_fee,jdbcType=BIGINT},

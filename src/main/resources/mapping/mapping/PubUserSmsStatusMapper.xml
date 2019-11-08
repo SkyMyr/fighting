@@ -12,21 +12,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from "pub_user_sms_status"
+    from pub_user_sms_status
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from "pub_user_sms_status"
+    delete from pub_user_sms_status
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.PubUserSmsStatus">
-    insert into "pub_user_sms_status" (id, mobile, status
+    insert into pub_user_sms_status (id, mobile, status
       )
     values (#{id,jdbcType=BIGINT}, #{mobile,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.PubUserSmsStatus">
-    insert into "pub_user_sms_status"
+    insert into pub_user_sms_status
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -51,7 +51,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubUserSmsStatus">
-    update "pub_user_sms_status"
+    update pub_user_sms_status
     <set>
       <if test="mobile != null">
         mobile = #{mobile,jdbcType=VARCHAR},
@@ -63,7 +63,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubUserSmsStatus">
-    update "pub_user_sms_status"
+    update pub_user_sms_status
     set mobile = #{mobile,jdbcType=VARCHAR},
       status = #{status,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}

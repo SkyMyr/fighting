@@ -13,21 +13,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from "pub_appr_data"
+    from pub_appr_data
     where user_id = #{user_id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from "pub_appr_data"
+    delete from pub_appr_data
     where user_id = #{user_id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.PubApprData">
-    insert into "pub_appr_data" (user_id, like_number, comment_number, 
+    insert into pub_appr_data (user_id, like_number, comment_number, 
       update_at)
     values (#{user_id,jdbcType=BIGINT}, #{like_number,jdbcType=BIGINT}, #{comment_number,jdbcType=BIGINT}, 
       #{update_at,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.PubApprData">
-    insert into "pub_appr_data"
+    insert into pub_appr_data
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="user_id != null">
         user_id,
@@ -58,7 +58,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubApprData">
-    update "pub_appr_data"
+    update pub_appr_data
     <set>
       <if test="like_number != null">
         like_number = #{like_number,jdbcType=BIGINT},
@@ -73,7 +73,7 @@
     where user_id = #{user_id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubApprData">
-    update "pub_appr_data"
+    update pub_appr_data
     set like_number = #{like_number,jdbcType=BIGINT},
       comment_number = #{comment_number,jdbcType=BIGINT},
       update_at = #{update_at,jdbcType=BIGINT}

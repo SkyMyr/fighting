@@ -13,21 +13,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from "pub_feedback"
+    from pub_feedback
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from "pub_feedback"
+    delete from pub_feedback
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.PubFeedback">
-    insert into "pub_feedback" (id, content, user_id, 
+    insert into pub_feedback (id, content, user_id, 
       create_at)
     values (#{id,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}, #{user_id,jdbcType=BIGINT}, 
       #{create_at,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.PubFeedback">
-    insert into "pub_feedback"
+    insert into pub_feedback
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -58,7 +58,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubFeedback">
-    update "pub_feedback"
+    update pub_feedback
     <set>
       <if test="content != null">
         content = #{content,jdbcType=VARCHAR},
@@ -73,7 +73,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubFeedback">
-    update "pub_feedback"
+    update pub_feedback
     set content = #{content,jdbcType=VARCHAR},
       user_id = #{user_id,jdbcType=BIGINT},
       create_at = #{create_at,jdbcType=BIGINT}

@@ -20,15 +20,15 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from "cpn_user_department"
+    from cpn_user_department
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from "cpn_user_department"
+    delete from cpn_user_department
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.CpnUserDepartment">
-    insert into "cpn_user_department" (id, department_id, status, 
+    insert into cpn_user_department (id, department_id, status, 
       create_at, update_at, mobile, 
       user_name, email, sms_status, 
       gender)
@@ -38,7 +38,7 @@
       #{gender,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.CpnUserDepartment">
-    insert into "cpn_user_department"
+    insert into cpn_user_department
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -105,7 +105,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.CpnUserDepartment">
-    update "cpn_user_department"
+    update cpn_user_department
     <set>
       <if test="department_id != null">
         department_id = #{department_id,jdbcType=BIGINT},
@@ -138,7 +138,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.CpnUserDepartment">
-    update "cpn_user_department"
+    update cpn_user_department
     set department_id = #{department_id,jdbcType=BIGINT},
       status = #{status,jdbcType=TINYINT},
       create_at = #{create_at,jdbcType=BIGINT},

@@ -30,15 +30,15 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from "cpn_admin"
+    from cpn_admin
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from "cpn_admin"
+    delete from cpn_admin
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.CpnAdmin">
-    insert into "cpn_admin" (id, address, mobile, 
+    insert into cpn_admin (id, address, mobile, 
       password, coupon_code, gender, 
       login_name, type, status, 
       create_at, update_at, last_login_at, 
@@ -54,7 +54,7 @@
       #{url,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.CpnAdmin">
-    insert into "cpn_admin"
+    insert into cpn_admin
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -175,7 +175,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.CpnAdmin">
-    update "cpn_admin"
+    update cpn_admin
     <set>
       <if test="address != null">
         address = #{address,jdbcType=VARCHAR},
@@ -235,7 +235,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.CpnAdmin">
-    update "cpn_admin"
+    update cpn_admin
     set address = #{address,jdbcType=VARCHAR},
       mobile = #{mobile,jdbcType=VARCHAR},
       password = #{password,jdbcType=CHAR},

@@ -20,15 +20,15 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from "pub_appr_img"
+    from pub_appr_img
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from "pub_appr_img"
+    delete from pub_appr_img
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.PubApprImg">
-    insert into "pub_appr_img" (id, appr_id, type, 
+    insert into pub_appr_img (id, appr_id, type, 
       store_type, aliyun_videoId, aliyun_imgurl, 
       url, size, create_by, 
       create_at)
@@ -38,7 +38,7 @@
       #{create_at,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.PubApprImg">
-    insert into "pub_appr_img"
+    insert into pub_appr_img
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -105,7 +105,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubApprImg">
-    update "pub_appr_img"
+    update pub_appr_img
     <set>
       <if test="appr_id != null">
         appr_id = #{appr_id,jdbcType=BIGINT},
@@ -138,7 +138,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubApprImg">
-    update "pub_appr_img"
+    update pub_appr_img
     set appr_id = #{appr_id,jdbcType=BIGINT},
       type = #{type,jdbcType=SMALLINT},
       store_type = #{store_type,jdbcType=SMALLINT},
