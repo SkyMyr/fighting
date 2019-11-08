@@ -1,24 +1,17 @@
 package com.qcby.controller;
 
-import com.qcby.dao.BlogMapper;
-import com.qcby.dao.UserMapper;
 import com.qcby.entity.Account;
 import com.qcby.entity.Blog;
 import com.qcby.entity.User;
 import com.qcby.service.BlogService;
 import com.qcby.util.CacheUtil;
 import com.qcby.util.JwtUtil;
-import com.qcby.util.SnowflakeIdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import sun.text.resources.cldr.id.FormatData_id;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;

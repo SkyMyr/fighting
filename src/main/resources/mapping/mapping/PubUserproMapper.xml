@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcby.dao.PubUserproMapper">
+  <resultMap id="BaseResultMap" type="com.qcby.entity.PubUserpro">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="third_type" jdbcType="SMALLINT" property="third_type" />
+    <result column="third_uid" jdbcType="VARCHAR" property="third_uid" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="header_img" jdbcType="CHAR" property="header_img" />
+    <result column="gender" jdbcType="SMALLINT" property="gender" />
+    <result column="birthday" jdbcType="BIGINT" property="birthday" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nick_name" />
+    <result column="first_name" jdbcType="VARCHAR" property="first_name" />
+    <result column="middle_name" jdbcType="VARCHAR" property="middle_name" />
+    <result column="last_name" jdbcType="VARCHAR" property="last_name" />
+    <result column="personal_description" jdbcType="VARCHAR" property="personal_description" />
+    <result column="country_id" jdbcType="INTEGER" property="country_id" />
+    <result column="province_id" jdbcType="INTEGER" property="province_id" />
+    <result column="city_id" jdbcType="INTEGER" property="city_id" />
+    <result column="country_name" jdbcType="VARCHAR" property="country_name" />
+    <result column="province_name" jdbcType="VARCHAR" property="province_name" />
+    <result column="city_name" jdbcType="VARCHAR" property="city_name" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="create_at" jdbcType="BIGINT" property="create_at" />
+    <result column="update_at" jdbcType="BIGINT" property="update_at" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, third_type, third_uid, mobile, email, header_img, gender, birthday, nick_name, 
+    first_name, middle_name, last_name, personal_description, country_id, province_id, 
+    city_id, country_name, province_name, city_name, address, create_at, update_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from "pub_userpro"
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from "pub_userpro"
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qcby.entity.PubUserpro">
+    insert into "pub_userpro" (id, third_type, third_uid, 
+      mobile, email, header_img, 
+      gender, birthday, nick_name, 
+      first_name, middle_name, last_name, 
+      personal_description, country_id, province_id, 
+      city_id, country_name, province_name, 
+      city_name, address, create_at, 
+      update_at)
+    values (#{id,jdbcType=BIGINT}, #{third_type,jdbcType=SMALLINT}, #{third_uid,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{header_img,jdbcType=CHAR}, 
+      #{gender,jdbcType=SMALLINT}, #{birthday,jdbcType=BIGINT}, #{nick_name,jdbcType=VARCHAR}, 
+      #{first_name,jdbcType=VARCHAR}, #{middle_name,jdbcType=VARCHAR}, #{last_name,jdbcType=VARCHAR}, 
+      #{personal_description,jdbcType=VARCHAR}, #{country_id,jdbcType=INTEGER}, #{province_id,jdbcType=INTEGER}, 
+      #{city_id,jdbcType=INTEGER}, #{country_name,jdbcType=VARCHAR}, #{province_name,jdbcType=VARCHAR}, 
+      #{city_name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{create_at,jdbcType=BIGINT}, 
+      #{update_at,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qcby.entity.PubUserpro">
+    insert into "pub_userpro"
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="third_type != null">
+        third_type,
+      </if>
+      <if test="third_uid != null">
+        third_uid,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="header_img != null">
+        header_img,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="nick_name != null">
+        nick_name,
+      </if>
+      <if test="first_name != null">
+        first_name,
+      </if>
+      <if test="middle_name != null">
+        middle_name,
+      </if>
+      <if test="last_name != null">
+        last_name,
+      </if>
+      <if test="personal_description != null">
+        personal_description,
+      </if>
+      <if test="country_id != null">
+        country_id,
+      </if>
+      <if test="province_id != null">
+        province_id,
+      </if>
+      <if test="city_id != null">
+        city_id,
+      </if>
+      <if test="country_name != null">
+        country_name,
+      </if>
+      <if test="province_name != null">
+        province_name,
+      </if>
+      <if test="city_name != null">
+        city_name,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="create_at != null">
+        create_at,
+      </if>
+      <if test="update_at != null">
+        update_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="third_type != null">
+        #{third_type,jdbcType=SMALLINT},
+      </if>
+      <if test="third_uid != null">
+        #{third_uid,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="header_img != null">
+        #{header_img,jdbcType=CHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=SMALLINT},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="nick_name != null">
+        #{nick_name,jdbcType=VARCHAR},
+      </if>
+      <if test="first_name != null">
+        #{first_name,jdbcType=VARCHAR},
+      </if>
+      <if test="middle_name != null">
+        #{middle_name,jdbcType=VARCHAR},
+      </if>
+      <if test="last_name != null">
+        #{last_name,jdbcType=VARCHAR},
+      </if>
+      <if test="personal_description != null">
+        #{personal_description,jdbcType=VARCHAR},
+      </if>
+      <if test="country_id != null">
+        #{country_id,jdbcType=INTEGER},
+      </if>
+      <if test="province_id != null">
+        #{province_id,jdbcType=INTEGER},
+      </if>
+      <if test="city_id != null">
+        #{city_id,jdbcType=INTEGER},
+      </if>
+      <if test="country_name != null">
+        #{country_name,jdbcType=VARCHAR},
+      </if>
+      <if test="province_name != null">
+        #{province_name,jdbcType=VARCHAR},
+      </if>
+      <if test="city_name != null">
+        #{city_name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="create_at != null">
+        #{create_at,jdbcType=BIGINT},
+      </if>
+      <if test="update_at != null">
+        #{update_at,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubUserpro">
+    update "pub_userpro"
+    <set>
+      <if test="third_type != null">
+        third_type = #{third_type,jdbcType=SMALLINT},
+      </if>
+      <if test="third_uid != null">
+        third_uid = #{third_uid,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="header_img != null">
+        header_img = #{header_img,jdbcType=CHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=SMALLINT},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="nick_name != null">
+        nick_name = #{nick_name,jdbcType=VARCHAR},
+      </if>
+      <if test="first_name != null">
+        first_name = #{first_name,jdbcType=VARCHAR},
+      </if>
+      <if test="middle_name != null">
+        middle_name = #{middle_name,jdbcType=VARCHAR},
+      </if>
+      <if test="last_name != null">
+        last_name = #{last_name,jdbcType=VARCHAR},
+      </if>
+      <if test="personal_description != null">
+        personal_description = #{personal_description,jdbcType=VARCHAR},
+      </if>
+      <if test="country_id != null">
+        country_id = #{country_id,jdbcType=INTEGER},
+      </if>
+      <if test="province_id != null">
+        province_id = #{province_id,jdbcType=INTEGER},
+      </if>
+      <if test="city_id != null">
+        city_id = #{city_id,jdbcType=INTEGER},
+      </if>
+      <if test="country_name != null">
+        country_name = #{country_name,jdbcType=VARCHAR},
+      </if>
+      <if test="province_name != null">
+        province_name = #{province_name,jdbcType=VARCHAR},
+      </if>
+      <if test="city_name != null">
+        city_name = #{city_name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="create_at != null">
+        create_at = #{create_at,jdbcType=BIGINT},
+      </if>
+      <if test="update_at != null">
+        update_at = #{update_at,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubUserpro">
+    update "pub_userpro"
+    set third_type = #{third_type,jdbcType=SMALLINT},
+      third_uid = #{third_uid,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      header_img = #{header_img,jdbcType=CHAR},
+      gender = #{gender,jdbcType=SMALLINT},
+      birthday = #{birthday,jdbcType=BIGINT},
+      nick_name = #{nick_name,jdbcType=VARCHAR},
+      first_name = #{first_name,jdbcType=VARCHAR},
+      middle_name = #{middle_name,jdbcType=VARCHAR},
+      last_name = #{last_name,jdbcType=VARCHAR},
+      personal_description = #{personal_description,jdbcType=VARCHAR},
+      country_id = #{country_id,jdbcType=INTEGER},
+      province_id = #{province_id,jdbcType=INTEGER},
+      city_id = #{city_id,jdbcType=INTEGER},
+      country_name = #{country_name,jdbcType=VARCHAR},
+      province_name = #{province_name,jdbcType=VARCHAR},
+      city_name = #{city_name,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      create_at = #{create_at,jdbcType=BIGINT},
+      update_at = #{update_at,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

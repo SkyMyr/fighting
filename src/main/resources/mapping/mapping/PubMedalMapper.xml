@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcby.dao.PubMedalMapper">
+  <resultMap id="BaseResultMap" type="com.qcby.entity.PubMedal">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="grant_to" jdbcType="BIGINT" property="grant_to" />
+    <result column="medal_type" jdbcType="SMALLINT" property="medal_type" />
+    <result column="donate_fee" jdbcType="BIGINT" property="donate_fee" />
+    <result column="grant_at" jdbcType="BIGINT" property="grant_at" />
+    <result column="status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.qcby.entity.PubMedal">
+    <result column="grant_desc" jdbcType="LONGVARCHAR" property="grant_desc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, grant_to, medal_type, donate_fee, grant_at, status
+  </sql>
+  <sql id="Blob_Column_List">
+    grant_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from "pub_medal"
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from "pub_medal"
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qcby.entity.PubMedal">
+    insert into "pub_medal" (id, grant_to, medal_type, 
+      donate_fee, grant_at, status, 
+      grant_desc)
+    values (#{id,jdbcType=INTEGER}, #{grant_to,jdbcType=BIGINT}, #{medal_type,jdbcType=SMALLINT}, 
+      #{donate_fee,jdbcType=BIGINT}, #{grant_at,jdbcType=BIGINT}, #{status,jdbcType=SMALLINT}, 
+      #{grant_desc,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qcby.entity.PubMedal">
+    insert into "pub_medal"
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="grant_to != null">
+        grant_to,
+      </if>
+      <if test="medal_type != null">
+        medal_type,
+      </if>
+      <if test="donate_fee != null">
+        donate_fee,
+      </if>
+      <if test="grant_at != null">
+        grant_at,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="grant_desc != null">
+        grant_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="grant_to != null">
+        #{grant_to,jdbcType=BIGINT},
+      </if>
+      <if test="medal_type != null">
+        #{medal_type,jdbcType=SMALLINT},
+      </if>
+      <if test="donate_fee != null">
+        #{donate_fee,jdbcType=BIGINT},
+      </if>
+      <if test="grant_at != null">
+        #{grant_at,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="grant_desc != null">
+        #{grant_desc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubMedal">
+    update "pub_medal"
+    <set>
+      <if test="grant_to != null">
+        grant_to = #{grant_to,jdbcType=BIGINT},
+      </if>
+      <if test="medal_type != null">
+        medal_type = #{medal_type,jdbcType=SMALLINT},
+      </if>
+      <if test="donate_fee != null">
+        donate_fee = #{donate_fee,jdbcType=BIGINT},
+      </if>
+      <if test="grant_at != null">
+        grant_at = #{grant_at,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="grant_desc != null">
+        grant_desc = #{grant_desc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.qcby.entity.PubMedal">
+    update "pub_medal"
+    set grant_to = #{grant_to,jdbcType=BIGINT},
+      medal_type = #{medal_type,jdbcType=SMALLINT},
+      donate_fee = #{donate_fee,jdbcType=BIGINT},
+      grant_at = #{grant_at,jdbcType=BIGINT},
+      status = #{status,jdbcType=SMALLINT},
+      grant_desc = #{grant_desc,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubMedal">
+    update "pub_medal"
+    set grant_to = #{grant_to,jdbcType=BIGINT},
+      medal_type = #{medal_type,jdbcType=SMALLINT},
+      donate_fee = #{donate_fee,jdbcType=BIGINT},
+      grant_at = #{grant_at,jdbcType=BIGINT},
+      status = #{status,jdbcType=SMALLINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

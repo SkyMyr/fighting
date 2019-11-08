@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcby.dao.PubApprMapper">
+  <resultMap id="BaseResultMap" type="com.qcby.entity.PubAppr">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="custom_service_type" jdbcType="VARCHAR" property="custom_service_type" />
+    <result column="service_type" jdbcType="INTEGER" property="service_type" />
+    <result column="service_time" jdbcType="INTEGER" property="service_time" />
+    <result column="bigevent_id" jdbcType="BIGINT" property="bigevent_id" />
+    <result column="occur_at" jdbcType="BIGINT" property="occur_at" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="longitude" jdbcType="DECIMAL" property="longitude" />
+    <result column="latitude" jdbcType="DECIMAL" property="latitude" />
+    <result column="country_id" jdbcType="INTEGER" property="country_id" />
+    <result column="province_id" jdbcType="INTEGER" property="province_id" />
+    <result column="city_id" jdbcType="INTEGER" property="city_id" />
+    <result column="type" jdbcType="SMALLINT" property="type" />
+    <result column="person_type" jdbcType="SMALLINT" property="person_type" />
+    <result column="helpers" jdbcType="VARCHAR" property="helpers" />
+    <result column="helpees" jdbcType="VARCHAR" property="helpees" />
+    <result column="country_code" jdbcType="VARCHAR" property="country_code" />
+    <result column="sn" jdbcType="VARCHAR" property="sn" />
+    <result column="showed" jdbcType="SMALLINT" property="showed" />
+    <result column="opened" jdbcType="SMALLINT" property="opened" />
+    <result column="finished" jdbcType="SMALLINT" property="finished" />
+    <result column="deleted" jdbcType="SMALLINT" property="deleted" />
+    <result column="reported" jdbcType="SMALLINT" property="reported" />
+    <result column="credited" jdbcType="SMALLINT" property="credited" />
+    <result column="pubresult" jdbcType="SMALLINT" property="pubresult" />
+    <result column="create_by" jdbcType="BIGINT" property="create_by" />
+    <result column="create_at" jdbcType="BIGINT" property="create_at" />
+    <result column="update_at" jdbcType="BIGINT" property="update_at" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, title, custom_service_type, service_type, service_time, bigevent_id, occur_at, 
+    content, address, longitude, latitude, country_id, province_id, city_id, type, person_type, 
+    helpers, helpees, country_code, sn, showed, opened, finished, deleted, reported, 
+    credited, pubresult, create_by, create_at, update_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from "pub_appr"
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from "pub_appr"
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qcby.entity.PubAppr">
+    insert into "pub_appr" (id, title, custom_service_type, 
+      service_type, service_time, bigevent_id, 
+      occur_at, content, address, 
+      longitude, latitude, country_id, 
+      province_id, city_id, type, 
+      person_type, helpers, helpees, 
+      country_code, sn, showed, 
+      opened, finished, deleted, 
+      reported, credited, pubresult, 
+      create_by, create_at, update_at
+      )
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{custom_service_type,jdbcType=VARCHAR}, 
+      #{service_type,jdbcType=INTEGER}, #{service_time,jdbcType=INTEGER}, #{bigevent_id,jdbcType=BIGINT}, 
+      #{occur_at,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{longitude,jdbcType=DECIMAL}, #{latitude,jdbcType=DECIMAL}, #{country_id,jdbcType=INTEGER}, 
+      #{province_id,jdbcType=INTEGER}, #{city_id,jdbcType=INTEGER}, #{type,jdbcType=SMALLINT}, 
+      #{person_type,jdbcType=SMALLINT}, #{helpers,jdbcType=VARCHAR}, #{helpees,jdbcType=VARCHAR}, 
+      #{country_code,jdbcType=VARCHAR}, #{sn,jdbcType=VARCHAR}, #{showed,jdbcType=SMALLINT}, 
+      #{opened,jdbcType=SMALLINT}, #{finished,jdbcType=SMALLINT}, #{deleted,jdbcType=SMALLINT}, 
+      #{reported,jdbcType=SMALLINT}, #{credited,jdbcType=SMALLINT}, #{pubresult,jdbcType=SMALLINT}, 
+      #{create_by,jdbcType=BIGINT}, #{create_at,jdbcType=BIGINT}, #{update_at,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qcby.entity.PubAppr">
+    insert into "pub_appr"
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="custom_service_type != null">
+        custom_service_type,
+      </if>
+      <if test="service_type != null">
+        service_type,
+      </if>
+      <if test="service_time != null">
+        service_time,
+      </if>
+      <if test="bigevent_id != null">
+        bigevent_id,
+      </if>
+      <if test="occur_at != null">
+        occur_at,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="country_id != null">
+        country_id,
+      </if>
+      <if test="province_id != null">
+        province_id,
+      </if>
+      <if test="city_id != null">
+        city_id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="person_type != null">
+        person_type,
+      </if>
+      <if test="helpers != null">
+        helpers,
+      </if>
+      <if test="helpees != null">
+        helpees,
+      </if>
+      <if test="country_code != null">
+        country_code,
+      </if>
+      <if test="sn != null">
+        sn,
+      </if>
+      <if test="showed != null">
+        showed,
+      </if>
+      <if test="opened != null">
+        opened,
+      </if>
+      <if test="finished != null">
+        finished,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+      <if test="reported != null">
+        reported,
+      </if>
+      <if test="credited != null">
+        credited,
+      </if>
+      <if test="pubresult != null">
+        pubresult,
+      </if>
+      <if test="create_by != null">
+        create_by,
+      </if>
+      <if test="create_at != null">
+        create_at,
+      </if>
+      <if test="update_at != null">
+        update_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="custom_service_type != null">
+        #{custom_service_type,jdbcType=VARCHAR},
+      </if>
+      <if test="service_type != null">
+        #{service_type,jdbcType=INTEGER},
+      </if>
+      <if test="service_time != null">
+        #{service_time,jdbcType=INTEGER},
+      </if>
+      <if test="bigevent_id != null">
+        #{bigevent_id,jdbcType=BIGINT},
+      </if>
+      <if test="occur_at != null">
+        #{occur_at,jdbcType=BIGINT},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=DECIMAL},
+      </if>
+      <if test="country_id != null">
+        #{country_id,jdbcType=INTEGER},
+      </if>
+      <if test="province_id != null">
+        #{province_id,jdbcType=INTEGER},
+      </if>
+      <if test="city_id != null">
+        #{city_id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="person_type != null">
+        #{person_type,jdbcType=SMALLINT},
+      </if>
+      <if test="helpers != null">
+        #{helpers,jdbcType=VARCHAR},
+      </if>
+      <if test="helpees != null">
+        #{helpees,jdbcType=VARCHAR},
+      </if>
+      <if test="country_code != null">
+        #{country_code,jdbcType=VARCHAR},
+      </if>
+      <if test="sn != null">
+        #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="showed != null">
+        #{showed,jdbcType=SMALLINT},
+      </if>
+      <if test="opened != null">
+        #{opened,jdbcType=SMALLINT},
+      </if>
+      <if test="finished != null">
+        #{finished,jdbcType=SMALLINT},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=SMALLINT},
+      </if>
+      <if test="reported != null">
+        #{reported,jdbcType=SMALLINT},
+      </if>
+      <if test="credited != null">
+        #{credited,jdbcType=SMALLINT},
+      </if>
+      <if test="pubresult != null">
+        #{pubresult,jdbcType=SMALLINT},
+      </if>
+      <if test="create_by != null">
+        #{create_by,jdbcType=BIGINT},
+      </if>
+      <if test="create_at != null">
+        #{create_at,jdbcType=BIGINT},
+      </if>
+      <if test="update_at != null">
+        #{update_at,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubAppr">
+    update "pub_appr"
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="custom_service_type != null">
+        custom_service_type = #{custom_service_type,jdbcType=VARCHAR},
+      </if>
+      <if test="service_type != null">
+        service_type = #{service_type,jdbcType=INTEGER},
+      </if>
+      <if test="service_time != null">
+        service_time = #{service_time,jdbcType=INTEGER},
+      </if>
+      <if test="bigevent_id != null">
+        bigevent_id = #{bigevent_id,jdbcType=BIGINT},
+      </if>
+      <if test="occur_at != null">
+        occur_at = #{occur_at,jdbcType=BIGINT},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=DECIMAL},
+      </if>
+      <if test="country_id != null">
+        country_id = #{country_id,jdbcType=INTEGER},
+      </if>
+      <if test="province_id != null">
+        province_id = #{province_id,jdbcType=INTEGER},
+      </if>
+      <if test="city_id != null">
+        city_id = #{city_id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="person_type != null">
+        person_type = #{person_type,jdbcType=SMALLINT},
+      </if>
+      <if test="helpers != null">
+        helpers = #{helpers,jdbcType=VARCHAR},
+      </if>
+      <if test="helpees != null">
+        helpees = #{helpees,jdbcType=VARCHAR},
+      </if>
+      <if test="country_code != null">
+        country_code = #{country_code,jdbcType=VARCHAR},
+      </if>
+      <if test="sn != null">
+        sn = #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="showed != null">
+        showed = #{showed,jdbcType=SMALLINT},
+      </if>
+      <if test="opened != null">
+        opened = #{opened,jdbcType=SMALLINT},
+      </if>
+      <if test="finished != null">
+        finished = #{finished,jdbcType=SMALLINT},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=SMALLINT},
+      </if>
+      <if test="reported != null">
+        reported = #{reported,jdbcType=SMALLINT},
+      </if>
+      <if test="credited != null">
+        credited = #{credited,jdbcType=SMALLINT},
+      </if>
+      <if test="pubresult != null">
+        pubresult = #{pubresult,jdbcType=SMALLINT},
+      </if>
+      <if test="create_by != null">
+        create_by = #{create_by,jdbcType=BIGINT},
+      </if>
+      <if test="create_at != null">
+        create_at = #{create_at,jdbcType=BIGINT},
+      </if>
+      <if test="update_at != null">
+        update_at = #{update_at,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubAppr">
+    update "pub_appr"
+    set title = #{title,jdbcType=VARCHAR},
+      custom_service_type = #{custom_service_type,jdbcType=VARCHAR},
+      service_type = #{service_type,jdbcType=INTEGER},
+      service_time = #{service_time,jdbcType=INTEGER},
+      bigevent_id = #{bigevent_id,jdbcType=BIGINT},
+      occur_at = #{occur_at,jdbcType=BIGINT},
+      content = #{content,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=DECIMAL},
+      latitude = #{latitude,jdbcType=DECIMAL},
+      country_id = #{country_id,jdbcType=INTEGER},
+      province_id = #{province_id,jdbcType=INTEGER},
+      city_id = #{city_id,jdbcType=INTEGER},
+      type = #{type,jdbcType=SMALLINT},
+      person_type = #{person_type,jdbcType=SMALLINT},
+      helpers = #{helpers,jdbcType=VARCHAR},
+      helpees = #{helpees,jdbcType=VARCHAR},
+      country_code = #{country_code,jdbcType=VARCHAR},
+      sn = #{sn,jdbcType=VARCHAR},
+      showed = #{showed,jdbcType=SMALLINT},
+      opened = #{opened,jdbcType=SMALLINT},
+      finished = #{finished,jdbcType=SMALLINT},
+      deleted = #{deleted,jdbcType=SMALLINT},
+      reported = #{reported,jdbcType=SMALLINT},
+      credited = #{credited,jdbcType=SMALLINT},
+      pubresult = #{pubresult,jdbcType=SMALLINT},
+      create_by = #{create_by,jdbcType=BIGINT},
+      create_at = #{create_at,jdbcType=BIGINT},
+      update_at = #{update_at,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

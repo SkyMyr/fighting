@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcby.dao.CpnAdminMapper">
+  <resultMap id="BaseResultMap" type="com.qcby.entity.CpnAdmin">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="CHAR" property="password" />
+    <result column="coupon_code" jdbcType="VARCHAR" property="coupon_code" />
+    <result column="gender" jdbcType="SMALLINT" property="gender" />
+    <result column="login_name" jdbcType="VARCHAR" property="login_name" />
+    <result column="type" jdbcType="SMALLINT" property="type" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="create_at" jdbcType="BIGINT" property="create_at" />
+    <result column="update_at" jdbcType="BIGINT" property="update_at" />
+    <result column="last_login_at" jdbcType="BIGINT" property="last_login_at" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="parent_id" jdbcType="BIGINT" property="parent_id" />
+    <result column="begin_date" jdbcType="BIGINT" property="begin_date" />
+    <result column="end_date" jdbcType="BIGINT" property="end_date" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, address, mobile, password, coupon_code, gender, login_name, type, status, create_at, 
+    update_at, last_login_at, country, province, city, parent_id, begin_date, end_date, 
+    url
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from "cpn_admin"
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from "cpn_admin"
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qcby.entity.CpnAdmin">
+    insert into "cpn_admin" (id, address, mobile, 
+      password, coupon_code, gender, 
+      login_name, type, status, 
+      create_at, update_at, last_login_at, 
+      country, province, city, 
+      parent_id, begin_date, end_date, 
+      url)
+    values (#{id,jdbcType=BIGINT}, #{address,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{password,jdbcType=CHAR}, #{coupon_code,jdbcType=VARCHAR}, #{gender,jdbcType=SMALLINT}, 
+      #{login_name,jdbcType=VARCHAR}, #{type,jdbcType=SMALLINT}, #{status,jdbcType=TINYINT}, 
+      #{create_at,jdbcType=BIGINT}, #{update_at,jdbcType=BIGINT}, #{last_login_at,jdbcType=BIGINT}, 
+      #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{parent_id,jdbcType=BIGINT}, #{begin_date,jdbcType=BIGINT}, #{end_date,jdbcType=BIGINT}, 
+      #{url,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qcby.entity.CpnAdmin">
+    insert into "cpn_admin"
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="coupon_code != null">
+        coupon_code,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="login_name != null">
+        login_name,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="create_at != null">
+        create_at,
+      </if>
+      <if test="update_at != null">
+        update_at,
+      </if>
+      <if test="last_login_at != null">
+        last_login_at,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="parent_id != null">
+        parent_id,
+      </if>
+      <if test="begin_date != null">
+        begin_date,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=CHAR},
+      </if>
+      <if test="coupon_code != null">
+        #{coupon_code,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=SMALLINT},
+      </if>
+      <if test="login_name != null">
+        #{login_name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="create_at != null">
+        #{create_at,jdbcType=BIGINT},
+      </if>
+      <if test="update_at != null">
+        #{update_at,jdbcType=BIGINT},
+      </if>
+      <if test="last_login_at != null">
+        #{last_login_at,jdbcType=BIGINT},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="parent_id != null">
+        #{parent_id,jdbcType=BIGINT},
+      </if>
+      <if test="begin_date != null">
+        #{begin_date,jdbcType=BIGINT},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=BIGINT},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.CpnAdmin">
+    update "cpn_admin"
+    <set>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=CHAR},
+      </if>
+      <if test="coupon_code != null">
+        coupon_code = #{coupon_code,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=SMALLINT},
+      </if>
+      <if test="login_name != null">
+        login_name = #{login_name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="create_at != null">
+        create_at = #{create_at,jdbcType=BIGINT},
+      </if>
+      <if test="update_at != null">
+        update_at = #{update_at,jdbcType=BIGINT},
+      </if>
+      <if test="last_login_at != null">
+        last_login_at = #{last_login_at,jdbcType=BIGINT},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="parent_id != null">
+        parent_id = #{parent_id,jdbcType=BIGINT},
+      </if>
+      <if test="begin_date != null">
+        begin_date = #{begin_date,jdbcType=BIGINT},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=BIGINT},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qcby.entity.CpnAdmin">
+    update "cpn_admin"
+    set address = #{address,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=CHAR},
+      coupon_code = #{coupon_code,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=SMALLINT},
+      login_name = #{login_name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=SMALLINT},
+      status = #{status,jdbcType=TINYINT},
+      create_at = #{create_at,jdbcType=BIGINT},
+      update_at = #{update_at,jdbcType=BIGINT},
+      last_login_at = #{last_login_at,jdbcType=BIGINT},
+      country = #{country,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      parent_id = #{parent_id,jdbcType=BIGINT},
+      begin_date = #{begin_date,jdbcType=BIGINT},
+      end_date = #{end_date,jdbcType=BIGINT},
+      url = #{url,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

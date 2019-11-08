@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcby.dao.CpnAdminCompanyMapper">
+  <resultMap id="BaseResultMap" type="com.qcby.entity.CpnAdminCompany">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="admin_id" jdbcType="BIGINT" property="admin_id" />
+    <result column="company_id" jdbcType="BIGINT" property="company_id" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="create_at" jdbcType="BIGINT" property="create_at" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, admin_id, company_id, status, create_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from "cpn_admin_company"
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from "cpn_admin_company"
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qcby.entity.CpnAdminCompany">
+    insert into "cpn_admin_company" (id, admin_id, company_id, 
+      status, create_at)
+    values (#{id,jdbcType=BIGINT}, #{admin_id,jdbcType=BIGINT}, #{company_id,jdbcType=BIGINT}, 
+      #{status,jdbcType=TINYINT}, #{create_at,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qcby.entity.CpnAdminCompany">
+    insert into "cpn_admin_company"
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="admin_id != null">
+        admin_id,
+      </if>
+      <if test="company_id != null">
+        company_id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="create_at != null">
+        create_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="admin_id != null">
+        #{admin_id,jdbcType=BIGINT},
+      </if>
+      <if test="company_id != null">
+        #{company_id,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="create_at != null">
+        #{create_at,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.CpnAdminCompany">
+    update "cpn_admin_company"
+    <set>
+      <if test="admin_id != null">
+        admin_id = #{admin_id,jdbcType=BIGINT},
+      </if>
+      <if test="company_id != null">
+        company_id = #{company_id,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="create_at != null">
+        create_at = #{create_at,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qcby.entity.CpnAdminCompany">
+    update "cpn_admin_company"
+    set admin_id = #{admin_id,jdbcType=BIGINT},
+      company_id = #{company_id,jdbcType=BIGINT},
+      status = #{status,jdbcType=TINYINT},
+      create_at = #{create_at,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

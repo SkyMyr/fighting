@@ -19,9 +19,9 @@
       <!--useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true"-->
       <!--数据库连接 -->
     <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                    connectionURL="jdbc:mysql://localhost:3306/qcby?useSSL=false"
+                    connectionURL="jdbc:mysql://101.37.24.226:3306/qcby?useSSL=false"
                     userId="root"
-                    password="myrQQ666">
+                    password="Root123!">
         <!--MySQL8反向生成需要加这个,否则生成错误会生成两遍-->
         <!--<property name="nullCatalogMeansCurrent"  value="true"></property>-->
     </jdbcConnection>
@@ -45,87 +45,77 @@
     </javaClientGenerator>
 
 <!--     对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等 -->
-      <table tableName="t_admin" domainObjectName="Admin" enableCountByExample="false"
+      <table tableName="cpn_admin" domainObjectName="CpnAdmin" enableCountByExample="false"
        enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
         delimitIdentifiers="true">
         <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_admin_company" domainObjectName="AdminCompany" enableCountByExample="false"
+      <table tableName="cpn_admin_company" domainObjectName="CpnAdminCompany" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_admin_school" domainObjectName="AdminSchool" enableCountByExample="false"
+      <table tableName="cpn_department" domainObjectName="CpnDepartment" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_admin_volunteer" domainObjectName="AdminVolunteer" enableCountByExample="false"
+      <table tableName="cpn_user_department" domainObjectName="CpnUserDepartment" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_bigevent_manager" domainObjectName="BigeventManager" enableCountByExample="false"
+      <table tableName="pub_appr" domainObjectName="PubAppr" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_bigevent_participant" domainObjectName="BigeventParticipant" enableCountByExample="false"
+      <table tableName="pub_appr_data" domainObjectName="PubApprData" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_class_assistant" domainObjectName="ClassAssistant" enableCountByExample="false"
+      <table tableName="pub_appr_img" domainObjectName="PubApprImg" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_feedback" domainObjectName="Feedback" enableCountByExample="false"
+      <table tableName="pub_appr_like" domainObjectName="PubApprLike" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_feedback_img" domainObjectName="FeedbackImg" enableCountByExample="false"
+      <table tableName="pub_appr_user_data" domainObjectName="PubApprUserData" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_org_assistant" domainObjectName="OrgAssistant" enableCountByExample="false"
+      <table tableName="pub_feedback" domainObjectName="PubFeedback" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_org_human_resources" domainObjectName="OrgHumanResources" enableCountByExample="false"
+      <table tableName="pub_feedback_img" domainObjectName="PubFeedbackImg" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_org_teacher" domainObjectName="OrgTeacher" enableCountByExample="false"
+      <table tableName="pub_medal" domainObjectName="PubMedal" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_org_volunteer" domainObjectName="OrgVolunteer" enableCountByExample="false"
+      <table tableName="pub_user" domainObjectName="PubUser" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_user_bigevent" domainObjectName="UserBigevent" enableCountByExample="false"
+      <table tableName="pub_userpro" domainObjectName="PubUserpro" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />
       </table>
-      <table tableName="t_user_class" domainObjectName="UserClass" enableCountByExample="false"
-             enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
-             delimitIdentifiers="true">
-          <property name="useActualColumnNames" value="true" />
-      </table>
-      <table tableName="t_user_department" domainObjectName="UserDepartment" enableCountByExample="false"
-             enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
-             delimitIdentifiers="true">
-          <property name="useActualColumnNames" value="true" />
-      </table>
-      <table tableName="t_user_sms_status" domainObjectName="UserSmsStatus" enableCountByExample="false"
+      <table tableName="pub_user_sms_status" domainObjectName="PubUserSmsStatus" enableCountByExample="false"
              enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
              delimitIdentifiers="true">
           <property name="useActualColumnNames" value="true" />

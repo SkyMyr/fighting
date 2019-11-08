@@ -1,6 +1,5 @@
 package com.qcby.service.Impl;
 
-import com.qcby.dao.BlogMapper;
 import com.qcby.entity.Blog;
 import com.qcby.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;

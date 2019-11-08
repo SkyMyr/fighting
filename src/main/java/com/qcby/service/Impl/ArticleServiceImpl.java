@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.qcby.dao.ArticleMapper;
 import com.qcby.entity.Article;
 import com.qcby.service.ArticleService;
 //Ctrl + i

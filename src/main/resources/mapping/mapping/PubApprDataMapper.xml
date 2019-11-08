@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcby.dao.PubApprDataMapper">
+  <resultMap id="BaseResultMap" type="com.qcby.entity.PubApprData">
+    <id column="user_id" jdbcType="BIGINT" property="user_id" />
+    <result column="like_number" jdbcType="BIGINT" property="like_number" />
+    <result column="comment_number" jdbcType="BIGINT" property="comment_number" />
+    <result column="update_at" jdbcType="BIGINT" property="update_at" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, like_number, comment_number, update_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from "pub_appr_data"
+    where user_id = #{user_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from "pub_appr_data"
+    where user_id = #{user_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qcby.entity.PubApprData">
+    insert into "pub_appr_data" (user_id, like_number, comment_number, 
+      update_at)
+    values (#{user_id,jdbcType=BIGINT}, #{like_number,jdbcType=BIGINT}, #{comment_number,jdbcType=BIGINT}, 
+      #{update_at,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qcby.entity.PubApprData">
+    insert into "pub_appr_data"
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="user_id != null">
+        user_id,
+      </if>
+      <if test="like_number != null">
+        like_number,
+      </if>
+      <if test="comment_number != null">
+        comment_number,
+      </if>
+      <if test="update_at != null">
+        update_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="user_id != null">
+        #{user_id,jdbcType=BIGINT},
+      </if>
+      <if test="like_number != null">
+        #{like_number,jdbcType=BIGINT},
+      </if>
+      <if test="comment_number != null">
+        #{comment_number,jdbcType=BIGINT},
+      </if>
+      <if test="update_at != null">
+        #{update_at,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubApprData">
+    update "pub_appr_data"
+    <set>
+      <if test="like_number != null">
+        like_number = #{like_number,jdbcType=BIGINT},
+      </if>
+      <if test="comment_number != null">
+        comment_number = #{comment_number,jdbcType=BIGINT},
+      </if>
+      <if test="update_at != null">
+        update_at = #{update_at,jdbcType=BIGINT},
+      </if>
+    </set>
+    where user_id = #{user_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubApprData">
+    update "pub_appr_data"
+    set like_number = #{like_number,jdbcType=BIGINT},
+      comment_number = #{comment_number,jdbcType=BIGINT},
+      update_at = #{update_at,jdbcType=BIGINT}
+    where user_id = #{user_id,jdbcType=BIGINT}
+  </update>
+</mapper>
