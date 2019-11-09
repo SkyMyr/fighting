@@ -22,6 +22,15 @@ public class Register {
     private String schoolName;
     private String college;//学院
     private String companyName;
+    private String code1;//短信验证码
+
+    public String getCode1() {
+        return code1;
+    }
+
+    public void setCode1(String code1) {
+        this.code1 = code1;
+    }
 
     public String getUrl() {
         return url;

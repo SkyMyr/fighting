@@ -38,7 +38,7 @@
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/jsp/"/><!-- 前缀 -->
-        <property name="suffix" value=".jsp"/><!-- 后缀 -->
+        <property name="suffix" value=""/><!-- 后缀 -->
     </bean>
 
     <!-- 4.扫描web相关的bean -->

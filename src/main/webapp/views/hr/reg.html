@@ -99,15 +99,16 @@ volnilcbsli 和iuoghuidfshihgupwsai策</p>
     var reg_code = $('#reg_code').val();
     var state = $('#state').val();
      $.ajax({
-          url: apihost+"/ssm/company/register",
+          url: apihost+"/ssm/company/regs",
           type: requesttype,
-          data:{companyName:username,url:weburl,countryName:nation,cityName:city,provinceName:province,address:address,loginName:nickname,mobile:phone,password:md5(password),couponCode:reg_code,type:2},
+          data:{companyName:username,url:weburl,countryName:nation,cityName:city,provinceName:province,
+              address:address,loginName:nickname,mobile:phone,password:password,code1:code,couponCode:reg_code,type:2},
           dataType: 'json',
           success: function (data) {
             console.log(data)
             if(data.code == 1){
                 alert(data.msg);
-                location.href="/hr/login.html";
+                location.href=apihost + "/ssm/views/hr/login.html";
             }else{
                 alert(data.msg);
                 location.href="/hr/reg.html";
@@ -122,14 +123,14 @@ volnilcbsli 和iuoghuidfshihgupwsai策</p>
     function sendCode(){
       var phone = $("#phone").val();
       $.ajax({
-          url: apihost+"/pub/other/pub/sendSmsCode",
+          url: apihost+"/ssm/company/sms",
           type: requesttype,
-          data:{mobile:phone},
+          data:{phoneNumbers:phone,code:'86'},
           dataType: 'json',
           success: function (data) {
             console.log(data)
             if(data.code == 1){
-                // alert(data.msg);
+                 alert(data.msg);
             }else{
                 // alert(data.msg);
                 location.href="/hr/reg.html";

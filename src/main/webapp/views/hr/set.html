@@ -502,6 +502,8 @@
                     url: host + "ssm/company/updateData"    ,
                     type: "post",
                     data:{
+                        code:code.val(),
+                        mobile:phone.val(),
                         company:username.val(),
                         url:weburl.val(),
                         loginName:nickname.val(),
@@ -517,7 +519,6 @@
                             alert(data.msg);
                         }else{
                             alert(data.msg);
-
                         }
                          location.href="/ssm/views/hr/index.html";
                     },

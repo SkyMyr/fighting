@@ -1,6 +1,7 @@
 package com.qcby.dao;
 
 import com.qcby.entity.CpnAdmin;
+import org.apache.ibatis.annotations.Param;
 
 public interface CpnAdminMapper {
     int deleteByPrimaryKey(Long id);
@@ -14,4 +15,6 @@ public interface CpnAdminMapper {
     int updateByPrimaryKeySelective(CpnAdmin record);
 
     int updateByPrimaryKey(CpnAdmin record);
+
+    CpnAdmin selectByLogin(@Param("login_name")String login_name, @Param("password")String password);
 }

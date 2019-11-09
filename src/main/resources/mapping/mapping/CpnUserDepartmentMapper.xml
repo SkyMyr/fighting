@@ -107,31 +107,31 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.CpnUserDepartment">
     update cpn_user_department
     <set>
-      <if test="department_id != null">
+      <if test="department_id != null and department_id != ''">
         department_id = #{department_id,jdbcType=BIGINT},
       </if>
-      <if test="status != null">
+      <if test="status != null and status != ''">
         status = #{status,jdbcType=TINYINT},
       </if>
-      <if test="create_at != null">
+      <if test="create_at != null and create_at != ''">
         create_at = #{create_at,jdbcType=BIGINT},
       </if>
-      <if test="update_at != null">
+      <if test="update_at != null and update_at != ''">
         update_at = #{update_at,jdbcType=BIGINT},
       </if>
-      <if test="mobile != null">
+      <if test="mobile != null and mobile != ''">
         mobile = #{mobile,jdbcType=VARCHAR},
       </if>
-      <if test="user_name != null">
+      <if test="user_name != null and user_name != ''">
         user_name = #{user_name,jdbcType=VARCHAR},
       </if>
-      <if test="email != null">
+      <if test="email != null and email != ''">
         email = #{email,jdbcType=VARCHAR},
       </if>
-      <if test="sms_status != null">
+      <if test="sms_status != null and sms_status != ''">
         sms_status = #{sms_status,jdbcType=TINYINT},
       </if>
-      <if test="gender != null">
+      <if test="gender != null and gender != ''">
         gender = #{gender,jdbcType=INTEGER},
       </if>
     </set>

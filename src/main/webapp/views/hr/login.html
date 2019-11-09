@@ -52,12 +52,14 @@
           dataType: 'json',
           success: function (data) {
              if(data.code == 1){
-            //     COOKIE.set("JSESSIONID",data.data.token);
+                 alert(data.msg);
+//                COOKIE.set("JSESSIONID",data.data.token);
 //                sessionStorage.setItem('token',data.data.token);
                 location.href="/ssm/views/hr/index.html";
             }else{
+                 alert(data.msg);
                 console.log('登录失败')
-                location.href="/hr/login.html";
+                location.href="/ssm/views/hr/login.html";
             }
           },
           error: function () {
