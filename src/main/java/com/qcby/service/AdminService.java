@@ -31,4 +31,11 @@ public interface AdminService {
      * @return
      */
     int updateByPrimaryKey(Admin record);
+
+    /**
+     * 更新密码
+     * @param record
+     * @return
+     */
+    int updatePwd(Admin record);
 }

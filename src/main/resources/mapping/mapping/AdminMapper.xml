@@ -268,4 +268,13 @@
     from t_admin
     where password = #{password,jdbcType=VARCHAR} and login_name = #{login_name,jdbcType=VARCHAR}
   </select>
+
+  <!--刘辉-->
+  <update id="updatePwd" parameterType="com.qcby.entity.Admin">
+    UPDATE
+    cpn_admin
+    SET `password`= #{password,jdbcType=CHAR}
+    WHERE mobile=#{mobile,jdbcType=VARCHAR}
+    and country=#{country,jdbcType=VARCHAR};
+  </update>
 </mapper>

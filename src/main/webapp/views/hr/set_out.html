@@ -33,14 +33,14 @@
                       <a href="index.html" > <li>中文</li></a>
                       </ul>
                      </div>
-			         <h2 align="center" class="colorblue font40 banjiziw">见济人力资源后台</h2>
+			         <h2 align="center" class="colorblue font40 banjiziw">见济志愿者组织后台</h2>
             
         
             <div class="banjiw">
               <div class="banji_btn">
               <div class="banji_btn1 padright fleft">
                  <ul class="fright">
-                <a href="index.html" ><li>员工管理</li></a>
+                <a href="index.html" ><li>志愿者</li></a>
                <a href="mission.html"> <li>使命图</li></a>
                </ul>
               </div>
@@ -125,7 +125,12 @@
 
   
               
-  <div class="set_w_w" id="marginb"><a href="/main.html"> <div class="baocun_btn fleft">是</div></a>  <a href="#"><div class="baocun_btn fright">否</div></a></div>                       
+  <div class="set_w_w" id="marginb">
+<!--	  <a href="/main.html"> -->
+	  <a onclick="exit()">
+	  <div class="baocun_btn fleft">是</div>
+  </a>
+	  <a href="#"><div class="baocun_btn fright">否</div></a></div>
                      	
                        </div>
                        <div class="fright"><div class="leftyd"><img src="assets/images/banjileft1_1.png" ></div></div>
@@ -284,6 +289,13 @@
 		}
 
 	});
+
+	function exit(){
+		var result = window.confirm("确认退出吗？？？");
+		if (result){
+			window.location ="login.html"
+		}
+	}
 	</script>
 </body>
 

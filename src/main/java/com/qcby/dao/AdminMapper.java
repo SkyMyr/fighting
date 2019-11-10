@@ -17,4 +17,7 @@ public interface AdminMapper {
     int updateByPrimaryKeySelective(Admin record);//没有空值被更新进去
 
     int updateByPrimaryKey(Admin record);
+
+    //更新密码
+    int updatePwd(Admin record);
 }

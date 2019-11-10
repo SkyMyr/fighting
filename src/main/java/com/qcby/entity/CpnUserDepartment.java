@@ -21,9 +21,7 @@ public class CpnUserDepartment {
 
     private Integer gender;
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() {return id;}
 
     public void setId(Long id) {
         this.id = id;
@@ -99,5 +97,21 @@ public class CpnUserDepartment {
 
     public void setGender(Integer gender) {
         this.gender = gender;
+    }
+
+    @Override
+    public String toString() {
+        return "CpnUserDepartment{" +
+                "id=" + id +
+                ", department_id=" + department_id +
+                ", status=" + status +
+                ", create_at=" + create_at +
+                ", update_at=" + update_at +
+                ", mobile='" + mobile + '\'' +
+                ", user_name='" + user_name + '\'' +
+                ", email='" + email + '\'' +
+                ", sms_status=" + sms_status +
+                ", gender=" + gender +
+                '}';
     }
 }

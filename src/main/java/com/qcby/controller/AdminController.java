@@ -3,11 +3,11 @@ package com.qcby.controller;
 import com.alibaba.fastjson.JSON;
 import com.qcby.dao.CpnUserDepartmentMapper;
 import com.qcby.entity.*;
-import com.qcby.model.LoginModel;
-import com.qcby.model.Register;
-import com.qcby.model.SMS;
+import com.qcby.model.*;
 import com.qcby.service.AdminService;
 import com.qcby.service.CpnAdminService;
+import com.qcby.service.CpnUserDepartmentService;
+import com.qcby.service.EmployeeGoodService;
 import com.qcby.util.SendSMSUtils;
 import com.qcby.util.SnowflakeIdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,9 @@ import redis.clients.jedis.Jedis;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,6 +40,12 @@ public class AdminController {
     CpnAdminService cpnAdminService;
 
     @Autowired
+    EmployeeGoodService employeeGoodService;
+
+    @Autowired
+    CpnUserDepartmentService cpnUserDepartmentService;
+
+    @Autowired
     CpnUserDepartmentMapper cpnUserDepartmentMapper;
     /**
      * 登陆
@@ -53,6 +61,7 @@ public class AdminController {
         cpnAdmin = cpnAdminService.selectByLogin(loginModel.getLoginName(),loginModel.getPassword());
         HttpSession session = request.getSession();
         session.setAttribute("uuid",cpnAdmin.getId());
+        System.err.println("uuid" + "***********************************");
         if(cpnAdmin != null){
             responseBean.setCode(1);
             responseBean.setMsg("登陆成功");
@@ -173,6 +182,13 @@ public class AdminController {
         }
         return responseBean;
     }
+
+    /**
+     * 接收邮件跳转链接
+     * @param request
+     * @param cpnUserDepartment
+     * @return
+     */
     @RequestMapping("reciveEmail")
     public ResponseBean reciveEmail(HttpServletRequest request, CpnUserDepartment cpnUserDepartment) {
         System.out.println(JSON.toJSON(cpnUserDepartment) + "****************************************");
@@ -188,6 +204,127 @@ public class AdminController {
         }
         return responseBean;
     }
+
+    /**
+     * @author 15583
+     * 员工列表
+     */
+    @RequestMapping("getUserList")
+    public ResponseBean<List<EmployeeGood>> employeeGoodList(){
+        //列表封装
+        ResponseBean<List<EmployeeGood>> responseBean = new ResponseBean<>();
+        List<EmployeeGood> employeeGood = employeeGoodService.findByTag();
+        System.err.print(employeeGood + "+++++++++++++++++++++++++++");
+        if (employeeGood!=null){
+            responseBean.setDate(employeeGood);
+            responseBean.setCode(1);
+            responseBean.setMsg("true");
+        }else {
+            responseBean.setCode(0);
+            responseBean.setMsg("false");
+        }
+        return responseBean;
+    }
+
+    /**
+     *
+     * 通过名字查找员工列表
+     * @param userName 员工姓名
+     * @return
+     */
+    @RequestMapping("employee/searchByName")
+    public ResponseBean<List<EmployeeGood>> selectByName(String userName){
+        System.out.println(userName+"-------------------------");
+        ResponseBean<List<EmployeeGood>> responseBean =new ResponseBean<>();
+        List<EmployeeGood> employee =employeeGoodService.selectByName(userName);
+        System.out.println(employee+"++++++++++++++++++++++++++++++");
+        if(employee!=null&&!employee.isEmpty()){
+            responseBean.setDate(employee);
+            responseBean.setCode(1);
+            responseBean.setMsg("查找成功!");
+        }else {
+            responseBean.setCode(0);
+            responseBean.setMsg("查找失敗!");
+        }
+        return responseBean;
+    }
+
+
+    /**
+     * 显示部门
+     * @param request
+     * @return
+     */
+    @RequestMapping("showAllDepartment")
+    public List<GetAlldepartment> getAlldepartment(HttpServletRequest request){
+
+        //封装成json数组
+        List<GetAlldepartment> result =new ArrayList<>();
+        GetAlldepartment getAlldepartment =new GetAlldepartment();
+        getAlldepartment.setMarket("市场部");
+        getAlldepartment.setManager("管理部");
+        getAlldepartment.setFinance("财务部");
+        getAlldepartment.setLogistics("后勤部");
+        getAlldepartment.setTechnology("技术部");
+        result.add(getAlldepartment);
+
+        return result;
+    }
+
+
+    /**
+     * 更新密码
+     * @param request
+     * @param updatepwd
+     * @return
+     */
+    @RequestMapping("updatePwd")
+    public ResponseBean<Map> updatePwd(HttpServletRequest request, UpdatePwd updatepwd) {
+        ResponseBean<Map> responseBean = new ResponseBean<Map>();
+        System.err.println("+++++++++++++++++++++++++++++++++" + request.getSession().getAttribute("uuid"));
+
+        Admin admin = new Admin();
+        admin.setId((Long) request.getSession().getAttribute("uuid"));
+        admin.setPassword(updatepwd.getPassword());
+        admin.setMobile(updatepwd.getMobile());
+        admin.setCountry(updatepwd.getNation());
+        System.out.println(admin + "************************************");
+        int result = adminService.updatePwd(admin);
+        Map map = new HashMap<String,String>();
+        map.put("code",result);
+        responseBean.setDate(map);
+        return responseBean;
+    }
+
+
+    /**
+     * 添加员工
+     * @param request
+     * @param addPeople
+     * @return
+     */
+    @RequestMapping("AddPeople")
+    public ResponseBean<Map> addPeople(HttpServletRequest request, AddPeople addPeople) {
+        ResponseBean<Map> responseBean = new ResponseBean<Map>();
+        System.err.println(request.getSession().getId());
+
+        System.err.println("+++++++++++++++++++++++++++++++++"
+                + request.getSession().getAttribute("a"));
+
+        CpnUserDepartment cpnUserDepartment = new  CpnUserDepartment();
+        System.out.println("*********"+addPeople.getGender()+ addPeople.getMobile()+"********"+addPeople.getUser_name()+"*************");
+        cpnUserDepartment.setUser_name(addPeople.getUser_name());
+        cpnUserDepartment.setGender(addPeople.getGender());
+        cpnUserDepartment.setMobile(addPeople.getMobile());
+        cpnUserDepartment.setDepartment_id(addPeople.getDepartment_id());
+        System.out.println(cpnUserDepartment + "************************************");
+        int result = cpnUserDepartmentService.insertSelective(cpnUserDepartment);
+        Map map = new HashMap<String,String>();
+        map.put("code",result);
+        responseBean.setDate(map);
+        return responseBean;
+    }
+
 
 //    /**
 //     * 废弃

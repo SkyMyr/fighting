@@ -11,16 +11,24 @@ import java.util.Date;
  **/
 public class ResponseBean<T> {
 
-    private T date;
+    private T data;
     private String msg = "success";
     private int code = 1;
 
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
     public T getDate() {
-        return date;
+        return data;
     }
 
     public void setDate(T date) {
-        this.date = date;
+        this.data = date;
     }
 
     public String getMsg() {

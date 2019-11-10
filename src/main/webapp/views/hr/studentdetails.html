@@ -121,26 +121,26 @@
   <div class="col-md-4" align="center">
     <div class="student_t margin50"><div class="student_tt bulebg"></div> <span class="lineh72 colorwhite font18">帮助</span><br>
 
-<span class="colorblue font60"><a href="gooddeeds.html">79</a></span></div>
+<span class="colorblue font60"><a href="gooddeeds.html" id="help_num">79</a></span></div>
   </div>
-  <div class="col-md-4" align="center"><div class="student_pic"><img src="assets/images/studen_pic.jpg"></div></div>
+  <div class="col-md-4" align="center"><div class="student_pic" id="big_helper_pic"><img src="assets/images/studen_pic.jpg" ></div></div>
   <div class="col-md-4" align="center">
     <div class="student_t margin50"><div class="student_tt oragebg"></div> <span class="lineh72 colorwhite font18">感恩</span><br>
 
-<span class="corlororage font60"><a href="gooddeeds.html">80</a></span></div>
+<span class="corlororage font60"><a href="gooddeeds.html" id="thankfull_num">80</a></span></div>
   </div></div>
                  
      <div class="row colorwhite" align="center">
-       <div class="student_pic1 margin50"><img src="assets/images/studen_pic.jpg"></div>
+       <div class="student_pic1 margin50"  id="small_helper_pic"><img src="assets/images/studen_pic.jpg"></div>
        <div class="lineh50">幸运之星</div>
-        <div><span><img src="assets/images/xunz1.png" width="50" height="50"></span><span><img src="assets/images/xunz2.png" width="50" height="50"></span><span><img src="assets/images/xunz3.png" width="50" height="50"></span></div>
+        <div><span id="medal1"><img src="assets/images/xunz1.png" width="50" height="50"></span><span id="medal2"><img src="assets/images/xunz2.png" width="50" height="50"></span><span id="medal3"><img src="assets/images/xunz3.png" width="50" height="50"></span></div>
          <div class="lineh50">我喜欢帮助别人谢谢你的帮助！</div>
      </div>            
                  
           <div class="row colorwhite" align="center"> </div>       
                    <div class="set_fankui studentwz">
                     <div class="fleft"><img src="assets/images/time_btn.png" width="50" height="50"></div>
-                   <div class="fleft margin_left">志愿者服务时间 <span class="corlororage">780</span>小时<span class="corlororage"> 888888</span>分</div>
+                   <div class="fleft margin_left">志愿者服务时间 <span class="corlororage" id="service_hour">780</span>小时<span class="corlororage" id="service_min"> 888888</span>分</div>
                    </div>
                    </div>
 
@@ -186,7 +186,58 @@
 	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="assets/scripts/klorofil-common.js"></script>
 	<script type="text/javascript">
-		function backscreen(){
+
+        /**
+         * @author15583
+         * daom操作显示帮助数和感恩数
+         */
+        window.onload=function(){
+
+            var service_hour=document.getElementById("service_hour");
+            service_hour.innerHTML="99999999999999";
+            var service_min=document.getElementById("service_min");
+            service_min.innerHTML="99999999999999";
+            $.ajax({
+                headers:{
+                    "token":token1//此处放置请求到的用户token
+                },
+                url: apihost+"",
+                type: requesttype,
+                data:{},
+                dataType: 'json',
+
+                success:function (data) {
+                    //帮助数
+                    var h_num=document.getElementById("help_num");
+                    h_num.innerHTML="1000000";
+                    //感恩数
+                    var t_num=document.getElementById("thankfull_num");
+                    t_num.innerHTML="1000000";
+                    //用户头像大
+                    var pic=document.getElementById("big_helper_pic");
+                    pic.innerHTML="<img src='assets/images/studen_pic.jpg' >";
+                    //用户头像小
+                    var pic=document.getElementById("small_helper_pic");
+                    pic.innerHTML="<img src='assets/images/studen_pic.jpg' >";
+                    //勋章1
+                    var medal1=document.getElementById("medal1");
+                    medal1.innerHTML="<img src='assets/images/xunz1.png' width='50' height='50'>";
+                    //勋章2
+                    var medal2=document.getElementById("medal2");
+                    medal2.innerHTML="<img src='assets/images/xunz2.png' width='50' height='50'>";
+                    //勋章3
+                    var medal3=document.getElementById("medal3");
+                    medal3.innerHTML="<img src='assets/images/xunz3.png' width='50' height='50'>";
+
+
+                },
+                error:function () {
+
+                }
+            });
+        }
+
+        function backscreen(){
 			var test = window.location.href;
 			var back = getCaption(test)
 			if(back == 1){

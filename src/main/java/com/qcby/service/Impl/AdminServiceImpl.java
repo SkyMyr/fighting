@@ -48,4 +48,15 @@ public class AdminServiceImpl implements AdminService{
     public int updateByPrimaryKey(Admin record) {
         return adminMapper.updateByPrimaryKeySelective(record);
     }
+
+    /**
+     * 更新密码
+     * @param record
+     * @return
+     */
+    @Override
+    public int updatePwd(Admin record) {
+
+        return adminMapper.updatePwd(record);
+    }
 }

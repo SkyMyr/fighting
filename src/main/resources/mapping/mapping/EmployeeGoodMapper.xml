@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcby.dao.EmployeeGoodMapper">
+    <!--<resultMap id="BaseResultMap" type="com.qcby.entity.CpnUserDepartment">-->
+        <!--<id column="id" jdbcType="BIGINT" property="id" />-->
+        <!--<result column="department_id" jdbcType="BIGINT" property="department_id" />-->
+        <!--<result column="status" jdbcType="TINYINT" property="status" />-->
+        <!--<result column="create_at" jdbcType="BIGINT" property="create_at" />-->
+        <!--<result column="update_at" jdbcType="BIGINT" property="update_at" />-->
+        <!--<result column="mobile" jdbcType="VARCHAR" property="mobile" />-->
+        <!--<result column="user_name" jdbcType="VARCHAR" property="user_name" />-->
+        <!--<result column="email" jdbcType="VARCHAR" property="email" />-->
+        <!--<result column="sms_status" jdbcType="TINYINT" property="sms_status" />-->
+        <!--<result column="gender" jdbcType="INTEGER" property="gender" />-->
+    <!--</resultMap>-->
+    <!--<sql id="Base_Column_List">-->
+        <!--id, department_id, status, create_at, update_at, mobile, user_name, email, sms_status,-->
+        <!--gender-->
+    <!--</sql>-->
+    <!--彭健-->
+    <select id="findByTag" resultType="com.qcby.model.EmployeeGood">
+        select ud.update_at,u.header_img,ud.user_name,ud.gender,ud.department_id,ud.status,ud.sms_status,ut.helper_number,ut.service_time,ut.helpee_number
+        from cpn_user_department as ud,pub_userpro as u,pub_appr_user_data as ut
+        where ud.update_at=u.id AND u.id=ut.id
+    </select>
+
+    <select id="selectByName" resultType="com.qcby.model.EmployeeGood">
+        select u.header_img,ud.user_name,ud.gender,ud.department_id,ud.status,ud.sms_status,ut.helper_number,ut.service_time,ut.helpee_number
+        from cpn_user_department as ud,pub_userpro as u,pub_appr_user_data as ut
+        where ud.update_at=u.id AND u.id=ut.id AND ud.user_name=#{arg0}
+    </select>
+
+</mapper>

@@ -14,4 +14,5 @@ public interface CpnUserDepartmentMapper {
     int updateByPrimaryKeySelective(CpnUserDepartment record);
 
     int updateByPrimaryKey(CpnUserDepartment record);
+
 }

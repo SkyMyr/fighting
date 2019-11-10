@@ -31,9 +31,10 @@ public class EmailController {
         cpnUserDepartment.setEmail("244642897@qq.com");
         cpnUserDepartment.setUser_name("myr");
         cpnUserDepartment.setId((long) 1);
+        String url = "http://localhost:8080/ssm/email/sendEmail?id=" + cpnUserDepartment.getId().toString();
         EmailTest.send_qqmail(cpnUserDepartment.getEmail(), "邀请您完成阿里核心架构部的员工注册",
                 "<html><head></head><body><p>请及时确认以下邀请 :</p><br>" +
-                        "<h3><a href='http://localhost:8080/ssm/email/sendEmail?id=" + cpnUserDepartment.getId().toString() + "'>链接</href></h3></body></html>");
+                        "<h3><a href='http:www.baidu.com'>http:www.baidu.com</a></h3></body></html>");
         System.err.println("json********************************" + JSON.toJSONString( cpnUserDepartment));
         System.out.println(JSON.parseObject(JSON.toJSONString( cpnUserDepartment), CpnUserDepartment.class));
     }

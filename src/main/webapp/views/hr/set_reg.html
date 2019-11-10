@@ -33,7 +33,7 @@
                       <a href="index.html" > <li>中文</li></a>
                       </ul>
                      </div>
-               <h2 align="center" class="colorblue font40 banjiziw">见济人力资源后台</h2>
+               <h2 align="center" class="colorblue font40 banjiziw">见济志愿者组织后台</h2>
             
         
             <div class="banjiw">
@@ -319,11 +319,46 @@
         var code2 = $('input[name="code2"]').val();
         var password = $('input[name="password"]').val();
         var repassword = $('input[name="repassword"]').val();
+
+
+  if (phone == null||phone=="") {
+          alert("手机号不能为空，请输入手机号！！");
+        }else if (phone.length<11) {
+          alert("手机号输入有误，请重新输入！！")
+
+        }
+
+  if (newphone == null||newphone=="") {
+          alert("新手机号不能为空，请输入手机号！！");
+        }else if (newphone.length<11) {
+          alert("新手机号输入有误，请重新输入！！")
+
+        }
+       
+        if (password == null||password=="") {
+          alert("请输入密码！！");
+        }
+        if (password!=repassword) {
+            alert("两次密码输入不一致，请重新输入！！！");
+        }
+
+
         // alert(sex);
          $.ajax({
-              url: "http://140.143.243.113:8190/company/set/updateLogin",
-              type: "get",
-              data:{username:phone,code1:code1,newusername:newphone,code2:code2,password:password,repassword:repassword,userId:1},
+            // url: "/updateLogin?username=1&code1=1&newusername=1&code2=1&password=123&repassword=1&userId=1",
+              url: apihost + "/ssm/company/updateRegister",
+             type: "get",
+              data:{
+                  nation:nation,
+                  newnation:newnation,
+                  mobile:phone,
+                  newmobile:newphone,
+                  //code1:code1,
+                  //code2:code2,
+                  password:password,
+                  //repassword:repassword,
+                  userId:1
+              },
               dataType: 'json',
               success: function (data) {
                 console.log(data)
@@ -331,8 +366,8 @@
                     alert(data.msg);
                 }else{
                     alert(data.msg);
-                    location.href="/hr/reg.html";
-                    // location.href="http://www.webss1.com/hr/reg.html";
+                    location.href="/teacher/reg.html";
+                    // location.href="http://www.webss1.com/teacher/reg.html";
                 }
                 // location.href="http://www.webss1.com/teacher/login.html";
               },
