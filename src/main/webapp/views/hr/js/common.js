@@ -1,4 +1,4 @@
-let host = 'http://localhost:8080/';//192.168.0.112
+let host = '101.37.24.226:8080/';//192.168.0.112
 let nation = "http://140.143.243.113:8190/";
 let COOKIE = {
 

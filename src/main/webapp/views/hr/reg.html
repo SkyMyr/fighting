@@ -99,7 +99,7 @@ volnilcbsli 和iuoghuidfshihgupwsai策</p>
     var reg_code = $('#reg_code').val();
     var state = $('#state').val();
      $.ajax({
-          url: apihost+"/ssm/company/regs",
+          url: "/ssm/company/regs",
           type: requesttype,
           data:{companyName:username,url:weburl,countryName:nation,cityName:city,provinceName:province,
               address:address,loginName:nickname,mobile:phone,password:password,code1:code,couponCode:reg_code,type:2},
@@ -123,7 +123,7 @@ volnilcbsli 和iuoghuidfshihgupwsai策</p>
     function sendCode(){
       var phone = $("#phone").val();
       $.ajax({
-          url: apihost+"/ssm/company/sms",
+          url: "/ssm/company/sms",
           type: requesttype,
           data:{phoneNumbers:phone,code:'86'},
           dataType: 'json',

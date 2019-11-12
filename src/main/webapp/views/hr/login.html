@@ -46,7 +46,7 @@
     var username = document.getElementById("username").value; 
     var password = document.getElementById("password").value;
      $.ajax({
-          url: apihost+"/ssm/company/login",
+          url: "/ssm/company/login",
           type: requesttype,
           data:{type:2,loginName:username,password:password},
           dataType: 'json',
@@ -55,7 +55,7 @@
                  alert(data.msg);
 //                COOKIE.set("JSESSIONID",data.data.token);
 //                sessionStorage.setItem('token',data.data.token);
-                location.href=apihost + "/ssm/views/hr/index.html";
+                location.href="/ssm/views/hr/index.html";
             }else{
                  alert(data.msg);
                 console.log('登录失败')

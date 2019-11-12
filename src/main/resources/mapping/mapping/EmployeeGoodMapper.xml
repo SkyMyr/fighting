@@ -20,13 +20,13 @@
     <!--彭健-->
     <select id="findByTag" resultType="com.qcby.model.EmployeeGood">
         select ud.update_at,u.header_img,ud.user_name,ud.gender,ud.department_id,ud.status,ud.sms_status,ut.helper_number,ut.service_time,ut.helpee_number
-        from cpn_user_department as ud,pub_userpro as u,pub_appr_user_data as ut
+        from pc_user_department as ud,user_prop as u,appr_user_data as ut
         where ud.update_at=u.id AND u.id=ut.id
     </select>
 
     <select id="selectByName" resultType="com.qcby.model.EmployeeGood">
         select u.header_img,ud.user_name,ud.gender,ud.department_id,ud.status,ud.sms_status,ut.helper_number,ut.service_time,ut.helpee_number
-        from cpn_user_department as ud,pub_userpro as u,pub_appr_user_data as ut
+        from pc_user_department as ud,user_prop as u,appr_user_data as ut
         where ud.update_at=u.id AND u.id=ut.id AND ud.user_name=#{arg0}
     </select>
 

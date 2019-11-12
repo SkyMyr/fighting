@@ -210,7 +210,7 @@
                                     headers: {
                                         "token":token1//此处放置请求到的用户token
                                     },
-                                    url:apihost + "/ssm/company/showAllDepartment",
+                                    url:"/ssm/company/showAllDepartment",
                                     type: requesttype,
                                     data:{pageNum:1,pageSize:10},
                                     dataType: 'json',
@@ -405,7 +405,7 @@
             headers:{
                 "token":token1//此处放置请求到的用户token
             },
-            url: apihost+"/ssm/company/getUserList",
+            url: "/ssm/company/getUserList",
             type: requesttype,
             data:{pageNum:1,pageSize:10},
             dataType: 'json',
@@ -480,7 +480,7 @@
                 headers: {
                     "token":token1//此处放置请求到的用户token
                 },
-                url: apihost+"/company/employee/goodList",
+                url: "/ssm/company/employee/goodList",
                 type: requesttype,
                 data:{pageNum:1,pageSize:20,departmentId:''},
                 dataType: 'json',
@@ -551,7 +551,7 @@
         var students = $('#students').val();
         alert(students);
         $.ajax({
-              url: apihost+'/ssm/company/employee/searchByName',
+              url: '/ssm/company/employee/searchByName',
               headers: {
                     "token":token1//此处放置请求到的用户token
                 },
@@ -587,7 +587,7 @@
         var sid = $('#id').val();
         $.MsgBox.Confirm("温馨提示", "执行删除后将无法恢复，确定继续吗？温馨提示", function () {
               $.ajax({
-                url: apihost+'/company/deleteEmployee',
+                url: '/ssm/company/deleteEmployee',
                 headers: {
                     "token":token1//此处放置请求到的用户token
                 },

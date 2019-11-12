@@ -48,4 +48,13 @@
 
     <!-- redis配置 -->
     <import resource="spring-redis.xml"/>
+
+    <!-- 配置上传文件的组件 id的值必须为“multipartResolver” -->
+    <!-- class spring-web  org.springframework.web.multipart.commons -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 配置最大的上传文件10兆 -->
+        <property name="maxUploadSize" value="10000000"></property>
+        <!-- 设置默认的编码格式 -->
+        <property name="defaultEncoding" value="utf-8"></property>
+    </bean>
 </beans>

@@ -12,21 +12,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from pub_feedback_img
+    from feedback_img
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from pub_feedback_img
+    delete from feedback_img
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.PubFeedbackImg">
-    insert into pub_feedback_img (id, feedback_id, img_url
+    insert into feedback_img (id, feedback_id, img_url
       )
     values (#{id,jdbcType=BIGINT}, #{feedback_id,jdbcType=BIGINT}, #{img_url,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.PubFeedbackImg">
-    insert into pub_feedback_img
+    insert into feedback_img
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -51,7 +51,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubFeedbackImg">
-    update pub_feedback_img
+    update feedback_img
     <set>
       <if test="feedback_id != null">
         feedback_id = #{feedback_id,jdbcType=BIGINT},
@@ -63,7 +63,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubFeedbackImg">
-    update pub_feedback_img
+    update feedback_img
     set feedback_id = #{feedback_id,jdbcType=BIGINT},
       img_url = #{img_url,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}

@@ -14,21 +14,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from pub_appr_user_data
+    from appr_user_data
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from pub_appr_user_data
+    delete from appr_user_data
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.PubApprUserData">
-    insert into pub_appr_user_data (id, helpee_number, helper_number, 
+    insert into appr_user_data (id, helpee_number, helper_number, 
       service_time, update_at)
     values (#{id,jdbcType=BIGINT}, #{helpee_number,jdbcType=BIGINT}, #{helper_number,jdbcType=BIGINT}, 
       #{service_time,jdbcType=BIGINT}, #{update_at,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.PubApprUserData">
-    insert into pub_appr_user_data
+    insert into appr_user_data
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -65,7 +65,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubApprUserData">
-    update pub_appr_user_data
+    update appr_user_data
     <set>
       <if test="helpee_number != null">
         helpee_number = #{helpee_number,jdbcType=BIGINT},
@@ -83,7 +83,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubApprUserData">
-    update pub_appr_user_data
+    update appr_user_data
     set helpee_number = #{helpee_number,jdbcType=BIGINT},
       helper_number = #{helper_number,jdbcType=BIGINT},
       service_time = #{service_time,jdbcType=BIGINT},

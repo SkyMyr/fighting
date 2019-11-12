@@ -8,15 +8,24 @@ import com.qcby.service.AdminService;
 import com.qcby.service.CpnAdminService;
 import com.qcby.service.CpnUserDepartmentService;
 import com.qcby.service.EmployeeGoodService;
+import com.qcby.util.CellValue;
 import com.qcby.util.SendSMSUtils;
 import com.qcby.util.SnowflakeIdWorker;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import redis.clients.jedis.Jedis;
 
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -233,13 +242,13 @@ public class AdminController {
      * @return
      */
     @RequestMapping("employee/searchByName")
-    public ResponseBean<List<EmployeeGood>> selectByName(String userName){
+    public ResponseBean selectByName(String userName){
         System.out.println(userName+"-------------------------");
-        ResponseBean<List<EmployeeGood>> responseBean =new ResponseBean<>();
+        ResponseBean<EmployeeGood> responseBean =new ResponseBean<>();
         List<EmployeeGood> employee =employeeGoodService.selectByName(userName);
         System.out.println(employee+"++++++++++++++++++++++++++++++");
         if(employee!=null&&!employee.isEmpty()){
-            responseBean.setDate(employee);
+            responseBean.setDate(employee.get(0));
             responseBean.setCode(1);
             responseBean.setMsg("查找成功!");
         }else {
@@ -325,6 +334,49 @@ public class AdminController {
         return responseBean;
     }
 
+    /**
+     * excel表格导入
+     * @param excelFile
+     * @return
+     * @throws IOException
+     * @throws InvalidFormatException
+     */
+    @RequestMapping(value = "uploadFile",headers = "content-type=multipart/*", method = RequestMethod.POST)
+    public ResponseBean uploadFile(@RequestParam("excelFile") MultipartFile excelFile) throws IOException, InvalidFormatException {
+        ResponseBean responseBean = new ResponseBean();
+        InputStream inp = excelFile.getInputStream();
+        List<CpnUserDepartment> list = CellValue.importFile(inp);
+        for (int i = 0; i < list.size(); i++) {
+            cpnUserDepartmentService.insert(list.get(i));
+        }
+        return responseBean;
+    }
+
+/*
+    @RequestMapping("employMedal")
+    public ResponseBean selectDetails(int id){
+        EmployeeDetails employeeDetails =new EmployeeDetails();
+        employeeDetails.setUserId(id);
+        ResponseBean<EmployeeDetails> responseBean =new ResponseBean<>();
+        //通过用户id查找感恩数,帮助数,服务时间,头像,勋章
+        List<EmployeeDetails> detailsA =pubApprLikeService.selectLikeNum(id);
+        System.out.println(detailsA+"OOOOOOOOOOOOOOOOOOO");
+        List<EmployeeDetails> detailsB =employeeMedalService.selectMedal(id);
+        System.out.println(detailsB+"HHHHHHHHHHHHHHHHHHHHHH");
+        if (detailsA!=null&&!detailsA.isEmpty()&&detailsB!=null&&!detailsB.isEmpty()){
+            //将查到的数据放到ResponseBean工具类中
+            responseBean.setData(detailsA.get(0));
+            responseBean.setData(detailsB.get(0));
+            //返回给前端的提示信息
+            responseBean.setCode(1);
+            responseBean.setMsg("显示成功!");
+        }else {
+            responseBean.setCode(0);
+            responseBean.setMsg("显示失败!");
+        }
+        System.out.println(responseBean+"PPPPPPPPPPPPPPPPPPPPPPPPP");
+        return responseBean;
+    }*/
 
 //    /**
 //     * 废弃

@@ -13,21 +13,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from pub_appr_like
+    from appr_like
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from pub_appr_like
+    delete from appr_like
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.PubApprLike">
-    insert into pub_appr_like (id, appr_id, user_id, 
+    insert into appr_like (id, appr_id, user_id, 
       create_at)
     values (#{id,jdbcType=BIGINT}, #{appr_id,jdbcType=BIGINT}, #{user_id,jdbcType=BIGINT}, 
       #{create_at,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.PubApprLike">
-    insert into pub_appr_like
+    insert into appr_like
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -58,7 +58,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubApprLike">
-    update pub_appr_like
+    update appr_like
     <set>
       <if test="appr_id != null">
         appr_id = #{appr_id,jdbcType=BIGINT},
@@ -73,7 +73,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubApprLike">
-    update pub_appr_like
+    update appr_like
     set appr_id = #{appr_id,jdbcType=BIGINT},
       user_id = #{user_id,jdbcType=BIGINT},
       create_at = #{create_at,jdbcType=BIGINT}

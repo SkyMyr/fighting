@@ -23,15 +23,15 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from pub_user
+    from user
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from pub_user
+    delete from user
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.qcby.entity.PubUser">
-    insert into pub_user (id, login_name, password, 
+    insert into user (id, login_name, password, 
       type, status, deleted, 
       create_at, update_at, last_login_at, 
       pwdcode, pwdcode_expire, login_name_modify_times, 
@@ -43,7 +43,7 @@
       #{login_name_last_modify_at,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.qcby.entity.PubUser">
-    insert into pub_user
+    insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -128,7 +128,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qcby.entity.PubUser">
-    update pub_user
+    update user
     <set>
       <if test="login_name != null">
         login_name = #{login_name,jdbcType=VARCHAR},
@@ -170,7 +170,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qcby.entity.PubUser">
-    update pub_user
+    update user
     set login_name = #{login_name,jdbcType=VARCHAR},
       password = #{password,jdbcType=CHAR},
       type = #{type,jdbcType=SMALLINT},
