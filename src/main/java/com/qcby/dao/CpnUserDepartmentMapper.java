@@ -15,4 +15,7 @@ public interface CpnUserDepartmentMapper {
 
     int updateByPrimaryKey(CpnUserDepartment record);
 
+    //通过手机号返回实体
+    CpnUserDepartment selectByPhone(String mobile);
+
 }

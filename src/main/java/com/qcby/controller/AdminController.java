@@ -4,11 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.qcby.dao.CpnUserDepartmentMapper;
 import com.qcby.entity.*;
 import com.qcby.model.*;
-import com.qcby.service.AdminService;
-import com.qcby.service.CpnAdminService;
-import com.qcby.service.CpnUserDepartmentService;
-import com.qcby.service.EmployeeGoodService;
+import com.qcby.service.*;
 import com.qcby.util.CellValue;
+import com.qcby.util.RedisPool;
 import com.qcby.util.SendSMSUtils;
 import com.qcby.util.SnowflakeIdWorker;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -44,6 +42,9 @@ public class AdminController {
 
     @Autowired
     AdminService adminService;
+
+    @Autowired
+    PubApprService pubApprService;
 
     @Autowired
     CpnAdminService cpnAdminService;
@@ -92,10 +93,11 @@ public class AdminController {
         ResponseBean responseBean = new ResponseBean();
         CpnAdmin admin = new CpnAdmin();
         //从redis里面取数据
-        Jedis jedis = new Jedis("127.0.0.1",6379);
-        String code = jedis.get(register.getMobile());
-        System.err.println(code + "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/");
-        jedis.close();
+        String code = RedisPool.getJedis().get(register.getMobile());
+//        Jedis jedis = new Jedis("127.0.0.1",36379);
+//        String code = jedis.get(register.getMobile());
+//        System.err.println(code + "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/");
+//        jedis.close();
 
         if(code.equals(register.getCode1())){
             admin.setId(SnowflakeIdWorker.generateId());
@@ -183,11 +185,12 @@ public class AdminController {
             responseBean.setCode(1);
             responseBean.setMsg("发送成功");
             //存储到redis里面去
-            Jedis jedis = new Jedis("127.0.0.1",6379);
-            jedis.set(sms.getPhoneNumbers()[0],result);
-            System.err.println(result + "验证码++++++++++++++++");
-            System.err.println(jedis.get(sms.getPhoneNumbers()[0]) + "从redistr里边取出来-*-----------------------------------------");
-            jedis.close();
+            RedisPool.getJedis().set(sms.getPhoneNumbers()[0],result);
+//            Jedis jedis = new Jedis("127.0.0.1",6379);
+//            jedis.set(sms.getPhoneNumbers()[0],result);
+//            System.err.println(result + "验证码++++++++++++++++");
+//            System.err.println(jedis.get(sms.getPhoneNumbers()[0]) + "从redistr里边取出来-*-----------------------------------------");
+//            jedis.close();
         }
         return responseBean;
     }
@@ -335,7 +338,7 @@ public class AdminController {
     }
 
     /**
-     * excel表格导入
+     * excel表格导入，并发送短信邀请
      * @param excelFile
      * @return
      * @throws IOException
@@ -345,13 +348,47 @@ public class AdminController {
     public ResponseBean uploadFile(@RequestParam("excelFile") MultipartFile excelFile) throws IOException, InvalidFormatException {
         ResponseBean responseBean = new ResponseBean();
         InputStream inp = excelFile.getInputStream();
+        //excel表中的员工信息
         List<CpnUserDepartment> list = CellValue.importFile(inp);
         for (int i = 0; i < list.size(); i++) {
             cpnUserDepartmentService.insert(list.get(i));
+            //发送短信邀请
+            SendSMSUtils.sendMultiSMS("86",list.get(i).getMobile());
         }
         return responseBean;
     }
 
+    /**
+     * 接收短信邀请入职员工获取互助信息之后的反馈
+     * @param phone 手机号
+     * @param code 状态 1-未注册 2-未同意 3- 已同意
+     * @return
+     */
+    @RequestMapping("confirmSMS")
+    public ResponseBean confirmSMS(String phone,String code){
+        CpnUserDepartment cpnUserDepartment = cpnUserDepartmentService.selectByPhone(phone);
+        cpnUserDepartment.setSms_status(Byte.valueOf(code));
+        int result = cpnUserDepartmentService.updateByPrimaryKeySelective(cpnUserDepartment);
+        ResponseBean responseBean = new ResponseBean();
+        if(result==1){
+            responseBean.setCode(1);
+            responseBean.setMsg("已收到您的反馈");
+        }else{
+            responseBean.setCode(0);
+            responseBean.setMsg("服务器出错");
+        }
+        return responseBean;
+    }
+
+
+    @RequestMapping("share")
+    public ResponseBean share(String gid){
+        ResponseBean responseBean = new ResponseBean();
+        PubAppr pubAppr = pubApprService.selectByPrimaryKey(Long.valueOf(gid));
+
+        responseBean.setCode(1);
+        return responseBean;
+    }
 /*
     @RequestMapping("employMedal")
     public ResponseBean selectDetails(int id){

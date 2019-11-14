@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<link href="css/style.css" rel="stylesheet">
+		<style>
+			#mapa{width:100%;height:100%;overflow: hidden;margin:0;position: relative;width: 100%;
+				height: 1800px;}
+
+		</style>
+
+
+	</head>
+	<body>
+	<!--<div style="width:100%;height:100%">-->
+		<div class="map" id="mapa" >
+			 <!--<img src="img/map.png"/>-->
+		</div>
+		<div class="bottom_bar">
+			<p>下载见济和我一起传播正能量，实现“让助人为乐在全中国成为一种生活方式”的中国梦！</p>
+			<div class="down">
+				<a href="">
+					<div class="android">
+						<span><img src="img/android.png"></span>
+						<div>安卓端下载</div>
+					</div>
+				</a>
+				<a href="">
+					<div class="ios">
+						<span><img src="img/ios.png"></span>
+						<div>ios端下载</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	<!--</div>-->
+	
+		<script src="js/jquery-2.0.3.js"></script>
+		<!-- 包括所有已编译的插件 -->
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1XjLLEhZhQNUzd93EjU5nOGQ"></script>
+		<script src="js/common.js"></script>
+
+	</body>
+</html>
+
+
+<!--<script type="text/javascript">-->
+<!--	// 百度地图API功能s-->
+<!--	var map = new BMap.Map("mapa");    // 创建Map实例-->
+<!--	map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别-->
+<!--	//添加地图类型控件-->
+<!--	map.addControl(new BMap.MapTypeControl({-->
+<!--		mapTypes:[-->
+<!--			BMAP_NORMAL_MAP,-->
+<!--			// BMAP_HYBRID_MAP-->
+<!--		]}));-->
+<!--	map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的-->
+<!--	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放-->
+<!--</script>-->
+
+
+<script>
+	$.ajax({
+		url: host + "/pub/other/getGodMqapData",
+		// url: "http://localhost:8080/pub/other/gps",
+		type: "post",
+		dataType: 'json',
+		data:{
+			userId:1,
+		},
+		success: function (data) {
+			var myIcon = new BMap.Icon("img/start.png", new BMap.Size(20,20));
+			var map = new BMap.Map("mapa",{minZoom:1,maxZoom:15}); // 创建Map实例,设置地图允许的最小/大级别
+
+			map.centerAndZoom(new BMap.Point(104.996095, 34.222722), 5);  // 初始化地图,设置中心点坐标和地图级别
+			map.setCurrentCity("中国");          // 设置地图显示的城市 此项是必须设置的
+			map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
+
+			map.setMapStyle({
+				style: 'midnight'
+			});
+
+			var overView = new BMap.OverviewMapControl();
+			var overViewOpen = new BMap.OverviewMapControl({
+				isOpen: true,
+				anchor: BMAP_ANCHOR_BOTTOM_RIGHT
+			});
+
+			map.addControl(overView); //添加默认缩略地图控件
+			map.addControl(overViewOpen);
+
+			// 编写自定义函数,创建标注
+			function addMarker(point){
+				var marker = new BMap.Marker(point, {icon:myIcon});
+				map.addOverlay(marker);
+			}
+
+			if(data.data.length > 0) {
+				var pointsView = new Array();
+				var arr = data.data;
+				for (var i = 0; i < arr.length; i ++) {
+					var point = new BMap.Point(arr[i].longitude,arr[i].latitude);
+
+					pointsView.push(point);
+					console.log(pointsView);
+					addMarker(point);
+				}
+				map.setViewport(pointsView);
+			}
+
+		},
+		error: function () {
+			console.log("出错了");
+			var map = new BMap.Map("map1.jpg",{minZoom:5,maxZoom:8}); // 创建Map实例,设置地图允许的最小/大级别
+
+			map.centerAndZoom(new BMap.Point(104.996095, 34.222722),5);  // 初始化地图,设置中心点坐标和地图级别
+			// map.setCurrentCity("中国");          // 设置地图显示的城市 此项是必须设置的
+			map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
+
+			map.setMapStyle({
+				style: 'midnight'
+			});
+
+			// 编写自定义函数,创建标注
+			function addMarker(point){
+				var marker = new BMap.Marker(point);
+				map.addOverlay(marker);
+			}
+		}
+	});
+</script>

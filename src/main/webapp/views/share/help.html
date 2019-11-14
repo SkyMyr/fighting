@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<link href="css/helper.css" rel="stylesheet">
+	</head>
+	<body>
+	
+		<!-- <div class="top">
+			<span>这是标题</span>
+		</div> -->
+		<div class="margintop">
+			<p>在我心里什么是真正的酷？</p><br/>
+			<p>在我看来，“酷“不是你今天又吃了什么大餐，又旅游了哪个地方，亦或者又买了一部新手机。“酷“应该是我们能够帮助多少身边的人！</p>
+		</div>
+		<!-- <div class="main">
+			<div class="main_top"></div>
+			<div class="main_con">
+				<div class="user">
+					<div class="helper">
+						<img src="img/head_img.jpg">
+						<p>黄晓东</p>
+					</div>
+					<div class="help">
+						<div class="helped">
+							helped
+						</div>
+						<p>
+							2019/7/16
+						</p>
+					</div>
+					<div class="helpee">
+						<img src="img/head_img.jpg">
+						<p>晨晨</p>
+					</div>
+					<div style="clear: both;"></div>
+				</div>
+				<div class="position">
+					<img src="img/position.png"/>
+					<p>广东省广州市天河区</p>
+					<div style="clear: both;"></div>
+				</div>
+				<div class="imglist">
+					<img src="img/head_img.jpg">
+					<img src="img/head_img.jpg">
+					<img src="img/head_img.jpg">
+				</div>
+				<div class="text">
+					<p>测试详细地址的隐藏情况</p>
+				</div>
+				<div class="bar">
+					<div class="btn">
+						<div class="icon">
+							<img src="img/flower.png"/>
+							<span>1</span>
+						</div>
+						<div class="icon">
+							<img src="img/message.png"/>
+							<span>1</span>
+						</div>
+						<div class="icon">
+							<img src="img/share.png"/>
+							
+						</div>
+						<div class="icon">
+							<img src="img/tong.png"/>
+							
+						</div>
+						<div class="icon">
+							<img src="img/qi.png"/>
+							
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="header">
+						<img src="img/head_img.jpg">
+					</div>
+					<div class="mes">
+						<div class="left">
+							<p class="name">黄晓东</p>
+							<p class="time">2019-7-14 13:39:20</p>
+						</div>
+						<div class="right">
+							<div class="rightspan">
+								<img src="img/message.png"/>
+							</div>
+							<div class="rightspan">
+								<img src="img/tong.png"/>
+								<span>删除</span>
+							</div>
+							<div style="clear: both;"></div>
+						</div>
+						<div style="clear: both;"></div>
+						<div class="content">
+							<p>
+								好友里面评论不能显示到社群，隐私....
+							</p>
+						</div>
+					</div>
+					<div style="clear: both;"></div>
+					
+				</div>
+				<div class="more">
+					<img src="img/more.png"/>
+				</div>
+			</div>
+			<div class="main_bottom">
+			</div>
+		</div> -->
+		
+		<div class="margintop2 datas">
+			<p>感恩他人，点亮中国</p>
+			<p>每一个星星之火，代表了一件好人好事。 让我们用<a href=""> “见济” </a>感恩他人，点亮中国。</p>
+
+		</div>
+		
+		<div class="map">
+			<img src="img/map.jpg"/>
+		</div>
+		
+		<div class="margintop2">
+			<p>下载见济和我一起传播正能量，实现“让助人为乐在全中国成为一种生活方式”的中国梦！</p>
+		</div>
+		
+		<div class="btns">
+			<a href=""><img src="img/android_btn.png"/></a>
+			<a href=""><img src="img/ios_btn.png"/></a>
+		</div>
+		
+		
+		<script src="js/jquery-2.0.3.js"></script>
+		<!-- 包括所有已编译的插件 -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/common.js"></script>
+		<script>
+			function getQueryString(name) {
+			    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			    let r = window.location.search.substr(1).match(reg);
+			    if (r != null) {
+			        return unescape(r[2]);
+			    };
+			    return null;
+ 			}
+
+
+			$(function () {
+
+				let uid = getQueryString("uid");
+   				let gid = getQueryString("gid");
+
+				$.ajax({
+					url: host+"pub/other/getUserApprInfo",
+					type: "get",
+					dataType: 'json',
+					data:{
+						uid:uid,
+						gid:gid
+					},
+					// beforeSend: function(request){
+					// 	/* request.setRequestHeader("token",localStorage.getItem("token")); */
+					// 	request.setRequestHeader("token","11");
+					// },
+					success: function (data) {
+
+						if(data.code==1) {
+							var data=data.data;
+							var aa = [];
+							aa.push(data);
+							var content='';
+							$.each(aa, function (index, val) {
+								var picurl='';//动态图片列表
+								var trends='';
+								var size = 0;
+								$.each(val.imgUrl, function (index, val) {
+									size++;
+								})
+								
+								$.each(val.imgUrl, function (index, val) {
+									if(size == 1){
+										picurl+='<img style="width:80%;height:10%;margin-left:10%;" src="'+val+'">'
+									}else{
+										picurl+='<img src="'+val+'">'
+									}
+								})
+								
+								var creatAt = val.createTime.split("-");
+								console.log(creatAt);
+								var ss = creatAt[0] + "/" + creatAt[1] + "/" + creatAt[2];
+								var trends1='<div class="user">\n' +
+                                    '\t\t\t\t\t<div class="helper">\n' +
+                                    '\t\t\t\t\t\t<img src="'+val.helperImgUrl+'">\n' +
+                                    '\t\t\t\t\t\t<p>'+val.helperName+'</p>\n' +
+                                    '\t\t\t\t\t</div>\n' +
+                                    '\t\t\t\t\t<div class="help">\n' +
+                                    '\t\t\t\t\t\t<div class="helped">\n' +
+                                    '\t\t\t\t\t\t\t帮助\n' +
+                                    '\t\t\t\t\t\t</div>\n' +
+                                    '\t\t\t\t\t\t<p>\n' +
+                                    // '\t\t\t\t\t\t\t'+val.createTime+'\n' +\
+									'\t\t\t\t\t\t\t'+ss+'\n' +
+                                    '\t\t\t\t\t\t</p>\n' +
+                                    '\t\t\t\t\t</div>\n' +
+                                    '\t\t\t\t\t<div class="helpee">\n' +
+                                    '\t\t\t\t\t\t<img src="'+val.helpeeImgUrl+'">\n' +
+                                    '\t\t\t\t\t\t<p>'+val.helpeeName+'</p>\n' +
+                                    '\t\t\t\t\t</div>\n' +
+                                    '\t\t\t\t\t<div style="clear: both;"></div>\n' +
+                                    '\t\t\t\t</div>\n' +
+                                    '\t\t\t\t<div class="position">\n' +
+                                    '\t\t\t\t\t<span><img src="img/position.png"/></span>\n' +
+                                    '\t\t\t\t\t<p>'+val.address+'</p>\n' +
+                                    '\t\t\t\t\t<div style="clear: both;"></div>\n' +
+                                    '\t\t\t\t</div>\n' +
+                                    '\t\t\t\t<div class="imglist">';
+
+								var trends2='</div>\n' +
+                                    '\t\t\t\t<div class="text">\n' +
+                                    '\t\t\t\t\t<p>'+val.content+'</p>\n' +
+                                    '\t\t\t\t</div>\n' +
+                                    '\t\t\t\t<div class="bar">\n' +
+                                    '\t\t\t\t\t<div class="btn">\n' +
+                                    '\t\t\t\t\t\t<div class="icon" style="margin-left:3%;">\n' +
+                                    '\t\t\t\t\t\t\t<a href=""><img src="img/flower.png"/></a>\n' +
+                                    '\t\t\t\t\t\t\t<span>'+val.likeNum+'</span>\n' +
+                                    '\t\t\t\t\t\t</div>\n' +
+                                    '\t\t\t\t\t\t<div class="icon" style="margin-left:2%;">\n' +
+                                    '\t\t\t\t\t\t\t<a href=""><img src="img/message.png"/></a>\n' +
+                                    '\t\t\t\t\t\t\t<span>'+val.commentNum+'</span>\n' +
+                                    '\t\t\t\t\t\t</div>\n' +
+                                    '\t\t\t\t\t\t<div class="icon" style="margin-left:2%;">\n' +
+                                    '\t\t\t\t\t\t\t<a href=""><img src="img/share.png"/></a>\n' +
+                                    '\t\t\t\t\t\t\t\n' +
+                                    '\t\t\t\t\t\t</div>\n' +
+                                    '\t\t\t\t\t\t<div class="icon" style="margin-left:2%;">\n' +
+                                    '\t\t\t\t\t\t\t<a href=""><img src="img/tong.png"/></a>\n' +
+                                    '\t\t\t\t\t\t\t\n' +
+                                    '\t\t\t\t\t\t</div>\n' +
+                                    '\t\t\t\t\t\t<div class="icon" style="margin-left:0;">\n' +
+                                    '\t\t\t\t\t\t\t<a href=""><img src="img/qi.png"/></a>\n' +
+                                    '\t\t\t\t\t\t\t\n' +
+                                    '\t\t\t\t\t\t</div>\n' +
+                                    '\t\t\t\t\t\t<div style="clear: both;"></div>\n' +
+                                    '\t\t\t\t\t</div>\n' +
+                                    '\t\t\t\t</div>'
+								trends = trends1 + picurl + trends2//动态区
+
+								var discuss='';
+								$.each(val.commentVoList, function (index, val) {
+									
+									discuss+='<div class="comment">\n' +
+                                        '\t\t\t\t\t<div class="header">\n' +
+                                        '\t\t\t\t\t\t<img src="'+val.headerImg+'">\n' +
+                                        '\t\t\t\t\t</div>\n' +
+                                        '\t\t\t\t\t<div class="mes">\n' +
+                                        '\t\t\t\t\t\t<div class="left">\n' +
+                                        '\t\t\t\t\t\t\t<p class="name">'+val.createByNickname+'</p>\n' +
+                                        '\t\t\t\t\t\t\t<p class="time">'+val.replyTime+'</p>\n' +
+                                        '\t\t\t\t\t\t</div>\n' +
+                                        '\t\t\t\t\t\t<div class="right">\n' +
+                                        '\t\t\t\t\t\t\t<div class="rightspan">\n' +
+                                        '\t\t\t\t\t\t\t\t<a href=""><img src="img/flower.png"/><span>0</span></a>\n' +
+                                        '\t\t\t\t\t\t\t</div>\n' +
+                                        '\t\t\t\t\t\t\t<div class="rightspan">\n' +
+                                        '\t\t\t\t\t\t\t\t<a href=""><img src="img/tong.png"/>\n' +
+                                        '\t\t\t\t\t\t\t\t<span>删除</span></a>\n' +
+                                        '\t\t\t\t\t\t\t</div>\n' +
+                                        '\t\t\t\t\t\t\t<div style="clear: both;"></div>\n' +
+                                        '\t\t\t\t\t\t</div>\n' +
+                                        '\t\t\t\t\t\t<div style="clear: both;"></div>\n' +
+                                        '\t\t\t\t\t\t<div class="content">\n' +
+                                        '\t\t\t\t\t\t\t<p>\n' +
+                                        '\t\t\t\t\t\t\t\t'+val.content+'\n' +
+                                        '\t\t\t\t\t\t\t</p>\n' +
+                                        '\t\t\t\t\t\t</div>\n' +
+                                        '\t\t\t\t\t</div>\n' +
+                                        '\t\t\t\t\t<div style="clear: both;"></div>\n' +
+                                        '\t\t\t\t</div>'
+						
+
+								})
+								content+='<div class="main"><div class="main_top"></div><div class="main_con">'+trends + discuss+'</div><div class="main_bottom"></div></div>';
+<!-- <div class="more"><img src="img/more.png"/></div> -->
+							})
+						
+							$(".datas").before(content);
+
+						}
+						else if(data.code == 10011){
+							alert("登录已超时，请重新登录！");
+							location.href="login.html";
+						}
+						else{
+							alert(data.msg);
+						}
+					},
+					error: function () {
+						console.log("出错了");
+					}
+				});
+
+
+			})
+		</script>
+	</body>
+</html>

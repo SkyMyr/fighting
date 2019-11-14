@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<link href="css/helper.css" rel="stylesheet">
+	</head>
+	<style>
+		.box1{
+			background:url(img/medal2_1.png) no-repeat;
+			width:80%;
+			height:1300px;
+			margin-left:17%;
+		} 
+	</style>
+	<body>
+	
+		<!-- <div class="top">
+			<span>这是标题</span>
+		</div> -->
+		<div style="float:left;width:100%;" class="mtop">
+			<p >购物—淘宝</p>
+			<p >聊天-微信</p>
+			<p >说谢谢-见济</p>
+		</div>
+		<div class="margintop">
+			<p></p>
+			<p>来自“见济APP”</p>
+		</div>
+		
+		<div class="margintop2" style="position:relative;">
+			<div class="datas" style="position:relative;">
+			<img src="img/medal2_1.png" style="width:100%;height:100%;">
+				<img style="width:15%;height:3%;position: absolute;top: 23%;left: 42%;" src="img/medal2_2.png">
+				<img style="width:5%;height:2%;position: absolute;top: 27%;left: 36%;"  src="img/medal2_3.png">
+				<span style="position: absolute;top: 25%;left: 47%;font-size:10px;color:black;" id="nickName"></span>
+				<hr style="width:14%;height:2px;background-color:#CBAF80;position: absolute;top: 27%;left: 44%;border:none;">
+				<img style="width:60%;height:27%;position: absolute;top: 31%;left: 20%;" src="img/medal2_4.png">
+				<span style="position:absolute;top: 60%;left: 54%;font-size:10px;color:#815C2D;font-weight: bold;font-family:'KaiTi'" id="time"></span>
+				<img style="width:40%;height:8%;position: absolute;top: 65%;left: 38%;" src="img/sign.png">
+			</div>
+			<!-- <div style="float:left;width:100%;"> -->
+				<!-- <p >购物—淘宝</p> -->
+				<!-- <p >聊天-微信</p> -->
+				<!-- <p >说谢谢-见济</p> -->
+			<!-- </div> -->
+		</div>
+		
+		<!-- <div class="map" style="margin-bottom: 50px;"> -->
+			<!-- <img src="img/map.jpg"/> -->
+		<!-- </div> -->
+		
+		<div class="margintop2">
+			<p>下载见济和我一起传播正能量，实现“让助人为乐在全中国成为一种生活方式”的中国梦！</p>
+		</div>
+		
+		<div class="btns">
+			<a  onclick="checkTerminal();"><img src="img/android_btn.png"/></a>
+			<a  onclick="checkTerminal();"><img src="img/ios_btn.png"/></a>
+		</div>
+		
+		
+		<script src="js/jquery-2.0.3.js"></script>
+		<!-- 包括所有已编译的插件 -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/common.js"></script>
+		<script>
+
+
+			function getQueryString(name) {
+			    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			    let r = window.location.search.substr(1).match(reg);
+			    if (r != null) {
+			        return unescape(r[2]);
+			    };
+			    return null;
+ 			}
+
+			$(function () {
+
+				let userId = getQueryString("userId");
+				$.ajax({
+					url: host+"pub/other/getUserMedal",
+					type: "post",
+					dataType: 'json',
+					data:{
+						"userId":userId
+					},
+					<!-- beforeSend: function(request){ -->
+						<!-- request.setRequestHeader("token",localStorage.getItem("token"));  -->
+						<!-- request.setRequestHeader("token","39e220723d3e4cebb96c6392e9063d04"); -->
+					<!-- }, -->
+					success: function (data) {
+						console.log(data);
+						if(data.code==1) {
+							var data = data.data;
+							var nickName = data.nickName;
+							var userId = data.userId;
+							var medalList = data.medalList;
+							var donateFeeSum = 0;
+							var grantAt = data.medalList[0].grantAt;
+							$.each(medalList, function (index, medal) {
+								donateFeeSum = donateFeeSum + medal.donateFee;
+							})
+							$("#nickName").text(nickName);
+							<!-- console.log(grantAt); -->
+							$("#time").text(dateForm(grantAt));
+							<!-- $(".datas").before(content); -->
+						}
+						else if(data.code == 10011){
+							alert("登录已超时，请重新登录！");
+							location.href="login.html";
+						}
+						else{
+							alert(data.msg);
+						}
+					},
+					error: function () {
+						console.log("出错了");
+					}
+				});
+			})
+			
+			function dateForm(time){
+                if(time){
+					var oDate = new Date(time*1),
+					oYear = oDate.getFullYear(),
+					oMonth = oDate.getMonth()+1,
+					oDay = oDate.getDate(),
+					oTime = oYear +'-'+ getBz(oMonth) +'-'+ getBz(oDay);//拼接时间
+					return oTime;
+				}else{
+					return "";
+				}
+            }
+			
+			//补0
+			function getBz(num){
+				if(parseInt(num) < 10){
+					num = '0'+num;
+				}
+				return num;
+			}
+			
+			function checkTerminal(){
+				var u = navigator.userAgent;
+				//ios终端
+				var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); 
+				if(isiOS){
+					location.href = "https://www.pgyer.com/pcwW";
+					return;
+				}
+				//android终端
+				location.href = "https://www.pgyer.com/opsr";
+				
+			}
+		</script>
+	</body>
+</html>

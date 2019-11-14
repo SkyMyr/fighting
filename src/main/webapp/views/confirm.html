@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+	$(document).ready(function(){
+		var a="第一种方法。";   
+	});  
+	$(function(){  
+		var b="第二种方法。";  
+	});  
+	$(function() {  
+		var c="第三种方法。";  
+	});  
+	window.onload=function(){
+		var phone = getParam('phone');
+		var code = 1;
+		if(getParam('code')==1){
+			if (confirm("您确定接受邀请吗？")){
+				code=3;
+				alert("您接收了邀请");
+			}
+			else
+			   alert("您取消了邀请");
+		}else{
+			if (confirm("您确定要拒绝邀请吗？")){
+				code=2;
+				alert("您拒绝了邀请");
+			}
+		}
+		$.ajax({
+			type:"POST",
+			dataType:"JSON",
+			url:"/ssm/company/confirmSMS",
+			data:{"phone":phone,"code":code},
+			async:false,
+			cache:false,
+			success:function(data){
+				if(data.code==1){
+					alert(data.msg);
+				}else {
+					alert(data.msg);
+				}
+			},
+			error:function () {
+				console.log();
+			}
+		})
+	};
+	var getParam = function(name){
+        var search = document.location.search;
+        var pattern = new RegExp("[?&]"+name+"\=([^&]+)", "g");
+        var matcher = pattern.exec(search);
+        var items = null;
+        if(null != matcher){
+            try{
+                items = decodeURIComponent(decodeURIComponent(matcher[1]));
+            }catch(e){
+                try{
+                    items = decodeURIComponent(matcher[1]);
+                }catch(e){
+                    items = matcher[1];
+                }
+            }
+        }
+        return items;
+    };
+</script>
+</html>

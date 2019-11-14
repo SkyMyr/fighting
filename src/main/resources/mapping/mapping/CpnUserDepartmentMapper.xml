@@ -164,4 +164,10 @@
   where ud.update_at=u.id AND u.id=ut.id AND ud.user_name=#{arg0}
   </select>
 
+  <select id="selectByPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from pc_user_department
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </select>
 </mapper>
