@@ -58,6 +58,7 @@ public class AdminController {
     @Autowired
     CpnUserDepartmentMapper cpnUserDepartmentMapper;
     /**
+     * myr
      * 登陆
      * @param request
      * @param loginModel
@@ -83,6 +84,7 @@ public class AdminController {
     }
 
     /**
+     * myr
      * 注册
      * @param request
      * @param register
@@ -132,6 +134,7 @@ public class AdminController {
     }
 
     /**
+     * myr
      * 更新个人信息
      * @param request
      * @param register
@@ -167,6 +170,7 @@ public class AdminController {
         }
 
     /**
+     * myr
      * 发送短信验证
      * @param request
      * @param sms 手机号和区号（+86）
@@ -196,6 +200,7 @@ public class AdminController {
     }
 
     /**
+     * myr
      * 接收邮件跳转链接
      * @param request
      * @param cpnUserDepartment
@@ -218,6 +223,7 @@ public class AdminController {
     }
 
     /**
+     * pengjian
      * @author 15583
      * 员工列表
      */
@@ -239,7 +245,7 @@ public class AdminController {
     }
 
     /**
-     *
+     *  pengjian
      * 通过名字查找员工列表
      * @param userName 员工姓名
      * @return
@@ -263,6 +269,7 @@ public class AdminController {
 
 
     /**
+     * pengjian
      * 显示部门
      * @param request
      * @return
@@ -285,6 +292,7 @@ public class AdminController {
 
 
     /**
+     * liuhui
      * 更新密码
      * @param request
      * @param updatepwd
@@ -310,6 +318,7 @@ public class AdminController {
 
 
     /**
+     * liuhui
      * 添加员工
      * @param request
      * @param addPeople
@@ -338,6 +347,7 @@ public class AdminController {
     }
 
     /**
+     * liuhui myr
      * excel表格导入，并发送短信邀请
      * @param excelFile
      * @return
@@ -359,6 +369,7 @@ public class AdminController {
     }
 
     /**
+     * myr
      * 接收短信邀请入职员工获取互助信息之后的反馈
      * @param phone 手机号
      * @param code 状态 1-未注册 2-未同意 3- 已同意
@@ -381,6 +392,11 @@ public class AdminController {
     }
 
 
+    /**
+     * myr
+     * @param gid
+     * @return
+     */
     @RequestMapping("share")
     public ResponseBean share(String gid){
         ResponseBean responseBean = new ResponseBean();
