@@ -401,7 +401,6 @@ public class AdminController {
     public ResponseBean share(String gid){
         ResponseBean responseBean = new ResponseBean();
         PubAppr pubAppr = pubApprService.selectByPrimaryKey(Long.valueOf(gid));
-
         responseBean.setCode(1);
         return responseBean;
     }
