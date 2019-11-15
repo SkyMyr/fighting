@@ -210,19 +210,20 @@
                                     headers: {
                                         "token":token1//此处放置请求到的用户token
                                     },
-                                    url:"/ssm/company/showAllDepartment",
+                                    url:"/ssm/company/allDepartment",
                                     type: requesttype,
                                     data:{pageNum:1,pageSize:10},
                                     dataType: 'json',
                                     success: function (result) {
+                                        result=result.data;
                                         for (var j=0;j<result.length;j++){
                                             $("#bumen").append(
-                                                    '<li ><a href="#.html" class="">'+ result[j].market+'</a></li>'
-                                                    +'<li ><a href="#.html" class="">'+result[j].market+'</a></li>'
-                                                    +'<li ><a href="#.html" class="">'+result[j].manager+'</a></li>'
-                                                    +'<li ><a href="#.html" class="">'+result[j].finance+'</a></li>'
-                                                    +'<li ><a href="#.html" class="">'+result[j].logistics+'</a></li>'
-                                                    +'<li ><a href="#.html" class="">'+result[j].technology+'</a></li>'
+                                                    '<li ><a href="#.html" class="">'+ result[j].parent_id+'</a></li>'
+                                                    // +'<li ><a href="#.html" class="">'+result[j].market+'</a></li>'
+                                                    // +'<li ><a href="#.html" class="">'+result[j].manager+'</a></li>'
+                                                    // +'<li ><a href="#.html" class="">'+result[j].finance+'</a></li>'
+                                                    // +'<li ><a href="#.html" class="">'+result[j].logistics+'</a></li>'
+                                                    // +'<li ><a href="#.html" class="">'+result[j].technology+'</a></li>'
                                             );
                                         }
                                     },
@@ -270,85 +271,6 @@
                                                     </ul>
                                                 </div>
                                                 <div class="biaoge1" id="scroller">
-<!--                                                    <ul>-->
-<!--                                                        <li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>-->
-<!--                                                        <a href="studentdetails.html"> <li style="width:12%"><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>-->
-<!--                                                        <li style="width:6%">男 </li> -->
-<!--                                                        <li style="width:9%">市场部</li> -->
-<!--                                                        <a href="gooddeeds.html"> <li style="width:10%">100</li></a>-->
-<!--                                                        <a href="gooddeeds1.html"><li style="width:12%"> 5 H 12 Min </li></a>-->
-<!--                                                        <a href="days.html"> <li style="width:6%"> 是</li></a>-->
-<!--                                                        <a href="helpeach.html"> <li style="width:9%"> 5</li></a>-->
-<!--                                                        <li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li>-->
-<!--                                                        <li style="width:9%">拒绝</li>-->
-<!--                                                        <li style="width:9%"> <div class="biaogebtn" onclick="send_new();">重新发送</div>  </li>-->
-<!--                                                    </ul>-->
-<!--                                                    <ul>-->
-<!--                                                        <li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>-->
-<!--                                                        <a href="studentdetails.html"> <li style="width:12%"><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>-->
-<!--                                                        <li style="width:6%">男 </li> -->
-<!--                                                        <li style="width:9%">市场部</li> -->
-<!--                                                        <a href="gooddeeds.html"> <li style="width:10%">100</li></a>-->
-<!--                                                        <a href="gooddeeds1.html"><li style="width:12%"> 5 H 12 Min </li></a>-->
-<!--                                                        <a href="days.html"> <li style="width:6%"> 是</li></a>-->
-<!--                                                        <a href="helpeach.html"> <li style="width:9%"> 5</li></a>-->
-<!--                                                        <li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li>-->
-<!--                                                        <li style="width:9%">拒绝</li>-->
-<!--                                                        <li style="width:9%"> <div class="biaogebtn" onclick="send_new();">重新发送</div>  </li>-->
-<!--                                                    </ul>-->
-<!--                                                    <ul>-->
-<!--                                                        <li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>-->
-<!--                                                        <a href="studentdetails.html"> <li style="width:12%"><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>-->
-<!--                                                        <li style="width:6%">男 </li> -->
-<!--                                                        <li style="width:9%">市场部</li> -->
-<!--                                                        <a href="gooddeeds.html"> <li style="width:10%">100</li></a>-->
-<!--                                                        <a href="gooddeeds1.html"><li style="width:12%"> 5 H 12 Min </li></a>-->
-<!--                                                        <a href="days.html"> <li style="width:6%"> 是</li></a>-->
-<!--                                                        <a href="helpeach.html"> <li style="width:9%"> 5</li></a>-->
-<!--                                                        <li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li>-->
-<!--                                                        <li style="width:9%">拒绝</li>-->
-<!--                                                        <li style="width:9%"> <div class="biaogebtn" onclick="send_new();">重新发送</div>  </li>-->
-<!--                                                    </ul>-->
-<!--                                                    <ul>-->
-<!--                                                        <li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>-->
-<!--                                                        <a href="studentdetails.html"> <li style="width:12%"><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>-->
-<!--                                                        <li style="width:6%">男 </li> -->
-<!--                                                        <li style="width:9%">市场部</li> -->
-<!--                                                        <a href="gooddeeds.html"> <li style="width:10%">100</li></a>-->
-<!--                                                        <a href="gooddeeds1.html"><li style="width:12%"> 5 H 12 Min </li></a>-->
-<!--                                                        <a href="days.html"> <li style="width:6%"> 是</li></a>-->
-<!--                                                        <a href="helpeach.html"> <li style="width:9%"> 5</li></a>-->
-<!--                                                        <li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li>-->
-<!--                                                        <li style="width:9%">拒绝</li>-->
-<!--                                                        <li style="width:9%"> <div class="biaogebtn" onclick="send_new();">重新发送</div>  </li>-->
-<!--                                                    </ul>                        -->
-<!--                                                    <ul>-->
-<!--                                                        <li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>-->
-<!--                                                        <a href="studentdetails.html"> <li style="width:12%"><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>-->
-<!--                                                        <li style="width:6%">男 </li> -->
-<!--                                                        <li style="width:9%">市场部</li> -->
-<!--                                                        <a href="gooddeeds.html"> <li style="width:10%">100</li></a>-->
-<!--                                                        <a href="gooddeeds1.html"><li style="width:12%"> 5 H 12 Min </li></a>-->
-<!--                                                        <a href="days.html"> <li style="width:6%"> 是</li></a>-->
-<!--                                                        <a href="helpeach.html"> <li style="width:9%"> 5</li></a>-->
-<!--                                                        <li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li>-->
-<!--                                                        <li style="width:9%">拒绝</li>-->
-<!--                                                        <li style="width:9%"> <div class="biaogebtn" onclick="send_new();">重新发送</div>  </li>-->
-<!--                                                    </ul>-->
-<!--                                                    <ul>-->
-<!--                                                        <li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>-->
-<!--                                                        <a href="studentdetails.html"> <li style="width:12%"><div class="biaoge_pic"><img src="assets/images/user4.png" ></div>Crew </li> </a>-->
-<!--                                                        <li style="width:6%">男 </li> -->
-<!--                                                        <li style="width:9%">市场部</li> -->
-<!--                                                        <a href="gooddeeds.html"> <li style="width:10%">100</li></a>-->
-<!--                                                        <a href="gooddeeds1.html"><li style="width:12%"> 5 H 12 Min </li></a>-->
-<!--                                                        <a href="days.html"> <li style="width:6%"> 是</li></a>-->
-<!--                                                        <a href="helpeach.html"> <li style="width:9%"> 5</li></a>-->
-<!--                                                        <li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li>-->
-<!--                                                        <li style="width:9%">拒绝</li>-->
-<!--                                                        <li style="width:9%"> <div class="biaogebtn" onclick="send_new();">重新发送</div>  </li>-->
-<!--                                                    </ul>                          -->
-                                                    
                                                 </div>	
                                             </div>
                                             <div class="fright"><div class="leftyd"><img src="assets/images/banjileft1_1.png"  ></div></div>
@@ -560,6 +482,9 @@
               dataType: 'json',
               success: function (result) {
                 var data =result.data;
+                  if(result.code==0){
+                      document.getElementById("scroller").innerHTML = '<ul>暂无数据</ul>';
+                  }else {
                 studentslist =
                         '<ul>' +
                         '<li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/jiantoured.png" width="10" height="18"></span>' +
@@ -574,8 +499,9 @@
                         '<img src="assets/images/banji_pic5.png" width="40" height="41"></a></li><li style="width:9%">'+data.sms_status+'</li>' +
                         '<li style="width:9%"><a href="javascript:;" onclick="send_new();">' +
                         '<div class="biaogebtn">重新发送</div></a></li></ul>';
-                document.getElementById("scroller").innerHTML = studentslist;
-                
+
+                    document.getElementById("scroller").innerHTML = studentslist;
+                }
               },
               error: function () {
                   console.log("出错了");

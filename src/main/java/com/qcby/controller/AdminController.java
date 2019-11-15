@@ -66,6 +66,21 @@ public class AdminController {
 
     @Autowired
     PubApprImgMapper pubApprImgMapper;
+
+    @Autowired
+    PubApprLikeService pubApprLikeService;
+
+    @Autowired
+    PubMedalService pubMedalService;
+
+    @Autowired
+    PubApprUserDataService pubApprUserDataService;
+
+    @Autowired
+    PubUserproService pubUserproService;
+
+    @Autowired
+    PubApprImgService pubApprImgService;
     /**
      * myr
      * 登陆
@@ -511,88 +526,81 @@ public class AdminController {
     }
 
 
+    /**
+     * pengjian
+     * 个人分享页面相关信息
+     * @return
+     */
+    @RequestMapping("selectHelp")
+    public ResponseBean<PubApprModel> selectHelpers(){
+        ResponseBean<PubApprModel> responseBean=new ResponseBean<>();
+        //查询分享页面帮助者的地址,头像,名字
+        List<PubUserpro> pubUserpro=pubUserproService.selectHelperAddrAndImg();
+        System.out.println(pubUserpro+"AAAAAAAAAAAAAAAAA");
+        PubApprModel pubApprModel = new PubApprModel();
+        pubApprModel.setAddress(pubUserpro);
+        pubApprModel.setFirst_name(pubUserpro);
+        pubApprModel.setHeader_img(pubUserpro);
 
 
-/*
-    @RequestMapping("employMedal")
-    public ResponseBean selectDetails(int id){
-        EmployeeDetails employeeDetails =new EmployeeDetails();
-        employeeDetails.setUserId(id);
-        ResponseBean<EmployeeDetails> responseBean =new ResponseBean<>();
-        //通过用户id查找感恩数,帮助数,服务时间,头像,勋章
-        List<EmployeeDetails> detailsA =pubApprLikeService.selectLikeNum(id);
-        System.out.println(detailsA+"OOOOOOOOOOOOOOOOOOO");
-        List<EmployeeDetails> detailsB =employeeMedalService.selectMedal(id);
-        System.out.println(detailsB+"HHHHHHHHHHHHHHHHHHHHHH");
-        if (detailsA!=null&&!detailsA.isEmpty()&&detailsB!=null&&!detailsB.isEmpty()){
-            //将查到的数据放到ResponseBean工具类中
-            responseBean.setData(detailsA.get(0));
-            responseBean.setData(detailsB.get(0));
-            //返回给前端的提示信息
+        //查询分享页面的施助者id和感恩者id列表
+        List<PubAppr> pubApprs=pubApprService.selectHelperAndHelpee();
+        System.out.println(pubApprs+"BBBBBBBBBBBBBBBBBBBBBB");
+        pubApprModel.setHelpers(pubApprs);
+        pubApprModel.setHelpees(pubApprs);
+
+        //查询感恩者(用户)发表的感恩图片
+        List<PubApprImg> pubApprImgs=pubApprImgService.selectUrl();
+        System.out.println(pubApprImgs+"CCCCCCCCCCCCCCCCCCC");
+        pubApprModel.setUrl(pubApprImgs);
+
+        if(pubApprModel!=null){
+            responseBean.setData(pubApprModel);
             responseBean.setCode(1);
             responseBean.setMsg("显示成功!");
         }else {
             responseBean.setCode(0);
             responseBean.setMsg("显示失败!");
         }
-        System.out.println(responseBean+"PPPPPPPPPPPPPPPPPPPPPPPPP");
         return responseBean;
-    }*/
+    }
 
-//    /**
-//     * 废弃
-//     * 登陆
-//     * @param request
-//     * @param loginModel
-//     * @return
-//     */
-//    @RequestMapping("login")
-//    public String login(HttpServletRequest request,LoginModel loginModel) {
-//        System.out.println(loginModel);
-//        Admin admin = adminService.selectByLogin(loginModel.getLoginName(),loginModel.getPassword());
-//        System.out.println(admin);
-//        HttpSession session = request.getSession();
-//        session.setAttribute("uuid",admin.getId());
-//        session.setAttribute("a","b");
-//        System.err.println(session.getId());
-//        System.err.println("登录" + session.getAttribute("uuid") + "*********************************");
-//        if(admin != null){
-//            String json ="{\"code\":[1],\"data\":{\"token\":\""+session.getId()+"\"}}";
-//            return json;
-//        }
-//        return "{\"code\":[0]}";
-//    }
 
-//    /**
-//     * 废弃
-//     * 更新个人信息
-//     * @param request
-//     * @param register
-//     * @return
-//     */
-//    @RequestMapping("updateData")
-//    public ResponseBean<Map> updateData(HttpServletRequest request, Register register) {
-//        ResponseBean<Map> responseBean = new ResponseBean<Map>();
-//        System.err.println(request.getSession().getId());
-//
-//        System.err.println("+++++++++++++++++++++++++++++++++" + request.getSession().getAttribute("a"));
-//        Long id = Long.parseLong(request.getSession().getAttribute("uuid").toString()) ;
-//        System.err.println("更新" + id.toString()+"***************************");
-//
-//        Admin admin = new Admin();
-//        admin.setId(id);
-//        admin.setLogin_name(register.getLoginName());
-//        admin.setAddress(register.getAddress());
-//        admin.setUrl(register.getUrl());
-//        admin.setCountry(register.getCountryName());
-//        admin.setCity(register.getCityName());
-//        admin.setProvince(register.getProvinceName());
-//        admin.setMobile(register.getMobile());
-//        System.out.println(admin + "************************************");
-//        int result = adminService.updateByPrimaryKey(admin);
-//        Map map = new HashMap<String,String>();
-//        map.put("code",result);
-//        responseBean.setDate(map);
-//        return responseBean;
-//    }
+    /**
+     * pengjian
+     * 点头像进入用户详细信息页面
+     * @return
+     */
+    @RequestMapping("employDetails")
+    public ResponseBean<EmployeeDetailsModel> selectDetails(){
+        ResponseBean<EmployeeDetailsModel> responseBean =new ResponseBean<>();
+        //查询用户感恩数
+        int i=pubApprLikeService.selectApprCount();
+        EmployeeDetailsModel employeeDetailsModel=new EmployeeDetailsModel();
+        employeeDetailsModel.setApprNum(i);
+        //查询用户获得的勋章
+        List<PubMedal> pubMedals=pubMedalService.selectMedal();
+        employeeDetailsModel.setMedals(pubMedals);
+        //查询用户的帮助数,服务时间
+        PubApprUserData pubApprUserData=pubApprUserDataService.selectHelperAndTime();
+        employeeDetailsModel.setGoodThingsNum(pubApprUserData.getHelper_number());
+        employeeDetailsModel.setServiceTime(pubApprUserData.getService_time());
+        //查询用户的头像,名字
+        PubUserpro pubUserpro =pubUserproService.selectUserImgAndName();
+        System.out.println(pubUserpro+"******************");
+        employeeDetailsModel.setImgUrl(pubUserpro.getHeader_img());
+        employeeDetailsModel.setFirstName(pubUserpro.getFirst_name());
+        //将数据返回给前端
+        if(employeeDetailsModel!=null){
+            responseBean.setData(employeeDetailsModel);
+            responseBean.setCode(1);
+            responseBean.setMsg("成功");
+        }else {
+            responseBean.setCode(0);
+            responseBean.setMsg("失败");
+        }
+        return responseBean;
+
+    }
+
 }

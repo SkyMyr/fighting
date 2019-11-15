@@ -130,4 +130,11 @@
       status = #{status,jdbcType=SMALLINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectMedal" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    SELECT medal_type
+    FROM medal as m,appr_like as al
+    WHERE m.grant_to=al.user_id
+  </select>
+
 </mapper>

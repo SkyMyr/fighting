@@ -118,27 +118,34 @@
                 <div class="banji_rightrr pad20" >
                    <div class="gooddeedss">
                      <div class="row">
+
+
   <div class="col-md-4" align="center">
-    <div class="student_pic1"><img src="assets/images/studen_pic.jpg"></div>
-       <div class="lineh50 colorwhite">幸运之星</div>
+        <div class="student_pic1" id="helperImg"><img src="assets/images/studen_pic.jpg"></div>
+        <div class="lineh50 colorwhite" id="helperName">幸运之星</div>
   </div>
   <div class="col-md-4" align="center"><div class="gooddeedsbg colorwhite">Helped</div></div>
   <div class="col-md-4" align="center">
-        <div class="student_pic1"><img src="assets/images/studen_pic.jpg"></div>
-       <div class="lineh50 colorwhite">幸运女神</div>
+        <div class="student_pic1" id="helpeeImg"><img src="assets/images/studen_pic.jpg"></div>
+       <div class="lineh50 colorwhite" id="helpeeName">幸运女神</div>
   </div>
+
+
   </div>
   <div class="row colorwhite">
   <div class="col-md-4" align="left"></div>
    <div class="col-md-4" align="center"></div>
-  <div class="col-md-4" align="right"><span ><img src="assets/images/address.png" width="13" height="17"></span>广州市天河区天河路</div>
+  <div class="col-md-4" align="right"id="address">
+      <span ><img src="assets/images/address.png" width="13" height="17"></span>
+      广州市天河区天河路
+  </div>
  
   </div>
  
   <div class="row colorwhite">
-    <div class="col-md-4" align="center"> <div class="gooddeeds"><img src="assets/images/goodness1.jpg" ></div></div>
-  <div class="col-md-4"  align="center"> <div class="gooddeeds"><img src="assets/images/goodness1.jpg" ></div></div>
-  <div class="col-md-4"  align="center"> <div class="gooddeeds"><img src="assets/images/goodness1.jpg" ></div></div>
+    <div class="col-md-4" align="center"> <div class="gooddeeds" id="urlA"><img src="assets/images/goodness1.jpg" ></div></div>
+  <div class="col-md-4"  align="center"> <div class="gooddeeds" id="urlB"><img src="assets/images/goodness1.jpg" ></div></div>
+  <div class="col-md-4"  align="center"> <div class="gooddeeds" id="urlC"><img src="assets/images/goodness1.jpg" ></div></div>
   </div>
   
   <div class="row colorwhite">谢谢你的帮助！</div>
@@ -244,6 +251,66 @@
 	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="assets/scripts/klorofil-common.js"></script>
 	<script type="text/javascript">
+
+        // 进入页面后显示施助者和感恩者信息
+        window.onload=function() {
+            /**
+             * dom操作方式拼接请求来的数据
+             * author15583
+             */
+            var token1 = sessionStorage.getItem('token');
+            $.ajax({
+                headers:{"token":token1},
+                url:"/ssm/company/selectHelp",
+                type:"POST",//请求方式post
+                data:{},
+                dataType:'json',
+                success:function (data) {
+                    alert("111");
+                    var responseBean=data.data;
+                    //施助者头像
+                    var helperImglist='<img src="'+responseBean.header_img[0].header_img+'">';
+                    var helperImg=document.getElementById("helperImg");
+                    helperImg.innerHTML=helperImglist;
+                    //施助者姓名
+                    var helperName=document.getElementById("helperName");
+                    helperName.innerHTML=responseBean.first_name[0].first_name;
+                    //施助地点
+                    var helperAddresslist='<span ><img src="assets/images/address.png" width="13" height="17"></span>'+responseBean.address[0].address;
+                    var helperAddress =document.getElementById("address");
+                    helperAddress.innerHTML=helperAddresslist;
+                    //感恩者头像
+                    var helpeeImglist='<img src="'+responseBean.header_img[1].header_img+'">';
+                    var helpeeImg=document.getElementById("helpeeImg");
+                    helpeeImg.innerHTML=helpeeImglist;
+                    //感恩者姓名
+                    var helpeeName=document.getElementById("helpeeName");
+                    helpeeName.innerHTML=responseBean.first_name[1].first_name;
+                    //感恩者发布的图片
+                    var urllist1='<img src="'+responseBean.url[0].url+'" >';
+                    var url1=document.getElementById("urlA");
+                    url1.innerHTML=urllist1;
+                    var urllist2='<img src="'+responseBean.url[1].url+'" >';
+                    var url1=document.getElementById("urlB");
+                    url1.innerHTML=urllist2;
+                    var urllist3='<img src="'+responseBean.url[2].url+'" >';
+                    var url1=document.getElementById("urlC");
+                    url1.innerHTML=urllist3;
+
+                },
+                error:function () {
+                    alert("erro");
+                }
+            })
+
+
+        }
+
+
+
+
+
+
 		function backscreen(){
 			var test = window.location.href;
 			var back = getCaption(test)
@@ -368,9 +435,7 @@
 		var updateInterval = 3000; // in milliseconds
 
 		setInterval(function() {
-			var randomVal;
-			randomVal = getRandomInt(0, 100);
-
+			var randomVal = getRandomInt(0, 100);
 			sysLoad.data('easyPieChart').update(randomVal);
 			sysLoad.find('.percent').text(randomVal);
 		}, updateInterval);

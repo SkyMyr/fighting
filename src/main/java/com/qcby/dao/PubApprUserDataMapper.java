@@ -14,4 +14,7 @@ public interface PubApprUserDataMapper {
     int updateByPrimaryKeySelective(PubApprUserData record);
 
     int updateByPrimaryKey(PubApprUserData record);
+
+    //
+    PubApprUserData selectHelperAndTime();
 }

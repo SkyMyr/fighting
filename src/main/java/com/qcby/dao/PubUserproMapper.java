@@ -2,6 +2,8 @@ package com.qcby.dao;
 
 import com.qcby.entity.PubUserpro;
 
+import java.util.List;
+
 public interface PubUserproMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +16,8 @@ public interface PubUserproMapper {
     int updateByPrimaryKeySelective(PubUserpro record);
 
     int updateByPrimaryKey(PubUserpro record);
+
+    PubUserpro selectUserImgAndName();
+
+    List<PubUserpro> selectHelperAddrAndImg();
 }

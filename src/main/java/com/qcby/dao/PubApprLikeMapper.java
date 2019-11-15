@@ -14,4 +14,6 @@ public interface PubApprLikeMapper {
     int updateByPrimaryKeySelective(PubApprLike record);
 
     int updateByPrimaryKey(PubApprLike record);
+
+    int selectApprCount();
 }

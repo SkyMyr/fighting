@@ -90,4 +90,11 @@
       update_at = #{update_at,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectHelperAndTime" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT helper_number,service_time
+    FROM appr_user_data as aud,appr_like as al
+    WHERE aud.id=al.user_id
+  </select>
+
 </mapper>

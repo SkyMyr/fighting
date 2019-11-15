@@ -158,5 +158,11 @@
     from appr_img
     where appr_id = #{appr_id,jdbcType=BIGINT}
   </select>
+  
+  <select id="selectUrl" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT url
+        FROM appr_img as ai,appr_like as al
+        WHERE ai.appr_id=al.appr_id AND ai.create_by=al.user_id
+  </select>
 
 </mapper>

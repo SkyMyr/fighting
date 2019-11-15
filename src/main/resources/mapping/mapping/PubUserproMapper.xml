@@ -291,4 +291,17 @@
       update_at = #{update_at,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectUserImgAndName" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT header_img,first_name
+        FROM user_prop as up,appr_like as al
+        WHERE up.id=al.user_id
+  </select>
+
+  <select id="selectHelperAddrAndImg" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT up.address,up.first_name,up.header_img
+    FROM appr as ap,user_prop as up
+    WHERE CAST(ap.helpers AS UNSIGNED)=up.id
+  </select>
+
 </mapper>

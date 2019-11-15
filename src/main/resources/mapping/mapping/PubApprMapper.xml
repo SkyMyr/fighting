@@ -386,4 +386,13 @@
       update_at = #{update_at,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+
+  <select id="selectHelperAndHelpee" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+     SELECT ap.helpers,ap.helpees
+     FROM appr as ap,user_prop as up
+     WHERE CAST(ap.helpers AS UNSIGNED)=up.id
+  </select>
+
+
 </mapper>

@@ -2,6 +2,8 @@ package com.qcby.service;
 
 import com.qcby.entity.PubAppr;
 
+import java.util.List;
+
 /**
  * @ClassNamePubApprService
  * @Description TODO
@@ -21,4 +23,6 @@ public interface PubApprService {
     int updateByPrimaryKeySelective(PubAppr record);
 
     int updateByPrimaryKey(PubAppr record);
+	
+	List<PubAppr> selectHelperAndHelpee();
 }

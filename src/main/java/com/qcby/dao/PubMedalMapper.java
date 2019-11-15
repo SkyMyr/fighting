@@ -2,6 +2,8 @@ package com.qcby.dao;
 
 import com.qcby.entity.PubMedal;
 
+import java.util.List;
+
 public interface PubMedalMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -16,4 +18,6 @@ public interface PubMedalMapper {
     int updateByPrimaryKeyWithBLOBs(PubMedal record);
 
     int updateByPrimaryKey(PubMedal record);
+
+    List<PubMedal> selectMedal();
 }

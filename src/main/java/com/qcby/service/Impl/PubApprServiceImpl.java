@@ -6,6 +6,8 @@ import com.qcby.service.PubApprService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @ClassNamePubApprServiceImpl
  * @Description TODO
@@ -47,5 +49,10 @@ public class PubApprServiceImpl implements PubApprService{
     @Override
     public int updateByPrimaryKey(PubAppr record) {
         return pubApprMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<PubAppr> selectHelperAndHelpee() {
+        return pubApprMapper.selectHelperAndHelpee();
     }
 }

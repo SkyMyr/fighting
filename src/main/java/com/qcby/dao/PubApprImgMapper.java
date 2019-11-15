@@ -2,6 +2,8 @@ package com.qcby.dao;
 
 import com.qcby.entity.PubApprImg;
 
+import java.util.List;
+
 public interface PubApprImgMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -11,9 +13,11 @@ public interface PubApprImgMapper {
 
     PubApprImg selectByPrimaryKey(Long id);
 
-    PubApprImg selectByAppId(Long id);
-
     int updateByPrimaryKeySelective(PubApprImg record);
 
     int updateByPrimaryKey(PubApprImg record);
+
+    List<PubApprImg> selectUrl();
+	
+	PubApprImg selectByAppId(Long id);
 }
