@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="assets/css/demo.css">
 	<link rel="stylesheet" href="assets/css/my.css">
-    
+
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
@@ -27,146 +27,186 @@
 	<div id="wrapper">
 		<!-- NAVBAR -->
 		<nav class="navbar banjitop_pic">
-        			 <div class="yuyan">
-                     <ul>
-                     <a href="index.html" ><li class="aa">English</li></a>  
-                      <a href="index.html" > <li>中文</li></a>
-                      </ul>
-                     </div>
-			         <h2 align="center" class="colorblue font40 banjiziw">见济人力资源后台</h2>
-            
-        
-            <div class="banjiw">
-              <div class="banji_btn">
-              <div class="banji_btn1 padright fleft">
-                 <ul class="fright">
-                <a href="index.html" ><li>员工管理</li></a>
-               <a href="mission.html"> <li>使命图</li></a>
-               </ul>
-              </div>
-              <div class="banji_btn1 padleft fright">
-                 <ul class="fleft">
-                <a href="set.html" ><li>设置</li></a>
-               <a href="help.html"> <li>帮助</li></a>
-               </ul>
-              </div>
-              
-            </div>
-            
-            </div>
-            <div class="navbar-btn">
-					<button type="button" class="btn-toggle-fullwidth" onclick="show1()"><img  id="saveimg" src="assets/images/jtgray.png" width="25px" height="25px" ></button>
+			<div class="yuyan">
+				<ul>
+					<a href="index.html">
+						<li class="aa">English</li>
+					</a>
+					<a href="index.html">
+						<li>中文</li>
+					</a>
+				</ul>
+			</div>
+			<h2 align="center" class="colorblue font40 banjiziw">见济人力资源后台</h2>
+
+
+			<div class="banjiw">
+				<div class="banji_btn">
+					<div class="banji_btn1 padright fleft">
+						<ul class="fright">
+							<a href="index.html">
+								<li>员工管理</li>
+							</a>
+							<a href="mission.html">
+								<li>使命图</li>
+							</a>
+						</ul>
+					</div>
+					<div class="banji_btn1 padleft fright">
+						<ul class="fleft">
+							<a href="set.html">
+								<li>设置</li>
+							</a>
+							<a href="help.html">
+								<li>帮助</li>
+							</a>
+						</ul>
+					</div>
+
 				</div>
-                
+
+			</div>
+			<div class="navbar-btn">
+				<button type="button" class="btn-toggle-fullwidth" onclick="show1()"><img id="saveimg"
+						src="assets/images/jtgray.png" width="25px" height="25px"></button>
+			</div>
+
 		</nav>
 		<!-- END NAVBAR -->
 		<!-- LEFT SIDEBAR -->
-	  <div id="sidebar-nav" id="show" class="sidebar">
-            <div><img src="assets/images/banji_left1.png" width="273" height="57"></div>
+		<div id="sidebar-nav" id="show" class="sidebar">
+			<div><img src="assets/images/banji_left1.png" width="273" height="57"></div>
 			<div class="sidebar-scroll">
-               
+
 				<nav>
 					<ul class="nav">
-                    <a href="javascript:;" onclick="backscreen();" ><div id="fanhui"><i class="lnr lnr-chevron-left"></i><span>返回</span></div></a>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
+						<a href="javascript:;" onclick="backscreen();">
+							<div id="fanhui"><i class="lnr lnr-chevron-left"></i><span>返回</span></div>
+						</a>
+						<li style="background: none;"><a href="#" style="background: none;"></a></li>
+						<li style="background: none;"><a href="#" style="background: none;"></a></li>
+						<li style="background: none;"><a href="#" style="background: none;"></a></li>
+						<li style="background: none;"><a href="#" style="background: none;"></a></li>
+						<li style="background: none;"><a href="#" style="background: none;"></a></li>
+						<li style="background: none;"><a href="#" style="background: none;"></a></li>
+						<li style="background: none;"><a href="#" style="background: none;"></a></li>
 					</ul>
 				</nav>
 			</div>
-             <div><img src="assets/images/banji_left3.png" width="273" height="222"></div>
-</div>
-<script>
-                            function show() {
-                                if ($("#show").css("display") == "none") {
-                                    $("#show").show();
-                                } else {
-                                    $("#show").hide();
-                                }
+			<div><img src="assets/images/banji_left3.png" width="273" height="222"></div>
+		</div>
+		<script>
+			function show() {
+				if ($("#show").css("display") == "none") {
+					$("#show").show();
+				} else {
+					$("#show").hide();
+				}
 
-                            }
-                            function show1() {
-                                if ($("#show").css("display") != "none") {
-                                	$('#saveimg').attr('src','assets/images/jtblue.png');
-                                    $("#show").hide();
-                                }
-                                if($("#sidebar-nav").css("display") != "none"){
-                                    $("#sidebar-nav").hide();
-                                }else{
-                                	$('#saveimg').attr('src','assets/images/jtgray.png');
-                                     $("#sidebar-nav").show();
-                                }
+			}
 
-                            }
-                        </script>
+			function show1() {
+				if ($("#show").css("display") != "none") {
+					$('#saveimg').attr('src', 'assets/images/jtblue.png');
+					$("#show").hide();
+				}
+				if ($("#sidebar-nav").css("display") != "none") {
+					$("#sidebar-nav").hide();
+				} else {
+					$('#saveimg').attr('src', 'assets/images/jtgray.png');
+					$("#sidebar-nav").show();
+				}
+
+			}
+		</script>
 		<!-- END LEFT SIDEBAR -->
 		<!-- MAIN -->
 		<div class="main">
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-				  <div class="panel"> 
-                    <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
-                     <span class="clearfix"></span>
-                     <div>
-                       <div class="fleft"> <div class="leftyd"><img src="assets/images/banjileft1.png"  ></div></div>
-   
-                <div class="banji_rightrr pad20" >
-                   <div class="studentdetails">
-                     <div class="row student_bor">
-  <div class="col-md-4" align="center">
-    <div class="student_t margin50"><div class="student_tt bulebg"></div> <span class="lineh72 colorwhite font18">帮助</span><br>
+					<div class="panel">
+						<div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+						<span class="clearfix"></span>
+						<div>
+							<div class="fleft">
+								<div class="leftyd"><img src="assets/images/banjileft1.png"></div>
+							</div>
 
-<span class="colorblue font60"><a href="gooddeeds.html" id="help_num">79</a></span></div>
-  </div>
-  <div class="col-md-4" align="center"><div class="student_pic" id="big_helper_pic"><img src="assets/images/studen_pic.jpg" ></div></div>
-  <div class="col-md-4" align="center">
-    <div class="student_t margin50"><div class="student_tt oragebg"></div> <span class="lineh72 colorwhite font18">感恩</span><br>
+							<div class="banji_rightrr pad20">
+								<div class="studentdetails">
+									<div class="row student_bor">
+										<div class="col-md-4" align="center">
+											<div class="student_t margin50">
+												<div class="student_tt bulebg"></div> <span
+													class="lineh72 colorwhite font18">帮助</span><br>
 
-<span class="corlororage font60"><a href="gooddeeds.html" id="thankfull_num">80</a></span></div>
-  </div></div>
-                 
-     <div class="row colorwhite" align="center">
-       <div class="student_pic1 margin50"  id="small_helper_pic"><img src="assets/images/studen_pic.jpg"></div>
-       <div class="lineh50">幸运之星</div>
-        <div><span id="medal1"><img src="assets/images/xunz1.png" width="50" height="50"></span><span id="medal2"><img src="assets/images/xunz2.png" width="50" height="50"></span><span id="medal3"><img src="assets/images/xunz3.png" width="50" height="50"></span></div>
-         <div class="lineh50">我喜欢帮助别人谢谢你的帮助！</div>
-     </div>            
-                 
-          <div class="row colorwhite" align="center"> </div>       
-                   <div class="set_fankui studentwz">
-                    <div class="fleft"><img src="assets/images/time_btn.png" width="50" height="50"></div>
-                   <div class="fleft margin_left">志愿者服务时间 <span class="corlororage" id="service_hour">780</span>小时<span class="corlororage" id="service_min"> 888888</span>分</div>
-                   </div>
-                   </div>
+												<span class="colorblue font60"><a href="gooddeeds.html"
+														id="help_num">79</a></span>
+											</div>
+										</div>
+										<div class="col-md-4" align="center">
+											<div class="student_pic" id="big_helper_pic"><img
+													src="assets/images/studen_pic.jpg"></div>
+										</div>
+										<div class="col-md-4" align="center">
+											<div class="student_t margin50">
+												<div class="student_tt oragebg"></div> <span
+													class="lineh72 colorwhite font18">感恩</span><br>
 
-                         
-                       </div>
-                       <div class="fright"><div class="leftyd"><img src="assets/images/banjileft1_1.png"  ></div></div>
-                     </div>
-                     <span class="clearfix"></span>
-                   <div class="leftydb"></div>
-                     <div ><span class="fleft jiaocorlor_2"></span><span class="fright jiaocorlor_3"></span></div>
-                     
-                     
-                  </div>
-                  
-                  
-                  
-                 <div class="panel" id="jianbian">
-                    <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
-                    <div class="leftydb1"></div>
-                      <span class="clearfix"></span>
-                    <div id="jianbianwhite"> </div>
-                  </div> 
-                  
-              
-              </div> 
-              </div>
+												<span class="corlororage font60"><a href="gooddeeds.html"
+														id="thankfull_num">80</a></span>
+											</div>
+										</div>
+									</div>
+
+									<div class="row colorwhite" align="center">
+										<div class="student_pic1 margin50" id="small_helper_pic"><img
+												src="assets/images/studen_pic.jpg"></div>
+										<div class="lineh50">幸运之星</div>
+										<div><span id="medal1"><img src="assets/images/xunz1.png" width="50"
+													height="50"></span><span id="medal2"><img
+													src="assets/images/xunz2.png" width="50" height="50"></span><span
+												id="medal3"><img src="assets/images/xunz3.png" width="50"
+													height="50"></span></div>
+										<div class="lineh50">我喜欢帮助别人谢谢你的帮助！</div>
+									</div>
+
+									<div class="row colorwhite" align="center"> </div>
+									<div class="set_fankui studentwz">
+										<div class="fleft"><img src="assets/images/time_btn.png" width="50" height="50">
+										</div>
+										<div class="fleft margin_left">志愿者服务时间 <span class="corlororage"
+												id="service_hour">780</span>小时<span class="corlororage"
+												id="service_min"> 888888</span>分</div>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="fright">
+								<div class="leftyd"><img src="assets/images/banjileft1_1.png"></div>
+							</div>
+						</div>
+						<span class="clearfix"></span>
+						<div class="leftydb"></div>
+						<div><span class="fleft jiaocorlor_2"></span><span class="fright jiaocorlor_3"></span></div>
+
+
+					</div>
+
+
+
+					<div class="panel" id="jianbian">
+						<div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+						<div class="leftydb1"></div>
+						<span class="clearfix"></span>
+						<div id="jianbianwhite"> </div>
+					</div>
+
+
+				</div>
+			</div>
 			<!-- END MAIN CONTENT -->
 		</div>
 		<!-- END MAIN -->
@@ -186,193 +226,193 @@
 	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="assets/scripts/klorofil-common.js"></script>
 	<script type="text/javascript">
+		/**
+		 * @author15583
+		 * daom操作显示帮助数和感恩数
+		 */
+		window.onload = function () {
 
-        /**
-         * @author15583
-         * daom操作显示帮助数和感恩数
-         */
-        window.onload=function(){
+			var service_hour = document.getElementById("service_hour");
+			service_hour.innerHTML = "99999999999999";
+			var service_min = document.getElementById("service_min");
+			service_min.innerHTML = "99999999999999";
+			$.ajax({
+				headers: {
+					"token": token1 //此处放置请求到的用户token
+				},
+				url: "",
+				type: requesttype,
+				data: {},
+				dataType: 'json',
 
-            var service_hour=document.getElementById("service_hour");
-            service_hour.innerHTML="99999999999999";
-            var service_min=document.getElementById("service_min");
-            service_min.innerHTML="99999999999999";
-            $.ajax({
-                headers:{
-                    "token":token1//此处放置请求到的用户token
-                },
-                url: "",
-                type: requesttype,
-                data:{},
-                dataType: 'json',
-
-                success:function (data) {
-                    //帮助数
-                    var h_num=document.getElementById("help_num");
-                    h_num.innerHTML="1000000";
-                    //感恩数
-                    var t_num=document.getElementById("thankfull_num");
-                    t_num.innerHTML="1000000";
-                    //用户头像大
-                    var pic=document.getElementById("big_helper_pic");
-                    pic.innerHTML="<img src='assets/images/studen_pic.jpg' >";
-                    //用户头像小
-                    var pic=document.getElementById("small_helper_pic");
-                    pic.innerHTML="<img src='assets/images/studen_pic.jpg' >";
-                    //勋章1
-                    var medal1=document.getElementById("medal1");
-                    medal1.innerHTML="<img src='assets/images/xunz1.png' width='50' height='50'>";
-                    //勋章2
-                    var medal2=document.getElementById("medal2");
-                    medal2.innerHTML="<img src='assets/images/xunz2.png' width='50' height='50'>";
-                    //勋章3
-                    var medal3=document.getElementById("medal3");
-                    medal3.innerHTML="<img src='assets/images/xunz3.png' width='50' height='50'>";
+				success: function (data) {
+					//帮助数
+					var h_num = document.getElementById("help_num");
+					h_num.innerHTML = "1000000";
+					//感恩数
+					var t_num = document.getElementById("thankfull_num");
+					t_num.innerHTML = "1000000";
+					//用户头像大
+					var pic = document.getElementById("big_helper_pic");
+					pic.innerHTML = "<img src='assets/images/studen_pic.jpg' >";
+					//用户头像小
+					var pic = document.getElementById("small_helper_pic");
+					pic.innerHTML = "<img src='assets/images/studen_pic.jpg' >";
+					//勋章1
+					var medal1 = document.getElementById("medal1");
+					medal1.innerHTML = "<img src='assets/images/xunz1.png' width='50' height='50'>";
+					//勋章2
+					var medal2 = document.getElementById("medal2");
+					medal2.innerHTML = "<img src='assets/images/xunz2.png' width='50' height='50'>";
+					//勋章3
+					var medal3 = document.getElementById("medal3");
+					medal3.innerHTML = "<img src='assets/images/xunz3.png' width='50' height='50'>";
 
 
-                },
-                error:function () {
+				},
+				error: function () {
 
-                }
-            });
-        }
+				}
+			});
+		}
 
-        function backscreen(){
+		function backscreen() {
 			var test = window.location.href;
 			var back = getCaption(test)
-			if(back == 1){
-				location.href="/ssm/views/hr/index.html";
+			if (back == 1) {
+				location.href = "/ssm/views/hr/index.html";
 				// location.href="http://www.webss1.com/hr/screen.html";
-			}else{
-				location.href="/hr/index.html";
+			} else {
+				location.href = "/hr/index.html";
 				// location.href="http://www.webss1.com/hr/index.html";
 			}
 		}
 
-		function getCaption(obj){
-		    var index=obj.lastIndexOf("\=");
-		    obj=obj.substring(index+1,obj.length);
-		//  console.log(obj);
-		    return obj;
+		function getCaption(obj) {
+			var index = obj.lastIndexOf("\=");
+			obj = obj.substring(index + 1, obj.length);
+			//  console.log(obj);
+			return obj;
 		}
 	</script>
 	<script>
-	$(function() {
-		var data, options;
+		$(function () {
+			var data, options;
 
-		// headline charts
-		data = {
-			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-			series: [
-				[23, 29, 24, 40, 25, 24, 35],
-				[14, 25, 18, 34, 29, 38, 44],
-			]
-		};
+			// headline charts
+			data = {
+				labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+				series: [
+					[23, 29, 24, 40, 25, 24, 35],
+					[14, 25, 18, 34, 29, 38, 44],
+				]
+			};
 
-		options = {
-			height: 300,
-			showArea: true,
-			showLine: false,
-			showPoint: false,
-			fullWidth: true,
-			axisX: {
-				showGrid: false
-			},
-			lineSmooth: false,
-		};
-
-		new Chartist.Line('#headline-chart', data, options);
-
-
-		// visits trend charts
-		data = {
-			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-			series: [{
-				name: 'series-real',
-				data: [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
-			}, {
-				name: 'series-projection',
-				data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
-			}]
-		};
-
-		options = {
-			fullWidth: true,
-			lineSmooth: false,
-			height: "270px",
-			low: 0,
-			high: 'auto',
-			series: {
-				'series-projection': {
-					showArea: true,
-					showPoint: false,
-					showLine: false
+			options = {
+				height: 300,
+				showArea: true,
+				showLine: false,
+				showPoint: false,
+				fullWidth: true,
+				axisX: {
+					showGrid: false
 				},
-			},
-			axisX: {
-				showGrid: false,
+				lineSmooth: false,
+			};
 
-			},
-			axisY: {
-				showGrid: false,
-				onlyInteger: true,
-				offset: 0,
-			},
-			chartPadding: {
-				left: 20,
-				right: 20
+			new Chartist.Line('#headline-chart', data, options);
+
+
+			// visits trend charts
+			data = {
+				labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				series: [{
+					name: 'series-real',
+					data: [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
+				}, {
+					name: 'series-projection',
+					data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
+				}]
+			};
+
+			options = {
+				fullWidth: true,
+				lineSmooth: false,
+				height: "270px",
+				low: 0,
+				high: 'auto',
+				series: {
+					'series-projection': {
+						showArea: true,
+						showPoint: false,
+						showLine: false
+					},
+				},
+				axisX: {
+					showGrid: false,
+
+				},
+				axisY: {
+					showGrid: false,
+					onlyInteger: true,
+					offset: 0,
+				},
+				chartPadding: {
+					left: 20,
+					right: 20
+				}
+			};
+
+			new Chartist.Line('#visits-trends-chart', data, options);
+
+
+			// visits chart
+			data = {
+				labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+				series: [
+					[6384, 6342, 5437, 2764, 3958, 5068, 7654]
+				]
+			};
+
+			options = {
+				height: 300,
+				axisX: {
+					showGrid: false
+				},
+			};
+
+			new Chartist.Bar('#visits-chart', data, options);
+
+
+			// real-time pie chart
+			var sysLoad = $('#system-load').easyPieChart({
+				size: 130,
+				barColor: function (percent) {
+					return "rgb(" + Math.round(200 * percent / 100) + ", " + Math.round(200 * (1.1 -
+						percent / 100)) + ", 0)";
+				},
+				trackColor: 'rgba(245, 245, 245, 0.8)',
+				scaleColor: false,
+				lineWidth: 5,
+				lineCap: "square",
+				animate: 800
+			});
+
+			var updateInterval = 3000; // in milliseconds
+
+			setInterval(function () {
+				var randomVal;
+				randomVal = getRandomInt(0, 100);
+
+				sysLoad.data('easyPieChart').update(randomVal);
+				sysLoad.find('.percent').text(randomVal);
+			}, updateInterval);
+
+			function getRandomInt(min, max) {
+				return Math.floor(Math.random() * (max - min + 1)) + min;
 			}
-		};
 
-		new Chartist.Line('#visits-trends-chart', data, options);
-
-
-		// visits chart
-		data = {
-			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-			series: [
-				[6384, 6342, 5437, 2764, 3958, 5068, 7654]
-			]
-		};
-
-		options = {
-			height: 300,
-			axisX: {
-				showGrid: false
-			},
-		};
-
-		new Chartist.Bar('#visits-chart', data, options);
-
-
-		// real-time pie chart
-		var sysLoad = $('#system-load').easyPieChart({
-			size: 130,
-			barColor: function(percent) {
-				return "rgb(" + Math.round(200 * percent / 100) + ", " + Math.round(200 * (1.1 - percent / 100)) + ", 0)";
-			},
-			trackColor: 'rgba(245, 245, 245, 0.8)',
-			scaleColor: false,
-			lineWidth: 5,
-			lineCap: "square",
-			animate: 800
 		});
-
-		var updateInterval = 3000; // in milliseconds
-
-		setInterval(function() {
-			var randomVal;
-			randomVal = getRandomInt(0, 100);
-
-			sysLoad.data('easyPieChart').update(randomVal);
-			sysLoad.find('.percent').text(randomVal);
-		}, updateInterval);
-
-		function getRandomInt(min, max) {
-			return Math.floor(Math.random() * (max - min + 1)) + min;
-		}
-
-	});
 	</script>
 </body>
 

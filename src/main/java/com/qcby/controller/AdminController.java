@@ -1,14 +1,11 @@
 package com.qcby.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.qcby.dao.CpnUserDepartmentMapper;
+import com.qcby.dao.*;
 import com.qcby.entity.*;
 import com.qcby.model.*;
 import com.qcby.service.*;
-import com.qcby.util.CellValue;
-import com.qcby.util.RedisPool;
-import com.qcby.util.SendSMSUtils;
-import com.qcby.util.SnowflakeIdWorker;
+import com.qcby.util.*;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,6 +54,18 @@ public class AdminController {
 
     @Autowired
     CpnUserDepartmentMapper cpnUserDepartmentMapper;
+
+    @Autowired
+    AddAssistantsService addAssistantsService;
+
+    @Autowired
+    PubApprMapper pubApprMapper;
+
+    @Autowired
+    PubUserproMapper pubUserproMapper;
+
+    @Autowired
+    PubApprImgMapper pubApprImgMapper;
     /**
      * myr
      * 登陆
@@ -404,6 +413,106 @@ public class AdminController {
         responseBean.setCode(1);
         return responseBean;
     }
+
+
+    /**
+     * 添加协管员
+     * addAssistants
+     * author 刘辉
+     */
+  @RequestMapping("addAssistants")
+    public ResponseBean<Map> addAssistants(HttpServletRequest request, AddAssistants addAssistants) {
+        ResponseBean<Map> responseBean = new ResponseBean<Map>();
+        System.err.println(request.getSession().getId());
+
+        System.err.println("+++++++++++++++++++++++++++++++++"
+                + request.getSession().getAttribute("a"));
+        Pc_admin pc_admin = new Pc_admin();
+      System.out.println("*************************");
+      System.out.println(addAssistants.getUser_name());
+      System.out.println(addAssistants.getPassword());
+      System.out.println(addAssistants.getGender());
+      System.out.println(addAssistants.getMobile());
+      System.out.println("*************************");
+        pc_admin.setLogin_name(addAssistants.getUser_name());
+        pc_admin.setPassword(addAssistants.getPassword());
+        pc_admin.setGender(addAssistants.getGender());
+        pc_admin.setMobile(addAssistants.getMobile());
+        int result = addAssistantsService.insertSelective(pc_admin);
+        ResponseBean response = new ResponseBean();
+        Map map = new HashMap<String,String>();
+        map.put("code",result);
+        responseBean.setDate(map);
+        return responseBean;
+    }
+
+ /**
+     * excel表格导入
+     * 刘辉
+     * @param excelFile
+     * @return
+     * @throws IOException
+     * @throws InvalidFormatException
+     */
+    @RequestMapping(value = "uploadFileHrgzly",headers = "content-type=multipart/*", method = RequestMethod.POST)
+    public ResponseBean uploadFileHrgzly(@RequestParam("excelFile") MultipartFile excelFile) throws IOException, InvalidFormatException {
+        ResponseBean responseBean = new ResponseBean();
+        InputStream inp = excelFile.getInputStream();
+        List<Pc_admin> list = CellAssistants.importFile(inp);
+        for (int i = 0; i < list.size(); i++) {
+            addAssistantsService.insert(list.get(i));
+        }
+        return responseBean;
+    }
+
+
+    /**
+     * 组织分享
+     * 刘辉
+     */
+    @RequestMapping("VolunteerShare")
+    public ResponseBean volunteerShare(HttpServletRequest request, String gid){
+        ResponseBean responseBean = new ResponseBean();
+       // Long gids = Long.valueOf(gid);//某条帮助事件的id
+        PubAppr helpers =pubApprMapper.selectByPrimaryKey(6L);//应该是gids
+       // if(helpers.getType()==3){//执行以下方法}
+        String address= helpers.getAddress();//获得地址
+        String fromHelper= helpers.getHelpers();//获得帮助人id
+        String toHelper =helpers.getHelpees();//获得受助者id
+        //根据fromHelper查个人信息
+        System.out.println(helpers);
+        long fromHelperId = Long.valueOf(fromHelper);
+        PubUserpro formPeople = pubUserproMapper.selectByPrimaryKey(fromHelperId);
+        String fromHelperName = formPeople.getFirst_name()+formPeople.getLast_name();
+        String fromHeaderImg =formPeople.getHeader_img();
+        //根据toHelper
+        long  toPeopleId= Long.valueOf(toHelper);
+        PubUserpro toPeople = pubUserproMapper.selectByPrimaryKey(toPeopleId);
+        String toHelperName = toPeople.getFirst_name()+toPeople.getLast_name();
+        String toHeaderImg = toPeople.getHeader_img();
+        //根据帮助人id查事件
+        PubApprImg pubApprImg =pubApprImgMapper.selectByAppId(fromHelperId);
+        String url =pubApprImg.getUrl();//获得了要分享的图片
+        System.out.println("*****************"+address+
+                "*****************"+fromHeaderImg+"*****************"+
+                fromHelperName+
+                "*****************"+ toHeaderImg+"*****************"+
+                toHelperName+
+                "*****************"+url);
+       VolunteerShare volunteerShare = new VolunteerShare();
+       volunteerShare.setAddress(address);
+       volunteerShare.setFromHeaderImg(fromHeaderImg);
+       volunteerShare.setFromHelperName(fromHelperName);
+       volunteerShare.setToHeaderImg(toHeaderImg);
+       volunteerShare.setToHelperName(toHelperName);
+       volunteerShare.setUrl(url);
+       responseBean.setData(volunteerShare);
+        return responseBean;
+    }
+
+
+
+
 /*
     @RequestMapping("employMedal")
     public ResponseBean selectDetails(int id){

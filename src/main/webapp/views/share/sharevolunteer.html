@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link href="css/helper.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<!-- <div class="top">
+			<span>这是标题</span>
+		</div> -->
+	<!--<div class="margintop">
+			<p>在我心里什么是真正的酷？</p><br/>
+			<p>在我看来，“酷“不是你今天又吃了什么大餐，又旅游了哪个地方，亦或者又买了一部新的iPhone。“酷“应该是我们能够帮助多少身边的人！</p>
+		</div>-->
+	<div class="main">
+		<div class="main_top"></div>
+		<div class="main_con">
+			<div class="user">
+				<div class="helper">
+					<div  id="helperImg">
+					<img src="img/head_img.jpg"></div>
+					<p id ="helperName">黄晓东</p>
+				</div>
+
+				<div class="help">
+					<div class="helped">
+						helped
+					</div>
+					<p>
+						2019/7/16
+					</p>
+				</div>
+				<div class="helpee">
+					<div  id="helpeeImg">
+					<img src="img/head_img.jpg"></div>
+					<p  id ="helpeeName">晨晨</p>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<div class="position">
+				<img src="img/position.png" />
+				<div class="position" id="positionAddress">广东省广州市天河区</div>
+				<div style="clear: both;"></div>
+			</div>
+			<div class="imglist" id="imglist">
+				<img src="img/head_img.jpg">
+				<img src="img/head_img.jpg">
+				<img src="img/head_img.jpg">
+			</div>
+			<div class="text">
+				<p>测试详细地址的隐藏情况</p>
+			</div>
+			<div class="bar">
+				<div class="btn">
+					<div class="icon">
+						<img src="img/flower.png" />
+						<span>1</span>
+					</div>
+					<div class="icon">
+						<img src="img/message.png" />
+						<span>1</span>
+					</div>
+					<div class="icon">
+						<img src="img/share.png" />
+
+					</div>
+					<div class="icon">
+						<img src="img/tong.png" />
+
+					</div>
+					<div class="icon">
+						<img src="img/qi.png" />
+
+					</div>
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+			<div class="comment">
+				<div class="header">
+					<img src="img/head_img.jpg">
+				</div>
+				<div class="mes">
+					<div class="left">
+						<p class="name">黄晓东</p>
+						<p class="time">2019-7-14 13:39:20</p>
+					</div>
+					<div class="right">
+						<div class="rightspan">
+							<img src="img/message.png" />
+						</div>
+						<div class="rightspan">
+							<img src="img/tong.png" />
+							<span>删除</span>
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+					<div style="clear: both;"></div>
+					<div class="content">
+						<p>
+							好友里面评论不能显示到社群，隐私....
+						</p>
+					</div>
+				</div>
+				<div style="clear: both;"></div>
+
+			</div>
+			<div class="more">
+				<img src="img/more.png" />
+			</div>
+		</div>
+		<div class="main_bottom">
+		</div>
+	</div> -->
+
+	<!--<div class="margintop2 datas">
+			<p>感恩他人，点亮中国</p>
+			<p>每一个星星之火，代表了一件好人好事。 让我们用<a href=""> “见济” </a>感恩他人，点亮中国。</p>
+
+		</div>
+
+		<div class="map">
+			<img src="img/map.jpg"/>
+		</div>
+
+		<div class="margintop2">
+			<p>下载见济公益组织端和我一起传播正能量，实现“让助人为乐在全中国成为一种生活方式”的中国梦！</p>
+		</div>
+
+		<div class="btns">
+			<a href=""><img src="img/android_btn.png"/></a>
+			<a href=""><img src="img/ios_btn.png"/></a>
+		</div>
+
+
+		<script src="js/jquery-2.0.3.js"></script>
+		 包括所有已编译的插件 -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/common.js"></script>
+	<script>
+		function getQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) {
+				return unescape(r[2]);
+			};
+			return null;
+		}
+
+
+		$(function () {
+			var uid = getQueryString("uid");
+			var gid = getQueryString("gid");
+			$.ajax({
+				url: "/ssm/company/VolunteerShare",
+				type: "get",
+				dataType: 'json',
+				data: {
+					uid: uid,
+					gid: 6
+				},
+				success: function (data){
+
+
+				   if (data.code == 1){
+
+
+
+
+				       var results = data.data;
+				       //施助地点
+
+                       var helperAddress = results.address;
+                        var address = document.getElementById("positionAddress");
+                        address.innerHTML =helperAddress;
+
+				       //施助者
+                       //头像
+				       var helperImgUrl = '<img src="'+results.fromHeaderImg+'">';
+				       var helperImg = document.getElementById("helperImg");
+                       helperImg.innerHTML =helperImgUrl;
+
+				       //名字
+                       var helperNames = results.fromHelperName;
+				       var helperName = document.getElementById("helperName");
+                       helperName.innerHTML =helperNames;
+
+
+				       //受助者
+                       // 头像
+                       var helpeeImgUrl ='<img src="'+results.toHeaderImg+'">';
+				       var helpeeImg = document.getElementById("helpeeImg");
+                       helpeeImg.innerHTML =helpeeImgUrl;
+
+                       //名字
+                       var helpeeNames = results.toHelperName;
+				       var helpeeName = document.getElementById("helpeeName");
+                       helpeeName.innerHTML =helpeeNames;
+
+                       //发布的分享的图片
+                       var sharePicture = results.url+
+                           results.url +
+                           results.url;
+                       var imglist = document.getElementById("imglist");
+                       imglist.innerHTML =sharePicture;
+
+
+				   }else{
+						alert(data.msg);
+					}
+				},
+				error: function () {
+					console.log("出错了");
+				}
+			});
+		})
+	</script>
+</body>
+
+</html>
