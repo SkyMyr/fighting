@@ -17,7 +17,8 @@
     id, appr_id, type, store_type, aliyun_videoId, aliyun_imgurl, url, size, create_by, 
     create_at
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long"
+          resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from appr_img

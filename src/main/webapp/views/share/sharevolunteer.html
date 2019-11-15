@@ -144,8 +144,8 @@
 	<script src="js/common.js"></script>
 	<script>
 		function getQueryString(name) {
-			let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-			let r = window.location.search.substr(1).match(reg);
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = window.location.search.substr(1).match(reg);
 			if (r != null) {
 				return unescape(r[2]);
 			};
@@ -154,8 +154,8 @@
 
 
 		$(function () {
-			let uid = getQueryString("uid");
-			let gid = getQueryString("gid");
+			var uid = getQueryString("uid");
+			var gid = getQueryString("gid");
 			$.ajax({
 				url: "/ssm/company/VolunteerShare",
 				type: "get",

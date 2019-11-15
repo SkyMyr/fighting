@@ -11,7 +11,7 @@ public interface PubApprImgMapper {
 
     PubApprImg selectByPrimaryKey(Long id);
 
-    PubApprImg selectByAppId(Long id
+    PubApprImg selectByAppId(Long id);
 
     int updateByPrimaryKeySelective(PubApprImg record);
 

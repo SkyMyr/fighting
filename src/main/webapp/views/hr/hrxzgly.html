@@ -236,10 +236,11 @@
 
 									<div class="fright addclass_r">
 										<div class="fleft">
-											<div class="fleft colorwhite addclsss_wz">第一步：</div><a href="javascript:;"
-												onclick="down_excel();">
-												<div class="greenbtn fright addclsss_wz1">下载表格</div>
-											</a>
+											<div class="fleft colorwhite addclsss_wz">第一步：</div>
+											 <a href="assets/add.xlsx" type="download"  download="电子表.xlsx">
+                     							 <div class="greenbtn fright addclsss_wz1">
+                          														下载表格</div>
+                  													</a>
 										</div>
 										<span class="blank10"></span>
 										<div class="fleft">
@@ -394,28 +395,13 @@
 	<script src="assets/scripts/klorofil-common.js"></script>
 	<script src="js/systemdata.js"></script>
 	<script type="text/javascript">
-		var token1 = sessionStorage.getItem('token');
-		function down_excel() {
-			window.location.href = apihost + "/company/other/localExcel?token=" + token1;
-		}
 
+		var token1 = sessionStorage.getItem('token');
 		function addhrxzgly() {
-			// var staff=$("input[name='co_admin']").val();
-			// var gender=$("input[name='gender']").val();
-			// var mobile=$("input[name='mobile']").val();
-			// var password=$("input[name='password']").val();
 			var user_name = $("input[name='co_admin']").val();
 			var gender = $("input[name='gender']").val();
 			var mobile = $("input[name='mobile']").val();
 			var password = $("input[name='password']").val();
-
-			alert(gender);
-			alert(password);
-			alert(user_name);
-			alert(mobile);
-			// var arr = [{departmentName:password,gender:gender,mobile:mobile,userName:user_name}];
-			//
-			// var data = JSON.stringify(arr);
 			$.ajax({
 				headers: {
 					"token": token1//此处放置请求到的用户token
@@ -446,5 +432,4 @@
 		}
 	</script>
 </body>
-
 </html>
