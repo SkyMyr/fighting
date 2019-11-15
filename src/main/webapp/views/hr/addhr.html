@@ -234,8 +234,9 @@
 
                       <div class="fright addclass_r">
               <div class="fleft"><div class="fleft colorwhite addclsss_wz">第一步：</div>
-                  <a href="javascript:;" onclick="down_excel();">
-                      <div class="greenbtn fright addclsss_wz1">下载表格</div>
+                  <a href="assets/add.xlsx" type="download"  download="电子表.xlsx">
+                      <div class="greenbtn fright addclsss_wz1">
+                          下载表格</div>
                   </a>
               </div>
               <span class="blank10"></span>   
@@ -347,9 +348,9 @@
 			var mobile=$("input[name='mobile']").val();
             var department_id=$("input[name='department_id']").val();
       // var arr =
-      //       ;
+      // ;
       //
-      //       var data = JSON.stringify(arr);
+      //var data = JSON.stringify(arr);
    	        $.ajax({
               headers: {
                     "token":token1//此处放置请求到的用户token
@@ -363,7 +364,8 @@
               "mobile":mobile,
               "user_name":user_name},
               dataType: "json",
-              success: function (result) {
+              success: function (result) {//
+                  var a = result.data;
                 console.log(result.data)
                 if(result.code == 1){
                     alert('添加成功');
@@ -379,9 +381,10 @@
 		}
 
 
-    function down_excel(){
-      window.location.href=apihost+"/company/other/localExcel?token="+token1;
-    }
+    // function down_excel(){
+    //  // window.location.href=apihost+"/company/other/localExcel?token="+token1;
+    //     window.location.href=apihost+"/company/localExcel"
+    // }
 
 	</script>
 

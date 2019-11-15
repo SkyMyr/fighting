@@ -57,7 +57,20 @@ public class AdminController {
 
     @Autowired
     CpnUserDepartmentMapper cpnUserDepartmentMapper;
+
+     @Autowired
+    AddAssistantsService addAssistantsService;
+
+    @Autowired
+    PubApprMapper pubApprMapper;
+
+    @Autowired
+    PubUserproMapper pubUserproMapper;
+
+    @Autowired
+    PubApprImgMapper pubApprImgMapper;
     /**
+     * myr
      * 登陆
      * @param request
      * @param loginModel
@@ -83,6 +96,7 @@ public class AdminController {
     }
 
     /**
+     * myr
      * 注册
      * @param request
      * @param register
@@ -132,6 +146,7 @@ public class AdminController {
     }
 
     /**
+     * myr
      * 更新个人信息
      * @param request
      * @param register
@@ -167,6 +182,7 @@ public class AdminController {
         }
 
     /**
+     * myr
      * 发送短信验证
      * @param request
      * @param sms 手机号和区号（+86）
@@ -196,6 +212,7 @@ public class AdminController {
     }
 
     /**
+     * myr
      * 接收邮件跳转链接
      * @param request
      * @param cpnUserDepartment
@@ -218,6 +235,7 @@ public class AdminController {
     }
 
     /**
+     * pengjian
      * @author 15583
      * 员工列表
      */
@@ -239,7 +257,7 @@ public class AdminController {
     }
 
     /**
-     *
+     *  pengjian
      * 通过名字查找员工列表
      * @param userName 员工姓名
      * @return
@@ -263,6 +281,7 @@ public class AdminController {
 
 
     /**
+     * pengjian
      * 显示部门
      * @param request
      * @return
@@ -285,6 +304,7 @@ public class AdminController {
 
 
     /**
+     * liuhui
      * 更新密码
      * @param request
      * @param updatepwd
@@ -310,6 +330,7 @@ public class AdminController {
 
 
     /**
+     * liuhui
      * 添加员工
      * @param request
      * @param addPeople
@@ -338,6 +359,7 @@ public class AdminController {
     }
 
     /**
+     * liuhui myr
      * excel表格导入，并发送短信邀请
      * @param excelFile
      * @return
@@ -359,6 +381,7 @@ public class AdminController {
     }
 
     /**
+     * myr
      * 接收短信邀请入职员工获取互助信息之后的反馈
      * @param phone 手机号
      * @param code 状态 1-未注册 2-未同意 3- 已同意
@@ -381,6 +404,11 @@ public class AdminController {
     }
 
 
+    /**
+     * myr
+     * @param gid
+     * @return
+     */
     @RequestMapping("share")
     public ResponseBean share(String gid){
         ResponseBean responseBean = new ResponseBean();
@@ -389,6 +417,106 @@ public class AdminController {
         responseBean.setCode(1);
         return responseBean;
     }
+
+
+    /**
+     * 添加协管员
+     * addAssistants
+     * author 刘辉
+     */
+  @RequestMapping("addAssistants")
+    public ResponseBean<Map> addAssistants(HttpServletRequest request, AddAssistants addAssistants) {
+        ResponseBean<Map> responseBean = new ResponseBean<Map>();
+        System.err.println(request.getSession().getId());
+
+        System.err.println("+++++++++++++++++++++++++++++++++"
+                + request.getSession().getAttribute("a"));
+        Pc_admin pc_admin = new Pc_admin();
+      System.out.println("*************************");
+      System.out.println(addAssistants.getUser_name());
+      System.out.println(addAssistants.getPassword());
+      System.out.println(addAssistants.getGender());
+      System.out.println(addAssistants.getMobile());
+      System.out.println("*************************");
+        pc_admin.setLogin_name(addAssistants.getUser_name());
+        pc_admin.setPassword(addAssistants.getPassword());
+        pc_admin.setGender(addAssistants.getGender());
+        pc_admin.setMobile(addAssistants.getMobile());
+        int result = addAssistantsService.insertSelective(pc_admin);
+        ResponseBean response = new ResponseBean();
+        Map map = new HashMap<String,String>();
+        map.put("code",result);
+        responseBean.setDate(map);
+        return responseBean;
+    }
+
+ /**
+     * excel表格导入
+     * 刘辉
+     * @param excelFile
+     * @return
+     * @throws IOException
+     * @throws InvalidFormatException
+     */
+    @RequestMapping(value = "uploadFileHrgzly",headers = "content-type=multipart/*", method = RequestMethod.POST)
+    public ResponseBean uploadFileHrgzly(@RequestParam("excelFile") MultipartFile excelFile) throws IOException, InvalidFormatException {
+        ResponseBean responseBean = new ResponseBean();
+        InputStream inp = excelFile.getInputStream();
+        List<Pc_admin> list = CellAssistants.importFile(inp);
+        for (int i = 0; i < list.size(); i++) {
+            addAssistantsService.insert(list.get(i));
+        }
+        return responseBean;
+    }
+
+
+    /**
+     * 组织分享
+     * 刘辉
+     */
+    @RequestMapping("VolunteerShare")
+    public ResponseBean volunteerShare(HttpServletRequest request, String gid){
+        ResponseBean responseBean = new ResponseBean();
+       // Long gids = Long.valueOf(gid);//某条帮助事件的id
+        PubAppr helpers =pubApprMapper.selectByPrimaryKey(6L);//应该是gids
+       // if(helpers.getType()==3){//执行以下方法}
+        String address= helpers.getAddress();//获得地址
+        String fromHelper= helpers.getHelpers();//获得帮助人id
+        String toHelper =helpers.getHelpees();//获得受助者id
+        //根据fromHelper查个人信息
+        System.out.println(helpers);
+        long fromHelperId = Long.valueOf(fromHelper);
+        PubUserpro formPeople = pubUserproMapper.selectByPrimaryKey(fromHelperId);
+        String fromHelperName = formPeople.getFirst_name()+formPeople.getLast_name();
+        String fromHeaderImg =formPeople.getHeader_img();
+        //根据toHelper
+        long  toPeopleId= Long.valueOf(toHelper);
+        PubUserpro toPeople = pubUserproMapper.selectByPrimaryKey(toPeopleId);
+        String toHelperName = toPeople.getFirst_name()+toPeople.getLast_name();
+        String toHeaderImg = toPeople.getHeader_img();
+        //根据帮助人id查事件
+        PubApprImg pubApprImg =pubApprImgMapper.selectByAppId(fromHelperId);
+        String url =pubApprImg.getUrl();//获得了要分享的图片
+        System.out.println("*****************"+address+
+                "*****************"+fromHeaderImg+"*****************"+
+                fromHelperName+
+                "*****************"+ toHeaderImg+"*****************"+
+                toHelperName+
+                "*****************"+url);
+       VolunteerShare volunteerShare = new VolunteerShare();
+       volunteerShare.setAddress(address);
+       volunteerShare.setFromHeaderImg(fromHeaderImg);
+       volunteerShare.setFromHelperName(fromHelperName);
+       volunteerShare.setToHeaderImg(toHeaderImg);
+       volunteerShare.setToHelperName(toHelperName);
+       volunteerShare.setUrl(url);
+       responseBean.setData(volunteerShare);
+        return responseBean;
+    }
+
+
+
+
 /*
     @RequestMapping("employMedal")
     public ResponseBean selectDetails(int id){
