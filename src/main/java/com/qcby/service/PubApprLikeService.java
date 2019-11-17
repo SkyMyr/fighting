@@ -6,5 +6,5 @@ import com.qcby.entity.PubApprLike;
 import java.util.List;
 
 public interface PubApprLikeService {
-    int selectApprCount();
+    int selectApprCount(Integer id);
 }

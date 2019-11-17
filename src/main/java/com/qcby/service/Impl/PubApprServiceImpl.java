@@ -52,7 +52,12 @@ public class PubApprServiceImpl implements PubApprService{
     }
 
     @Override
-    public List<PubAppr> selectHelperAndHelpee() {
-        return pubApprMapper.selectHelperAndHelpee();
+    public PubAppr selectHelperAndHelpee(String id) {
+        return pubApprMapper.selectHelperAndHelpee(id);
+    }
+
+    @Override
+    public List<PubAppr> selectByhelper(String id) {
+        return pubApprMapper.selectByhelper(id);
     }
 }

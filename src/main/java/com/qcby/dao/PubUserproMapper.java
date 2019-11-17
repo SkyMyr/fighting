@@ -1,7 +1,9 @@
 package com.qcby.dao;
 
 import com.qcby.entity.PubUserpro;
+import org.apache.ibatis.annotations.Select;
 
+import java.net.InterfaceAddress;
 import java.util.List;
 
 public interface PubUserproMapper {
@@ -17,7 +19,9 @@ public interface PubUserproMapper {
 
     int updateByPrimaryKey(PubUserpro record);
 
-    PubUserpro selectUserImgAndName();
+    PubUserpro selectUserImgAndName(Integer id);
 
-    List<PubUserpro> selectHelperAddrAndImg();
+    PubUserpro selectHelperAddrAndImg(Integer id);
+
+    PubUserpro selectByPhone(String phone);
 }

@@ -22,226 +22,144 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/.png">
 </head>
 
-<body class="bg">
-	<!-- WRAPPER -->
-	<div id="wrapper">
-		<!-- NAVBAR -->
-		<nav class="navbar banjitop_pic">
-        			 <div class="yuyan">
-                     <ul>
-                     <a href="index.html" ><li class="aa">English</li></a>  
-                      <a href="index.html" > <li>中文</li></a>
-                      </ul>
-                     </div>
-			         <h2 align="center" class="colorblue font40 banjiziw">见济人力资源后台</h2>
-            
-        
-            <div class="banjiw">
-              <div class="banji_btn">
-              <div class="banji_btn1 padright fleft">
-                 <ul class="fright">
-                <a href="index.html" ><li>员工管理</li></a>
-               <a href="mission.html"> <li>使命图</li></a>
-               </ul>
-              </div>
-              <div class="banji_btn1 padleft fright">
-                 <ul class="fleft">
-                <a href="set.html" ><li>设置</li></a>
-               <a href="help.html"> <li>帮助</li></a>
-               </ul>
-              </div>
-              
+    <body class="bg">
+        <!-- WRAPPER -->
+        <div id="wrapper">
+        <!-- NAVBAR -->
+        <nav class="navbar banjitop_pic">
+        <div class="yuyan">
+        <ul>
+        <a href="index.html" ><li class="aa">English</li></a>
+        <a href="index.html" > <li>中文</li></a>
+        </ul>
+        </div>
+        <h2 align="center" class="colorblue font40 banjiziw">见济人力资源后台</h2>
+
+
+        <div class="banjiw">
+        <div class="banji_btn">
+        <div class="banji_btn1 padright fleft">
+        <ul class="fright">
+        <a href="index.html" ><li>员工管理</li></a>
+        <a href="mission.html"> <li>使命图</li></a>
+        </ul>
+        </div>
+        <div class="banji_btn1 padleft fright">
+        <ul class="fleft">
+        <a href="set.html" ><li>设置</li></a>
+        <a href="help.html"> <li>帮助</li></a>
+        </ul>
+        </div>
+
+        </div>
+
+        </div>
+        <div class="navbar-btn">
+        <button type="button" class="btn-toggle-fullwidth" onclick="show1()"><img  id="saveimg" src="assets/images/jtgray.png" width="25px" height="25px" ></button>
+        </div>
+
+        </nav>
+        <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="sidebar-nav" id="show" class="sidebar">
+        <div><img src="assets/images/banji_left1.png" width="273" height="57"></div>
+        <div class="sidebar-scroll">
+
+        <nav>
+        <ul class="nav">
+        <a href="javascript:;" onclick="backscreen();" ><div id="fanhui"><i class="lnr lnr-chevron-left"></i><span>返回</span></div></a>
+        <li style="background: none;"><a href="#" style="background: none;"></a></li>
+        <li style="background: none;"><a href="#" style="background: none;"></a></li>
+        <li style="background: none;"><a href="#" style="background: none;"></a></li>
+        <li style="background: none;"><a href="#" style="background: none;"></a></li>
+        <li style="background: none;"><a href="#" style="background: none;"></a></li>
+        <li style="background: none;"><a href="#" style="background: none;"></a></li>
+        <li style="background: none;"><a href="#" style="background: none;"></a></li>
+        </ul>
+        </nav>
+        </div>
+        <div><img src="assets/images/banji_left3.png" width="273" height="222"></div>
+        </div>
+
+        <!-- END LEFT SIDEBAR -->
+        <!-- MAIN -->
+        <div class="main">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="container-fluid">
+                <div class="panel">
+                <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+                <span class="clearfix"></span>
+                <div>
+                <div class="fleft"> <div class="leftyd"><img src="assets/images/banjileft1.png"  ></div></div>
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+                <div id="lettersList" class="banji_rightrr pad20" >
+                <!--<div class="row colorwhite student_bor padding20">-->
+                <!--<div class="col-md-4" align="center"> <img src="assets/images/dianzan_off.png" width="30" height="30">0</div>-->
+                <!--<div class="col-md-4"  align="center"></div>-->
+                <!--<div class="col-md-4"  align="center"> <img src="assets/images/pinglun.png" width="30" height="30">10</div>-->
+                <!--</div>-->
+                <!--<div class="colorwhite pad20">-->
+                <!--<div class="gooddess_left"> <div class="student_pic1 fleft"><img src="assets/images/studen_pic.jpg"></div></div>-->
+                <!--<div class="gooddess_right">-->
+                <!--<div class=" fleft">幸运之星 <br>2019-08-29  <span class="colorblue">回复</span> </div>-->
+                <!--<span class="blank10"></span>-->
+                <!--<div class="row colorwhite">-->
+                <!--<div class="col-md-12 ">489fd3489fd3489f3489fd3489fd3489fd3489fd3489fd3489fd3489fd3489fd3489fd3489fd3489fd3489fd3489fdd</div>-->
+                <!--<div class="col-md-3" align="center"> <div class="gooddeeds"><img src="assets/images/goodness1.jpg" ></div></div>-->
+                <!--<div class="col-md-3"  align="center"><div class="gooddeeds"><img src="assets/images/goodness1.jpg" ></div></div>-->
+                <!--<div class="col-md-3"  align="center"><div class="gooddeeds"><img src="assets/images/goodness1.jpg" ></div></div>-->
+                <!--<div class="col-md-3"  align="center"><div class="gooddeeds"><img src="assets/images/goodness1.jpg" ></div></div>-->
+                <!--</div>-->
+                <!--<div class="panel-heading ">-->
+                <!--<h3 class="panel-title ">   <img src="assets/images/pinglun_off.png" width="30" height="30"><span class=" font14">所有评论</span></h3>-->
+                <!--<div class="right">-->
+                <!--<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="panel-body" style="display: block;">-->
+                <!--<div class="row colorwhite student_bor padding20">-->
+                <!--<div class="student_pic1 fleft"><img src="assets/images/studen_pic.jpg"></div>-->
+                <!--<div class="gooddess_right1">-->
+                <!--<span class="colorblue">幸运之星</span>回复 <span class="colorblue">幸运</span>  好好看！ <br>2019-08-29  <span class="colorblue">回复</span>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row colorwhite student_bor padding20">-->
+                <!--<div class="student_pic1 fleft"><img src="assets/images/studen_pic.jpg"></div>-->
+                <!--<div class="gooddess_right1">-->
+                <!--<span class="colorblue">幸运之星</span>回复 <span class="colorblue">幸运</span>  好好看！ <br>2019-08-29  <span class="colorblue">回复</span>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                </div>
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+                    <div class="fright"><div class="leftyd"><img src="assets/images/banjileft1_1.png"  ></div></div>
+                </div>
+                <span class="clearfix"></span>
+                <div class="leftydb"></div>
+                <div ><span class="fleft jiaocorlor_2"></span><span class="fright jiaocorlor_3"></span></div>
+                </div>
+                <div class="panel" id="jianbian">
+                <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
+                <div class="leftydb1"></div>
+                <span class="clearfix"></span>
+                <div id="jianbianwhite"> </div>
+                </div>
+                </div>
             </div>
-            
+        <!-- END MAIN CONTENT -->
+        </div>
+        <!-- END MAIN -->
+        <div class="clearfix"></div>
+        <footer>
+            <div class="container-fluid">
+                <p class="copyright"></p>
             </div>
-            <div class="navbar-btn">
-					<button type="button" class="btn-toggle-fullwidth" onclick="show1()"><img  id="saveimg" src="assets/images/jtgray.png" width="25px" height="25px" ></button>
-				</div>
-                
-		</nav>
-		<!-- END NAVBAR -->
-		<!-- LEFT SIDEBAR -->
-	  <div id="sidebar-nav" id="show" class="sidebar">
-            <div><img src="assets/images/banji_left1.png" width="273" height="57"></div>
-			<div class="sidebar-scroll">
-               
-				<nav>
-					<ul class="nav">
-                    <a href="javascript:;" onclick="backscreen();" ><div id="fanhui"><i class="lnr lnr-chevron-left"></i><span>返回</span></div></a>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
-                    <li style="background: none;"><a href="#" style="background: none;"></a></li>
-					</ul>
-				</nav>
-			</div>
-             <div><img src="assets/images/banji_left3.png" width="273" height="222"></div>
-</div>
-<script>
-                            function show() {
-                                if ($("#show").css("display") == "none") {
-                                    $("#show").show();
-                                } else {
-                                    $("#show").hide();
-                                }
-
-                            }
-                            function show1() {
-                                if ($("#show").css("display") != "none") {
-                                	$('#saveimg').attr('src','assets/images/jtblue.png');
-                                    $("#show").hide();
-                                }
-                                if($("#sidebar-nav").css("display") != "none"){
-                                    $("#sidebar-nav").hide();
-                                }else{
-                                	$('#saveimg').attr('src','assets/images/jtgray.png');
-                                     $("#sidebar-nav").show();
-                                }
-
-                            }
-                        </script>
-		<!-- END LEFT SIDEBAR -->
-		<!-- MAIN -->
-		<div class="main">
-			<!-- MAIN CONTENT -->
-			<div class="main-content">
-				<div class="container-fluid">
-				  <div class="panel"> 
-                    <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
-                     <span class="clearfix"></span>
-                     <div>
-                       <div class="fleft"> <div class="leftyd"><img src="assets/images/banjileft1.png"  ></div></div>
-   
-                <div class="banji_rightrr pad20" >
-                   <div class="gooddeedss">
-                     <div class="row">
-
-
-  <div class="col-md-4" align="center">
-        <div class="student_pic1" id="helperImg"><img src="assets/images/studen_pic.jpg"></div>
-        <div class="lineh50 colorwhite" id="helperName">幸运之星</div>
-  </div>
-  <div class="col-md-4" align="center"><div class="gooddeedsbg colorwhite">Helped</div></div>
-  <div class="col-md-4" align="center">
-        <div class="student_pic1" id="helpeeImg"><img src="assets/images/studen_pic.jpg"></div>
-       <div class="lineh50 colorwhite" id="helpeeName">幸运女神</div>
-  </div>
-
-
-  </div>
-  <div class="row colorwhite">
-  <div class="col-md-4" align="left"></div>
-   <div class="col-md-4" align="center"></div>
-  <div class="col-md-4" align="right"id="address">
-      <span ><img src="assets/images/address.png" width="13" height="17"></span>
-      广州市天河区天河路
-  </div>
- 
-  </div>
- 
-  <div class="row colorwhite">
-    <div class="col-md-4" align="center"> <div class="gooddeeds" id="urlA"><img src="assets/images/goodness1.jpg" ></div></div>
-  <div class="col-md-4"  align="center"> <div class="gooddeeds" id="urlB"><img src="assets/images/goodness1.jpg" ></div></div>
-  <div class="col-md-4"  align="center"> <div class="gooddeeds" id="urlC"><img src="assets/images/goodness1.jpg" ></div></div>
-  </div>
-  
-  <div class="row colorwhite">谢谢你的帮助！</div>
-    <div class="row colorwhite student_bor padding20">
-    <div class="col-md-4" align="center"> <img src="assets/images/dianzan_off.png" width="30" height="30">0</div>
-  <div class="col-md-4"  align="center"></div>
-  <div class="col-md-4"  align="center"> <img src="assets/images/pinglun.png" width="30" height="30">10</div>
-  </div>
-  
-      <div class="colorwhite pad20">
-       <div class="gooddess_left"> <div class="student_pic1 fleft"><img src="assets/images/studen_pic.jpg"></div></div> 
-       <div class="gooddess_right">
-                <div class=" fleft">幸运之星 <br>2019-08-29  <span class="colorblue">回复</span> </div> 
-       <span class="blank10"></span>
-       <div class="row colorwhite">
-       <div class="col-md-12 ">489fd3489fd3489f3489fd3489fd3489fd3489fd3489fd3489fd3489fd3489fd3489fd3489fd3489fd3489fd3489fdd</div>
-  <div class="col-md-3" align="center"> <div class="gooddeeds"><img src="assets/images/goodness1.jpg" ></div></div>
-  <div class="col-md-3"  align="center"><div class="gooddeeds"><img src="assets/images/goodness1.jpg" ></div></div>
-  <div class="col-md-3"  align="center"><div class="gooddeeds"><img src="assets/images/goodness1.jpg" ></div></div>
-  <div class="col-md-3"  align="center"><div class="gooddeeds"><img src="assets/images/goodness1.jpg" ></div></div>
-  </div>
-         
-         <div class="panel-heading ">
-									<h3 class="panel-title ">   <img src="assets/images/pinglun_off.png" width="30" height="30"><span class=" font14">所有评论</span></h3>
-									<div class="right">
-										<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
-										
-									</div>
-								</div>
-      
-         
-         <div class="panel-body" style="display: block;">
-								             <div class="row colorwhite student_bor padding20">
-       <div class="student_pic1 fleft"><img src="assets/images/studen_pic.jpg"></div> 
-       <div class="gooddess_right1">
-                 <span class="colorblue">幸运之星</span>回复 <span class="colorblue">幸运</span>  好好看！ <br>2019-08-29  <span class="colorblue">回复</span>
-       </div> 
-       </div> 
-
-                <div class="row colorwhite student_bor padding20">
-       <div class="student_pic1 fleft"><img src="assets/images/studen_pic.jpg"></div> 
-       <div class="gooddess_right1">
-                 <span class="colorblue">幸运之星</span>回复 <span class="colorblue">幸运</span>  好好看！ <br>2019-08-29  <span class="colorblue">回复</span>
-       </div> 
-       </div> 
-					</div>
-         
-         
-
-       
-       
-       
-      </div> 
-       
-      </div> 
-   
-   
-   
-  
-  
-  </div>
+        </footer>
     </div>
-          
-          
-          
-           <div class="fright"><div class="leftyd"><img src="assets/images/banjileft1_1.png"  ></div></div>
-                     </div>
-                     <span class="clearfix"></span>
-                   <div class="leftydb"></div>
-                     <div ><span class="fleft jiaocorlor_2"></span><span class="fright jiaocorlor_3"></span></div>
-                     
-                     
-                  </div>
-                  
-                  
-                  
-                 <div class="panel" id="jianbian">
-                    <div><span class="fleft jiaocorlor"></span><span class="fright jiaocorlor_1"></span></div>
-                    <div class="leftydb1"></div>
-                      <span class="clearfix"></span>
-                    <div id="jianbianwhite"> </div>
-                  </div> 
-                  
-              
-              </div> 
-              </div>
-			<!-- END MAIN CONTENT -->
-		</div>
-		<!-- END MAIN -->
-		<div class="clearfix"></div>
-		<footer>
-			<div class="container-fluid">
-				<p class="copyright"></p>
-			</div>
-		</footer>
-	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
 	<script src="assets/vendor/jquery/jquery.min.js"></script>
@@ -258,71 +176,78 @@
              * dom操作方式拼接请求来的数据
              * author15583
              */
+            var id = getParam('id');
             var token1 = sessionStorage.getItem('token');
             $.ajax({
                 headers:{"token":token1},
                 url:"/ssm/company/selectHelp",
                 type:"POST",//请求方式post
-                data:{},
+                data:{"id":id},
                 dataType:'json',
                 success:function (data) {
-                    alert("111");
                     var responseBean=data.data;
                     //施助者头像
-                    var helperImglist='<img src="'+responseBean.header_img[0].header_img+'">';
-                    var helperImg=document.getElementById("helperImg");
-                    helperImg.innerHTML=helperImglist;
-                    //施助者姓名
-                    var helperName=document.getElementById("helperName");
-                    helperName.innerHTML=responseBean.first_name[0].first_name;
-                    //施助地点
-                    var helperAddresslist='<span ><img src="assets/images/address.png" width="13" height="17"></span>'+responseBean.address[0].address;
-                    var helperAddress =document.getElementById("address");
-                    helperAddress.innerHTML=helperAddresslist;
-                    //感恩者头像
-                    var helpeeImglist='<img src="'+responseBean.header_img[1].header_img+'">';
-                    var helpeeImg=document.getElementById("helpeeImg");
-                    helpeeImg.innerHTML=helpeeImglist;
-                    //感恩者姓名
-                    var helpeeName=document.getElementById("helpeeName");
-                    helpeeName.innerHTML=responseBean.first_name[1].first_name;
-                    //感恩者发布的图片
-                    var urllist1='<img src="'+responseBean.url[0].url+'" >';
-                    var url1=document.getElementById("urlA");
-                    url1.innerHTML=urllist1;
-                    var urllist2='<img src="'+responseBean.url[1].url+'" >';
-                    var url1=document.getElementById("urlB");
-                    url1.innerHTML=urllist2;
-                    var urllist3='<img src="'+responseBean.url[2].url+'" >';
-                    var url1=document.getElementById("urlC");
-                    url1.innerHTML=urllist3;
+                    var helperImg = responseBean.header_img;
+                    var helperName = responseBean.first_name;
+                    //受助者列表
+                    var helpeesList = responseBean.helpeesList;
+                    for(var i = 0; i <= helpeesList.length; i++){
+                        var helpeeImg = helpeesList[i].helpees_img;
+                        var helpeeName = helpeesList[i].helpees_name;
+                        var address = helpeesList[i].address;
+                        var content = helpeesList[i].content;
+                        var contentImg = helpeesList[i].url;
+                        var imgdiv;
+                        for(var j=0;j<contentImg.length;j++){
+                            imgdiv += "<div class='col-md-4' align='center'> <div class='gooddeeds' id='urlA'><img src='" + contentImg[i].url + "' ></div></div>";
+                        }
+                        $("#lettersList").append(
+                                "<div class='gooddeedss'>"
+                                + "<div class='row'>"
+                                + "<div class='col-md-4' align='center'>"
+                                + "<div class='student_pic1' id='helperImg'><img src='"+helperImg+"'></div>"
+                                + "<div class='lineh50 colorwhite' id='helperName'>" + helperName + "</div>"
+                                + "</div>"
+                                + "<div class='col-md-4' align='center'><div class='gooddeedsbg colorwhite'>Helped</div></div>"
+                                + "<div class='col-md-4' align='center'>"
+                                + "<div class='student_pic1' id='helpeeImg'><img src='" + helpeeImg + "'></div>"
+                                + "<div class='lineh50 colorwhite' id='helpeeName'>" + helpeeName + "</div>"
+                                + "</div>"
+                                + "</div>"
+                                + "<div class='row colorwhite'>"
+                                + "<div class='col-md-4' align='left'></div>"
+                                + "<div class='col-md-4' align='center'></div>"
+                                + "<div class='col-md-4' align='right'id='address'>"
+                                + "<span ><img src='assets/images/address.png' width='13' height='17'></span>"
+                                + address
+                                + "</div>"
+                                + "</div>"
+                                + "<div class='row colorwhite'>"
+                                + imgdiv
+                                + "</div>"
+                                + "<div class='row colorwhite'>"+ content +"！</div>"
+                        );
+                    }
 
                 },
                 error:function () {
                     alert("erro");
                 }
             })
-
-
         }
-
-
-
-
-
 
 		function backscreen(){
 			var test = window.location.href;
 			var back = getCaption(test)
+            var id = getParam('id')
 			if(back == 1){
-				location.href="/hr/screen.html";
+				location.href="/ssm/views/hr/studentdetails.html?id=" + id;
 				// location.href="http://www.webss1.com/hr/screen.html";
 			}else{
 				location.href="/hr/index.html";
 				// location.href="http://www.webss1.com/hr/index.html";
 			}
 		}
-
 		function getCaption(obj){
 		    var index=obj.lastIndexOf("\=");
 		    obj=obj.substring(index+1,obj.length);
@@ -356,8 +281,6 @@
 		};
 
 		new Chartist.Line('#headline-chart', data, options);
-
-
 		// visits trend charts
 		data = {
 			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -397,10 +320,7 @@
 				right: 20
 			}
 		};
-
 		new Chartist.Line('#visits-trends-chart', data, options);
-
-
 		// visits chart
 		data = {
 			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -408,17 +328,13 @@
 				[6384, 6342, 5437, 2764, 3958, 5068, 7654]
 			]
 		};
-
 		options = {
 			height: 300,
 			axisX: {
 				showGrid: false
 			},
 		};
-
 		new Chartist.Bar('#visits-chart', data, options);
-
-
 		// real-time pie chart
 		var sysLoad = $('#system-load').easyPieChart({
 			size: 130,
@@ -431,21 +347,56 @@
 			lineCap: "square",
 			animate: 800
 		});
-
 		var updateInterval = 3000; // in milliseconds
-
-		setInterval(function() {
-			var randomVal = getRandomInt(0, 100);
-			sysLoad.data('easyPieChart').update(randomVal);
-			sysLoad.find('.percent').text(randomVal);
-		}, updateInterval);
-
 		function getRandomInt(min, max) {
 			return Math.floor(Math.random() * (max - min + 1)) + min;
 		}
 
 	});
+
+//截取url的id
+    var getParam = function(name){
+        var search = document.location.search;
+        var pattern = new RegExp("[?&]"+name+"\=([^&]+)", "g");
+        var matcher = pattern.exec(search);
+        var items = null;
+        if(null != matcher){
+            try{
+                items = decodeURIComponent(decodeURIComponent(matcher[1]));
+            }catch(e){
+                try{
+                    items = decodeURIComponent(matcher[1]);
+                }catch(e){
+                    items = matcher[1];
+                }
+            }
+        }
+        return items;
+    };
 	</script>
+    <script>
+        function show() {
+            if ($("#show").css("display") == "none") {
+                $("#show").show();
+            } else {
+                $("#show").hide();
+            }
+
+        }
+        function show1() {
+            if ($("#show").css("display") != "none") {
+                $('#saveimg').attr('src','assets/images/jtblue.png');
+                $("#show").hide();
+            }
+            if($("#sidebar-nav").css("display") != "none"){
+                $("#sidebar-nav").hide();
+            }else{
+                $('#saveimg').attr('src','assets/images/jtgray.png');
+                $("#sidebar-nav").show();
+            }
+
+        }
+    </script>
 </body>
 
 </html>

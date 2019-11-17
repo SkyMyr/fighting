@@ -92,9 +92,10 @@
   </update>
 
   <select id="selectHelperAndTime" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    SELECT helper_number,service_time
-    FROM appr_user_data as aud,appr_like as al
-    WHERE aud.id=al.user_id
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM appr_user_data as aud
+    WHERE aud.id=#{id,jdbcType=BIGINT}
   </select>
 
 </mapper>

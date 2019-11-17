@@ -5,5 +5,5 @@ import com.qcby.entity.PubMedal;
 import java.util.List;
 
 public interface PubMedalService {
-    List<PubMedal> selectMedal();
+    List<PubMedal> selectMedal(Integer id);
 }

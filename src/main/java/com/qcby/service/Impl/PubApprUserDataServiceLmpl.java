@@ -11,7 +11,7 @@ public class PubApprUserDataServiceLmpl implements PubApprUserDataService {
     @Autowired
     PubApprUserDataMapper pubApprUserDataMapper;
     @Override
-    public PubApprUserData selectHelperAndTime() {
-        return pubApprUserDataMapper.selectHelperAndTime();
+    public PubApprUserData selectHelperAndTime(Integer id) {
+        return pubApprUserDataMapper.selectHelperAndTime(id);
     }
 }

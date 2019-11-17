@@ -15,5 +15,5 @@ public interface PubApprLikeMapper {
 
     int updateByPrimaryKey(PubApprLike record);
 
-    int selectApprCount();
+    int selectApprCount(Integer id);
 }

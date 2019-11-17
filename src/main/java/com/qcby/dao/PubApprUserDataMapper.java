@@ -16,5 +16,5 @@ public interface PubApprUserDataMapper {
     int updateByPrimaryKey(PubApprUserData record);
 
     //
-    PubApprUserData selectHelperAndTime();
+    PubApprUserData selectHelperAndTime(Integer id);
 }

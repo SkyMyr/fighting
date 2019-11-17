@@ -1,5 +1,5 @@
-package com.qcby.service.Impl;
 
+package com.qcby.service.Impl;
 import com.qcby.dao.PubApprLikeMapper;
 import com.qcby.entity.PubApprLike;
 import com.qcby.service.PubApprLikeService;
@@ -13,7 +13,7 @@ public class PubApprLikeServiceLmpl implements PubApprLikeService {
     PubApprLikeMapper pubApprLikeMapper;
 
     @Override
-    public int selectApprCount() {
-        return pubApprLikeMapper.selectApprCount();
+    public int selectApprCount(Integer id) {
+        return pubApprLikeMapper.selectApprCount(id);
     }
 }

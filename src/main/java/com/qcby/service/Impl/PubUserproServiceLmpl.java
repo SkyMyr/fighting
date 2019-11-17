@@ -13,12 +13,12 @@ public class PubUserproServiceLmpl implements PubUserproService {
     @Autowired
     PubUserproMapper pubUserproMapper;
     @Override
-    public PubUserpro selectUserImgAndName() {
-        return pubUserproMapper.selectUserImgAndName();
+    public PubUserpro selectUserImgAndName(Integer id) {
+        return pubUserproMapper.selectUserImgAndName(id);
     }
 
     @Override
-    public List<PubUserpro> selectHelperAddrAndImg() {
-        return pubUserproMapper.selectHelperAddrAndImg();
+    public PubUserpro selectHelperAddrAndImg(Integer id) {
+        return pubUserproMapper.selectHelperAddrAndImg(id);
     }
 }

@@ -17,7 +17,7 @@ public interface PubApprImgMapper {
 
     int updateByPrimaryKey(PubApprImg record);
 
-    List<PubApprImg> selectUrl();
+    List<PubApprImg> selectUrl(Integer id);
 	
 	PubApprImg selectByAppId(Long id);
 }

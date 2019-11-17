@@ -24,5 +24,8 @@ public interface PubApprService {
 
     int updateByPrimaryKey(PubAppr record);
 	
-	List<PubAppr> selectHelperAndHelpee();
+	PubAppr selectHelperAndHelpee(String id);
+
+    //根据施助者查询受助者列表
+    List<PubAppr> selectByhelper(String id);
 }

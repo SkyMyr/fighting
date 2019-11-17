@@ -260,6 +260,6 @@
     select
     <include refid="Base_Column_List" />
     from pc_admin
-    where password = #{password,jdbcType=CHAR} and login_name = #{login_name,jdbcType=VARCHAR}
+    where password = #{password,jdbcType=CHAR} and mobile = #{login_name,jdbcType=VARCHAR}
   </select>
 </mapper>

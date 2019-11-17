@@ -121,13 +121,13 @@
   <div class="col-md-4" align="center">
     <div class="student_t margin50"><div class="student_tt bulebg"></div> <span class="lineh72 colorwhite font18">帮助</span><br>
 
-<span class="colorblue font60"><a href="gooddeeds.html" id="help_num">79</a></span></div>
+<span class="colorblue font60" id="help_num"><a href="gooddeeds.html" class="colorblue font60">79</a></span></div>
   </div>
   <div class="col-md-4" align="center"><div class="student_pic" id="big_helper_pic"><img src="assets/images/studen_pic.jpg" ></div></div>
   <div class="col-md-4" align="center">
     <div class="student_t margin50"><div class="student_tt oragebg"></div> <span class="lineh72 colorwhite font18">感恩</span><br>
 
-<span class="corlororage font60"><a href="gooddeeds.html" id="thankfull_num">80</a></span></div>
+<span class="corlororage font60" id="thankfull_num">80</span></div>
   </div></div>
                  
      <div class="row colorwhite" align="center">
@@ -186,13 +186,30 @@
 	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="assets/scripts/klorofil-common.js"></script>
 	<script type="text/javascript">
-
+        var getParam = function(name){
+            var search = document.location.search;
+            var pattern = new RegExp("[?&]"+name+"\=([^&]+)", "g");
+            var matcher = pattern.exec(search);
+            var items = null;
+            if(null != matcher){
+                try{
+                    items = decodeURIComponent(decodeURIComponent(matcher[1]));
+                }catch(e){
+                    try{
+                        items = decodeURIComponent(matcher[1]);
+                    }catch(e){
+                        items = matcher[1];
+                    }
+                }
+            }
+            return items;
+        };
         /**
          * @author15583
          * daom操作显示帮助数和感恩数
          */
         window.onload=function(){
-
+            var id = getParam('id');
             var token1 = sessionStorage.getItem('token');
             $.ajax({
                 headers:{
@@ -200,15 +217,14 @@
                 },
                 url: "/ssm/company/employDetails",
                 type: "POST",
-                data:{},
+                data:{"id":id},
                 dataType: 'json',
-
                 success:function (data) {
-                    alert("1111");
                     var responseBean=data.data;
-                    //帮助数
+                    //帮助数,链接传过去施助者id，受助者id
+                    var h_numlist=' <a href="gooddeeds.html?id='+responseBean.helpers+'">'+responseBean.goodThingsNum+'</a>';
                     var h_num=document.getElementById("help_num");
-                    h_num.innerHTML=responseBean.goodThingsNum;
+                    h_num.innerHTML=h_numlist;
                     //感恩数
                     var t_num=document.getElementById("thankfull_num");
                     t_num.innerHTML=responseBean.apprNum;

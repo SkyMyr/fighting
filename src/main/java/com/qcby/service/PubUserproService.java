@@ -5,7 +5,7 @@ import com.qcby.entity.PubUserpro;
 import java.util.List;
 
 public interface PubUserproService {
-    PubUserpro selectUserImgAndName();
+    PubUserpro selectUserImgAndName(Integer id);
 
-    List<PubUserpro> selectHelperAddrAndImg();
+    PubUserpro selectHelperAddrAndImg(Integer id);
 }

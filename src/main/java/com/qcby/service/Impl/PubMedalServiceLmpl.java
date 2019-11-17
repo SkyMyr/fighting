@@ -12,7 +12,7 @@ public class PubMedalServiceLmpl implements PubMedalService {
     @Autowired
     PubMedalMapper pubMedalMapper;
     @Override
-    public List<PubMedal> selectMedal() {
-        return pubMedalMapper.selectMedal();
+    public List<PubMedal> selectMedal(Integer id) {
+        return pubMedalMapper.selectMedal(id);
     }
 }

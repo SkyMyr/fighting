@@ -161,8 +161,8 @@
   
   <select id="selectUrl" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         SELECT url
-        FROM appr_img as ai,appr_like as al
-        WHERE ai.appr_id=al.appr_id AND ai.create_by=al.user_id
+        FROM appr_img as ai
+        WHERE ai.appr_id=#{id,jdbcType=BIGINT}
   </select>
 
 </mapper>

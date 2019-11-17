@@ -80,11 +80,11 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
 
-<!--  查询指定用户的感恩数量-->
+<!--  查询感恩内容创建者创建的感恩内容数-->
   <select id="selectApprCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
        SELECT COUNT(appr_id)
-       FROM appr_like as al,pc_user_department as pud
-       WHERE al.user_id=pud.update_at
+       FROM appr_like as al
+       WHERE al.user_id = #{id,jdbcType=BIGINT}
   </select>
 
 

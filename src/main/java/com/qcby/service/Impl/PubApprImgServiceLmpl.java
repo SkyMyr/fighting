@@ -12,7 +12,7 @@ public class PubApprImgServiceLmpl implements PubApprImgService {
     @Autowired
     PubApprImgMapper pubApprImgMapper;
     @Override
-    public List<PubApprImg> selectUrl() {
-        return pubApprImgMapper.selectUrl();
+    public List<PubApprImg> selectUrl(Integer id) {
+        return pubApprImgMapper.selectUrl(id);
     }
 }

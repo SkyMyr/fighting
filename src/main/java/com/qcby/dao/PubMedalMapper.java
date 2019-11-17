@@ -19,5 +19,5 @@ public interface PubMedalMapper {
 
     int updateByPrimaryKey(PubMedal record);
 
-    List<PubMedal> selectMedal();
+    List<PubMedal> selectMedal(Integer id);
 }

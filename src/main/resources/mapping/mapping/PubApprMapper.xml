@@ -388,11 +388,17 @@
   </update>
 
 
-  <select id="selectHelperAndHelpee" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-     SELECT ap.helpers,ap.helpees
-     FROM appr as ap,user_prop as up
-     WHERE CAST(ap.helpers AS UNSIGNED)=up.id
+  <select id="selectHelperAndHelpee" parameterType="java.lang.String" resultMap="BaseResultMap">
+     SELECT ap.helpers,ap.helpees,ap.address
+     FROM appr as ap
+     WHERE ap.helpers=#{id,jdbcType=VARCHAR}
   </select>
 
+  <select id="selectByhelper" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM appr as ap
+    WHERE ap.helpers=#{id,jdbcType=VARCHAR}
+  </select>
 
 </mapper>

@@ -7,7 +7,7 @@ import java.util.List;
 public class EmployeeDetailsModel {
     private String userId;//用户id
     private String loginName;//登录名称
-    private int apprNum;//感恩数量
+    private Long apprNum;//感恩数量
     private Long goodThingsNum;//好事数量
     private Long serviceTime;//服务时间(分钟)
     private Long serviceHour;//服务时间(小时)
@@ -15,6 +15,9 @@ public class EmployeeDetailsModel {
     private String imgUrl;//感恩图片url
     private String firstName;//昵称
     private List medals;//获得勋章数
+    private String helpers;//确认完成后的施助方用户ID列表，使用“:"分隔
+    private String  helpees;//确认完成后的受助方用户ID列表，使用“:"分隔
+
 
     public String getUserId() {
         return userId;
@@ -32,11 +35,11 @@ public class EmployeeDetailsModel {
         this.loginName = loginName;
     }
 
-    public int getApprNum() {
+    public Long getApprNum() {
         return apprNum;
     }
 
-    public void setApprNum(int apprNum) {
+    public void setApprNum(Long apprNum) {
         this.apprNum = apprNum;
     }
 
@@ -96,6 +99,23 @@ public class EmployeeDetailsModel {
         this.medals = medals;
     }
 
+
+    public String getHelpers() {
+        return helpers;
+    }
+
+    public void setHelpers(String helpers) {
+        this.helpers = helpers;
+    }
+
+    public String getHelpees() {
+        return helpees;
+    }
+
+    public void setHelpees(String helpees) {
+        this.helpees = helpees;
+    }
+
     @Override
     public String toString() {
         return "EmployeeDetailsModel{" +
@@ -109,6 +129,8 @@ public class EmployeeDetailsModel {
                 ", imgUrl='" + imgUrl + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", medals=" + medals +
+                ", helpers='" + helpers + '\'' +
+                ", helpees='" + helpees + '\'' +
                 '}';
     }
 }

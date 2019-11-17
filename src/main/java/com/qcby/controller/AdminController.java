@@ -385,6 +385,8 @@ public class AdminController {
         //excel表中的员工信息
         List<CpnUserDepartment> list = CellValue.importFile(inp);
         for (int i = 0; i < list.size(); i++) {
+            PubUserpro usr = pubUserproMapper.selectByPhone(list.get(i).getMobile());
+            list.get(i).setUpdate_at(usr.getId());
             cpnUserDepartmentService.insert(list.get(i));
             //发送短信邀请
             SendSMSUtils.sendMultiSMS("86",list.get(i).getMobile());
@@ -532,28 +534,38 @@ public class AdminController {
      * @return
      */
     @RequestMapping("selectHelp")
-    public ResponseBean<PubApprModel> selectHelpers(){
+    public ResponseBean<PubApprModel> selectHelpers(String id){
         ResponseBean<PubApprModel> responseBean=new ResponseBean<>();
-        //查询分享页面帮助者的地址,头像,名字
-        List<PubUserpro> pubUserpro=pubUserproService.selectHelperAddrAndImg();
+        //查询分享页面帮助者的头像,名字
+        PubUserpro pubUserpro=pubUserproService.selectHelperAddrAndImg(Integer.valueOf(id));
         System.out.println(pubUserpro+"AAAAAAAAAAAAAAAAA");
         PubApprModel pubApprModel = new PubApprModel();
-        pubApprModel.setAddress(pubUserpro);
-        pubApprModel.setFirst_name(pubUserpro);
-        pubApprModel.setHeader_img(pubUserpro);
-
-
-        //查询分享页面的施助者id和感恩者id列表
-        List<PubAppr> pubApprs=pubApprService.selectHelperAndHelpee();
-        System.out.println(pubApprs+"BBBBBBBBBBBBBBBBBBBBBB");
-        pubApprModel.setHelpers(pubApprs);
-        pubApprModel.setHelpees(pubApprs);
-
-        //查询感恩者(用户)发表的感恩图片
-        List<PubApprImg> pubApprImgs=pubApprImgService.selectUrl();
-        System.out.println(pubApprImgs+"CCCCCCCCCCCCCCCCCCC");
-        pubApprModel.setUrl(pubApprImgs);
-
+        pubApprModel.setHelpers(id);
+        pubApprModel.setFirst_name(pubUserpro.getFirst_name());
+        pubApprModel.setHeader_img(pubUserpro.getHeader_img());
+        //查询分享页面的施助者id，感恩者id，和施助的地点
+        List<PubAppr> helpeesList=pubApprService.selectByhelper(id);
+        List<HelpeesInfo>  helpeesInfoList = new ArrayList<>();
+        for (int i = 0; i < helpeesList.size(); i++) {
+            //根据id查询姓名、头像
+            String helpeeId = helpeesList.get(i).getHelpees();
+            PubUserpro helpee = pubUserproService.selectUserImgAndName(Integer.valueOf(helpeeId));
+            //根据内容id查询内容图片
+            Long newId = helpeesList.get(i).getId();
+            //获取感恩内容的内容图片
+            List url = pubApprImgService.selectUrl(Math.toIntExact(newId));
+            //往受助者信息里边塞信息
+            HelpeesInfo helpeesInfo = new HelpeesInfo();
+            helpeesInfo.setHelpees(helpeeId);
+            helpeesInfo.setAddress(helpeesList.get(i).getAddress());
+            helpeesInfo.setContent(helpeesList.get(i).getContent());
+            helpeesInfo.setUrl(url);
+            helpeesInfo.setHelpees_name(helpee.getFirst_name());
+            helpeesInfo.setHelpees_img(helpee.getHeader_img());
+            //最后往队列里边放每条感恩内容对应的受助者信息（包括内容图片和地址等）
+            helpeesInfoList.add(helpeesInfo);
+        }
+        pubApprModel.setHelpeesList(helpeesInfoList);
         if(pubApprModel!=null){
             responseBean.setData(pubApprModel);
             responseBean.setCode(1);
@@ -572,24 +584,24 @@ public class AdminController {
      * @return
      */
     @RequestMapping("employDetails")
-    public ResponseBean<EmployeeDetailsModel> selectDetails(){
+    public ResponseBean<EmployeeDetailsModel> selectDetails(String id){
         ResponseBean<EmployeeDetailsModel> responseBean =new ResponseBean<>();
-        //查询用户感恩数
-        int i=pubApprLikeService.selectApprCount();
         EmployeeDetailsModel employeeDetailsModel=new EmployeeDetailsModel();
-        employeeDetailsModel.setApprNum(i);
+
         //查询用户获得的勋章
-        List<PubMedal> pubMedals=pubMedalService.selectMedal();
+        List<PubMedal> pubMedals=pubMedalService.selectMedal(Integer.valueOf(id));
         employeeDetailsModel.setMedals(pubMedals);
-        //查询用户的帮助数,服务时间
-        PubApprUserData pubApprUserData=pubApprUserDataService.selectHelperAndTime();
+        //查询用户的感恩数、帮助数,服务时间
+        PubApprUserData pubApprUserData=pubApprUserDataService.selectHelperAndTime(Integer.valueOf(id));
+        employeeDetailsModel.setApprNum(pubApprUserData.getHelpee_number());
         employeeDetailsModel.setGoodThingsNum(pubApprUserData.getHelper_number());
         employeeDetailsModel.setServiceTime(pubApprUserData.getService_time());
         //查询用户的头像,名字
-        PubUserpro pubUserpro =pubUserproService.selectUserImgAndName();
+        PubUserpro pubUserpro =pubUserproService.selectUserImgAndName(Integer.valueOf(id));
         System.out.println(pubUserpro+"******************");
         employeeDetailsModel.setImgUrl(pubUserpro.getHeader_img());
         employeeDetailsModel.setFirstName(pubUserpro.getFirst_name());
+        employeeDetailsModel.setHelpers(id);
         //将数据返回给前端
         if(employeeDetailsModel!=null){
             responseBean.setData(employeeDetailsModel);

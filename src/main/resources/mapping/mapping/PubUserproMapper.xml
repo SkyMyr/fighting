@@ -294,14 +294,21 @@
 
   <select id="selectUserImgAndName" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         SELECT header_img,first_name
-        FROM user_prop as up,appr_like as al
-        WHERE up.id=al.user_id
+        FROM user_prop
+        WHERE id= #{id,jdbcType=BIGINT}
   </select>
 
   <select id="selectHelperAddrAndImg" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    SELECT up.address,up.first_name,up.header_img
-    FROM appr as ap,user_prop as up
-    WHERE CAST(ap.helpers AS UNSIGNED)=up.id
+    SELECT up.first_name,up.header_img
+    FROM user_prop as up
+    WHERE up.id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM user_prop as up
+    WHERE mobile = #{phone,jdbcType=VARCHAR}
   </select>
 
 </mapper>
