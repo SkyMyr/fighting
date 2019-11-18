@@ -82,8 +82,8 @@ public class SendSMSUtils {
         }
         try {
             String[] params = {"邀请您完成注册，请点击下方选择同意或者拒绝",
-                    "接受邀请：http://101.37.24.226:8080/ssm/views/confirm.html?phone="+phoneNumber+"&code=1",
-                    "拒绝邀请：http://101.37.24.226:8080/ssm/views/confirm.html?phone="+phoneNumber+"&code=0"};
+                    "接受邀请：http://118.25.25.117:10001//ssm/views/confirm.html?phone="+phoneNumber+"&code=1",
+                    "拒绝邀请：http://118.25.25.117:10001//ssm/views/confirm.html?phone="+phoneNumber+"&code=0"};
             SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
             SmsSingleSenderResult result = ssender.sendWithParam(code, phoneNumber,
                     templateId, params, smsSign, "", "");

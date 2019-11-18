@@ -334,8 +334,23 @@
             success: function (data) {
                 for (var i=0;i<data.data.length;i++){
                     var responseBean=data.data;
+                    var useStaus;
+                    switch(responseBean[i].sms_status){
+                        case 1:
+                            useStaus="未注册";
+                            break;//结束整个switch语句
+                        case 2:
+                            useStaus="未同意";
+                            break;
+                        case 3:
+                            useStaus="已同意";
+                            break;
+                        default:
+                            console.log('不合法');
+                            break;
+                    }
                     $("#scroller").append(
-                        '<ul>'
+                        '<ul class="myr">'
                         +'<li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>'
                         +'<a href="studentdetails.html?id='+responseBean[i].update_at+'">'+'<li style="width:12%"><div class="biaoge_pic"><img src="'+responseBean[i].header_img+'"></div>'+responseBean[i].user_name+'</li> </a>'
                         +'<li style="width:6%">'+responseBean[i].gender+'</li>'
@@ -345,7 +360,7 @@
                         +'<a href="days.html"> <li style="width:6%">'+responseBean[i].status+'</li></a>'
                         +'<a href="helpeach.html"> <li style="width:9%">'+responseBean[i].helpee_number+'</li></a>'
                         +'<li style="width:6%"><a href="javascript:;" onclick="del_students();"><img src="assets/images/banji_pic5.png" width="40" height="41"></a></li>'
-                        +'<li style="width:9%">'+responseBean[i].sms_status+'</li>'
+                        +'<li style="width:9%">'+useStaus+'</li>'
                         +'<li style="width:9%"> <div class="biaogebtn" onclick="send_new();">重新发送</div></li>'
                         +'</ul>'
                     );
@@ -470,43 +485,10 @@
         }
 
     function find_student(){
-        var students = $('#students').val();
-        alert(students);
-        $.ajax({
-              url: '/ssm/company/employee/searchByName',
-              headers: {
-                    "token":token1//此处放置请求到的用户token
-                },
-              type: requesttype,
-              data:{userName:students,pageNum:1,pageSize:10},
-              dataType: 'json',
-              success: function (result) {
-                var data =result.data;
-                  if(result.code==0){
-                      document.getElementById("scroller").innerHTML = '<ul>暂无数据</ul>';
-                  }else {
-                studentslist =
-                        '<ul>' +
-                        '<li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/jiantoured.png" width="10" height="18"></span>' +
-                        '</label>' +
-                        '</li><a href="studentdetails.html?id='+data.update_at+'">' +
-                        '<li style="width:12%"><div class="biaoge_pic"><img src="'+data.header_img+'" ></div>'+data.user_name+'</li></a>' +
-                        '<li style="width:6%">'+data.gender+'</li><a href="gooddeeds.html"><li style="width:9%">'+data.department_id+'</li>' +
-                        '</a><a href="days.html"><li style="width:10%">'+data.helper_number+'</li></a>' +
-                        '<a href="gooddeeds.html"><li style="width:12%">'+data.service_time+'</li></a>' +
-                        '<li style="width:6%">'+data.status+'</li><a href="days.html"><li style="width:9%">'+data.helpee_number+'</li></a>' +
-                        '<li style="width:6%"><a href="javascript:;" onclick="del_students();">' +
-                        '<img src="assets/images/banji_pic5.png" width="40" height="41"></a></li><li style="width:9%">'+data.sms_status+'</li>' +
-                        '<li style="width:9%"><a href="javascript:;" onclick="send_new();">' +
-                        '<div class="biaogebtn">重新发送</div></a></li></ul>';
-
-                    document.getElementById("scroller").innerHTML = studentslist;
-                }
-              },
-              error: function () {
-                  console.log("出错了");
-              }
-          }); 
+        var $students = $('#students').val();
+        alert($students);
+        //先隐藏全部，再把符合筛选条件的值显示
+        $('.myr').hide().filter(':contains('+$students+')').show();
       }
 
    function del_students(){

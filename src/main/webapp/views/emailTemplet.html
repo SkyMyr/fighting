@@ -164,14 +164,14 @@
         $.ajax({
             type:"POST",
             dataType:"json",
-            url:"http://localhost:8080/ssm/company/reciveEmail",
+            url:"/ssm/company/reciveEmail",
             data:{"id":user,"user_name":user.user_name,"update_at":user.update_at},
             async:false,
             cache:false,
             success:function (data) {
                 if(data.code==1){
                     alert(data.msg);
-                    window.location.href="http://localhost:8080/ssm/views/hr/login.html";
+                    window.location.href="/ssm/views/hr/login.html";
                 }else {
                     alert(data.msg);
                 }

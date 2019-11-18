@@ -387,9 +387,11 @@ public class AdminController {
         for (int i = 0; i < list.size(); i++) {
             PubUserpro usr = pubUserproMapper.selectByPhone(list.get(i).getMobile());
             list.get(i).setUpdate_at(usr.getId());
+            list.get(i).setSms_status((byte) 2);
             cpnUserDepartmentService.insert(list.get(i));
             //发送短信邀请
-            SendSMSUtils.sendMultiSMS("86",list.get(i).getMobile());
+            String mobile = list.get(i).getMobile();
+            SendSMSUtils.sendMultiSMS(mobile.substring(0,2),mobile.substring(3));
         }
         return responseBean;
     }
