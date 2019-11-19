@@ -24,6 +24,13 @@ import java.util.List;
  **/
 public class CellValue {
 
+    /**
+     * 部门员工excel表解析成实体列表
+     * @param inp excel表的inputstream数据类型格式
+     * @return 部门员工实体列表
+     * @throws IOException
+     * @throws InvalidFormatException
+     */
     public static List<CpnUserDepartment> importFile(InputStream inp) throws IOException, InvalidFormatException {
             XSSFWorkbook workBook = new XSSFWorkbook(inp);
             //解析工作表
@@ -46,42 +53,39 @@ public class CellValue {
 
                 for (int rowIndex = 0; rowIndex < rowNumber; rowIndex++){
                     System.out.println("正在读取第"+(rowIndex+1)+"行：");
-                    if (rowIndex ==0)
+                    if (rowIndex ==0)//跳过第一行列名
                     {
                         continue;
                     }
                     row =sheet.getRow(rowIndex);
-//                 if (row == null){
-//                     return;
-//                 }
                     Iterator<Cell> cellIterator = row.cellIterator();
                     CpnUserDepartment cpnUserDepartment = new  CpnUserDepartment();
-                    if(cellIterator.hasNext()){
+                    if(cellIterator.hasNext()){//放入名字
                         Cell cell = cellIterator.next();
                         Object cellValue = getCellValue(cell);
                         cpnUserDepartment.setUser_name(cellValue.toString());
                     }
-                    if(cellIterator.hasNext()){
+                    if(cellIterator.hasNext()){//放入性别
                         Cell cell = cellIterator.next();
                         Object cellValue = getCellValue(cell);
                         cpnUserDepartment.setGender(cellValue.toString().equals("男")?1:0);
                     }
-                    if(cellIterator.hasNext()){
+                    if(cellIterator.hasNext()){//放入手机号
                         Cell cell = cellIterator.next();
                         Object cellValue = getCellValue(cell);
                         cpnUserDepartment.setMobile(cellValue.toString());
                     }
-                    if(cellIterator.hasNext()){
+                    if(cellIterator.hasNext()){//放入邮箱
                         Cell cell = cellIterator.next();
                         Object cellValue = getCellValue(cell);
                         cpnUserDepartment.setEmail(cellValue.toString());
                     }
-                    if(cellIterator.hasNext()){
+                    if(cellIterator.hasNext()){//放入所属部门
                         Cell cell = cellIterator.next();
                         Object cellValue = getCellValue(cell);
                         cpnUserDepartment.setDepartment_id(1l);
                     }
-                    if(cellIterator.hasNext()){
+                    if(cellIterator.hasNext()){//放入用户原ID(这里废弃,应该是通过手机号第一次导入的时候查询对应的APP端原id放入数据库,方便以后查询对应的APP端信息,可以减少一次系统间IO读写)
                         Cell cell = cellIterator.next();
                         Object cellValue = getCellValue(cell);
                         cpnUserDepartment.setUpdate_at(Long.valueOf(cellValue.toString().substring(0,cellValue.toString().length()-2)));

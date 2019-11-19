@@ -6,6 +6,8 @@ import ch.qos.logback.core.net.SyslogOutputStream;
 import com.qcby.entity.CpnDepartment;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,42 +19,11 @@ import java.util.List;
  **/
 public class test {
     public static void main(String[] args) {
+        System.out.println(new Date().getTime());
+        System.out.println(Calendar.getInstance().getTimeInMillis());
+        System.out.println(System.currentTimeMillis());
         String p = "86-18833280565";
         System.out.println(p.substring(0, 3));
         System.out.println(p.substring(3));
-        List<CpnDepartment> list = new ArrayList<>();
-        List<depart> departs = new ArrayList<>();
-        for (int i = 0; i < departs.size(); i++) {
-            departs.get(i).setId(list.get(i).getId());
-            departs.get(i).setName(list.get(i).getName());
-        }
-    }
-}
-class depart{
-    private Long id;
-    private  String name;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "depart{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
     }
 }

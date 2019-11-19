@@ -21,10 +21,7 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @ClassNameAdminController
@@ -386,8 +383,12 @@ public class AdminController {
         List<CpnUserDepartment> list = CellValue.importFile(inp);
         for (int i = 0; i < list.size(); i++) {
             PubUserpro usr = pubUserproMapper.selectByPhone(list.get(i).getMobile());
-            list.get(i).setUpdate_at(usr.getId());
-            list.get(i).setSms_status((byte) 2);
+            System.err.println(usr.toString()+"**********************************************");
+            list.get(i).setUpdate_at(usr.getId());//设置原用户id
+            list.get(i).setSms_status((byte) 2);//设置短信验证状态为2-未同意
+            list.get(i).setStatus((byte) 1);//设置默认状态为可用
+            list.get(i).setCreate_at(new Date().getTime());//设置创建时间
+            //list.get(i).setMobile(list.get(i).getMobile().substring(3));
             cpnUserDepartmentService.insert(list.get(i));
             //发送短信邀请
             String mobile = list.get(i).getMobile();

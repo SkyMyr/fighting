@@ -249,9 +249,9 @@
                     </a>
                 </div>
 <div class="file-box" id="upload" style="display:none;">
-    <form action="/ssm/company/uploadFile" method="POST" enctype="multipart/form-data">
+    <form id="uploadForm" enctype="multipart/form-data">
         <input type="file" name="excelFile" id="filefield"/>
-        <input type="submit" class="btn" value="保存"/>
+        <input type="button" id="upload1" class="btn" value="保存"/>
     </form>
 </div>
 <style type="text/css">
@@ -261,33 +261,7 @@
         .btn:hover{background-color:#63bfff;color:#fff;}
         .file{ position:absolute; top:0; right:85px; height:30px;line-height:30px; filter:alpha(opacity:0);opacity: 0;width:254px }
 </style>
-<script type="text/javascript">
-	function showupload() {
-	    if ($("#upload").css("display") == "none") {
-	        $("#upload").show();
-	    } else {
-	        $("#upload").hide();
-	    }
-	}
-	function showupload1() {
-	    if ($("#upload").css("display") != "none") {
-	        $("#upload").hide();
-	    } else {
-	        $("#upload").show();
-	    }
-	}
-// **********
-    window.load=function(){
-        //显示了文件名
-        var filedata =document.getElementById('textfield').
-            value=this.files[0].name;
-        if(filedata){
-            $("#textfield").val(filedata);
-		}
-	}
 
-// ************
-</script>
 
 </div></div>    
            </div>
@@ -339,7 +313,7 @@
 	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="assets/scripts/klorofil-common.js"></script>
-  <script src="js/systemdata.js"></script>
+    <script src="js/systemdata.js"></script>
 	<script type="text/javascript">
   var token1 = sessionStorage.getItem('token');
 		function addhr(){
@@ -347,10 +321,6 @@
 			var gender=$("input[name='sex']").val();
 			var mobile=$("input[name='mobile']").val();
             var department_id=$("input[name='department_id']").val();
-      // var arr =
-      // ;
-      //
-      //var data = JSON.stringify(arr);
    	        $.ajax({
               headers: {
                     "token":token1//此处放置请求到的用户token
@@ -379,15 +349,59 @@
               }
           });
 		}
-
-
-    // function down_excel(){
-    //  // window.location.href=apihost+"/company/other/localExcel?token="+token1;
-    //     window.location.href=apihost+"/company/localExcel"
-    // }
-
 	</script>
+    <script type="text/javascript">
+        $(function () {
+            $("#upload1").click(function () {
+                var formData = new FormData($('#uploadForm')[0]);
+                $.ajax({
+                    url: "/ssm/company/uploadFile",
+                    type: "POST",
+                    cache: false, // cache设置为false，上传文件不需要缓存
+                    data: formData, // 将form表单实例化为FormData类型
+                    processData: false, // 设置为false。因为data值是FormData对象，不需要对数据做处理.
+                    contentType: false, // contentType设置为false。因为是由<form>表单构造的FormData对象，且已经声明了属性enctype="multipart/form-data"，所以这里设置为false。
+                    success: function (data) {
+                        if (data.code == 1) {
+                            alert("上传成功！");
+                            location.href="/ssm/views/hr/index.html";
+                        }
+                        if (data.code == 0) {
+                            alert(data.msg);
+                        }
+                    },
+                    error: function () {
+                        alert("上传失败！");
+                    }
+                });
+            });
+        });
+        function showupload() {
+            if ($("#upload").css("display") == "none") {
+                $("#upload").show();
+            } else {
+                $("#upload").hide();
+            }
+        }
+        function showupload1() {
+            if ($("#upload").css("display") != "none") {
+                $("#upload").hide();
+            } else {
+                $("#upload").show();
+            }
+        }
+        // **********
+        window.load=function(){
+            //显示了文件名
+            var filedata =document.getElementById('textfield').
+                    value=this.files[0].name;
+            if(filedata){
+                $("#textfield").val(filedata);
+            }
+        }
 
+        // ************
+    </script>
 </body>
 
 </html>
