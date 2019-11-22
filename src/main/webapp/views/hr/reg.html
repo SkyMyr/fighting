@@ -43,7 +43,7 @@
         <div class="logingg"><input id="nickname" name="nickname" placeholder="HR 经理姓名" type="text" class="logingginput" style="color:#fff; outline:none;"></div>
       <div class="logingg"><input id="phone" name="phone" placeholder="电话" type="text" class="logingginput" style="color:#fff; outline:none;"></div>     
       <div class="logingg"><input id="code1" name="code1" placeholder="验证码" type="text" class="logingginput1 left" style="color:#fff; outline:none;"><span class="right loginsubbtn" onclick="sendCode();">发送</span></div> 
-        <div class="logingg"><input id="password" name="password" placeholder="登录密码" type="text" class="logingginput" style="color:#fff; outline:none;" ></div>     
+        <div class="logingg"><input id="password" name="password" placeholder="登录密码" type="password" class="logingginput" style="color:#fff; outline:none;" ></div>
         <!-- <div class="logingg"><input name="" type="text" class="logingginput" style="color:#fff; outline:none;"value="再次输入登录密码" onfocus="this.value=''" onblur="this.value='再次输入登录密码'"></div>  -->
         <div class="logingg"><input id="reg_code" name="reg_code" placeholder="注册优惠码" type="text" class="logingginput" style="color:#fff; outline:none;"></div>           
       
@@ -108,7 +108,7 @@ volnilcbsli 和iuoghuidfshihgupwsai策</p>
             console.log(data)
             if(data.code == 1){
                 alert(data.msg);
-                location.href=apihost + "/ssm/views/hr/login.html";
+                location.href= "/ssm/views/hr/login.html";
             }else{
                 alert(data.msg);
                 location.href="/hr/reg.html";

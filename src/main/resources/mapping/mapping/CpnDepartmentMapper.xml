@@ -23,7 +23,7 @@
     delete from pc_org_human_resources
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.qcby.entity.CpnDepartment">
+  <insert id="insert" parameterType="com.qcby.entity.CpnDepartment" useGeneratedKeys="true" keyProperty="id">
     insert into pc_org_human_resources (id, name, description, 
       parent_id, status, create_at, 
       update_at)
@@ -114,4 +114,59 @@
       update_at = #{update_at,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <insert id="insertDepartment" parameterType="com.qcby.entity.CpnDepartment">
+    insert into pc_org_human_resources
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="parent_id != null">
+        parent_id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="create_at != null">
+        create_at,
+      </if>
+      <if test="update_at != null">
+        update_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="parent_id != null">
+        #{parent_id,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="create_at != null">
+        #{create_at,jdbcType=BIGINT},
+      </if>
+      <if test="update_at != null">
+        #{update_at,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectDepartmentName" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from pc_org_human_resources
+    where parent_id = #{parent_id,jdbcType=BIGINT}
+  </select>
 </mapper>

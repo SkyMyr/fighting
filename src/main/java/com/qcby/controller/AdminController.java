@@ -78,6 +78,13 @@ public class AdminController {
 
     @Autowired
     PubApprImgService pubApprImgService;
+
+    @Autowired
+    CpnDepartmentService cpnDepartmentService;
+
+    @Autowired
+    CpnAdminCompanyService cpnAdminCompanyService;
+
     /**
      * myr
      * 登陆
@@ -85,6 +92,7 @@ public class AdminController {
      * @param loginModel
      * @return
      */
+    @Logweb("登陆模块")
     @RequestMapping("login")
     public ResponseBean login(HttpServletRequest request,LoginModel loginModel) {
         ResponseBean responseBean = new ResponseBean();
@@ -114,15 +122,12 @@ public class AdminController {
     @RequestMapping("regs")
     public ResponseBean regs(HttpServletRequest request, Register register) {
         ResponseBean responseBean = new ResponseBean();
-        CpnAdmin admin = new CpnAdmin();
         //从redis里面取数据
         String code = RedisPool.getJedis().get(register.getMobile());
-//        Jedis jedis = new Jedis("127.0.0.1",36379);
-//        String code = jedis.get(register.getMobile());
-//        System.err.println(code + "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/");
-//        jedis.close();
-
+        //如果验证码匹配就开始构造实体
         if(code.equals(register.getCode1())){
+            //管理员数据构造
+            CpnAdmin admin = new CpnAdmin();
             admin.setId(SnowflakeIdWorker.generateId());
             admin.setAddress(register.getAddress());
             admin.setUrl(register.getUrl());
@@ -135,9 +140,24 @@ public class AdminController {
             admin.setPassword(register.getPassword());
             admin.setStatus((byte) 1);
             admin.setType((short) 2);
+            admin.setCreate_at(new Date().getTime());
             System.out.println(admin.toString());
-            int result = cpnAdminService.insert(admin);
-            if(result == 1){
+            int result1 = cpnAdminService.insert(admin);
+            //公司数据构造
+            CpnDepartment cpnDepartment = new CpnDepartment();
+            cpnDepartment.setName(register.getCompanyName());
+            cpnDepartment.setStatus((byte) 1);
+            cpnDepartment.setCreate_at(new Date().getTime());
+            int result2 = cpnDepartmentService.insert(cpnDepartment);
+            System.err.println(cpnDepartment.getId()+"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+            //管理员公司关系吧表
+            CpnAdminCompany cpnAdminCompany = new CpnAdminCompany();
+            cpnAdminCompany.setAdmin_id(admin.getId());
+            cpnAdminCompany.setCompany_id(cpnDepartment.getId());
+            cpnAdminCompany.setStatus((byte) 1);
+            cpnAdminCompany.setCreate_at(new Date().getTime());
+            int result3 =cpnAdminCompanyService.insert(cpnAdminCompany);
+            if(result1==1 && result2==1 && result3==1){
                 responseBean.setCode(1);
                 responseBean.setMsg("注册成功");
                 responseBean.setDate("");
@@ -288,7 +308,6 @@ public class AdminController {
         return responseBean;
     }
 
-
     /**
      * pengjian
      * 显示部门
@@ -310,7 +329,6 @@ public class AdminController {
 
         return result;
     }
-
 
     /**
      * liuhui
@@ -336,7 +354,6 @@ public class AdminController {
         responseBean.setDate(map);
         return responseBean;
     }
-
 
     /**
      * liuhui
@@ -388,7 +405,7 @@ public class AdminController {
             list.get(i).setSms_status((byte) 2);//设置短信验证状态为2-未同意
             list.get(i).setStatus((byte) 1);//设置默认状态为可用
             list.get(i).setCreate_at(new Date().getTime());//设置创建时间
-            //list.get(i).setMobile(list.get(i).getMobile().substring(3));
+            list.get(i).setMobile(list.get(i).getMobile().substring(3));
             cpnUserDepartmentService.insert(list.get(i));
             //发送短信邀请
             String mobile = list.get(i).getMobile();
@@ -420,7 +437,6 @@ public class AdminController {
         return responseBean;
     }
 
-
     /**
      * myr
      * @param gid
@@ -433,7 +449,6 @@ public class AdminController {
         responseBean.setCode(1);
         return responseBean;
     }
-
 
     /**
      * 添加协管员
@@ -485,7 +500,6 @@ public class AdminController {
         return responseBean;
     }
 
-
     /**
      * 组织分享
      * 刘辉
@@ -529,7 +543,6 @@ public class AdminController {
        responseBean.setData(volunteerShare);
         return responseBean;
     }
-
 
     /**
      * pengjian
@@ -580,7 +593,6 @@ public class AdminController {
         return responseBean;
     }
 
-
     /**
      * pengjian
      * 点头像进入用户详细信息页面
@@ -616,6 +628,36 @@ public class AdminController {
         }
         return responseBean;
 
+    }
+
+    /**
+     * 添加部门
+     * @param request
+     * @param addDepartment
+     * @return
+     */
+    @RequestMapping("AddDepartment")
+    public ResponseBean<Map> addDepartment(HttpServletRequest request,AddDepartment addDepartment){
+        ResponseBean<Map> responseBean =new ResponseBean<>();
+        //需要一个公司id
+        //管理员id
+        Long id = Long.parseLong(request.getSession().getAttribute("uuid").toString()) ;
+        System.out.println(id+"===========================");
+        //通过管理员id查询公司id
+        Long companyId =cpnAdminCompanyService.selectCompanyId(id);
+        CpnDepartment cpnDepartment=new CpnDepartment();
+        //公司id
+        cpnDepartment.setParent_id(companyId);
+        //公司或部门名称
+        cpnDepartment.setName(addDepartment.getDepartment_name());
+        //部门描述
+        cpnDepartment.setDescription(addDepartment.getDepartment_describe());
+        cpnDepartment.setCreate_at(new Date().getTime());
+        int result=cpnDepartmentService.insertDepartment(cpnDepartment);
+        Map map =new HashMap();
+        map.put("code",result);
+        responseBean.setData(map);
+        return responseBean;
     }
 
 }

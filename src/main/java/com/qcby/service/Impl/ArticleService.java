@@ -1,4 +1,4 @@
-package com.qcby.serviceImpl;
+package com.qcby.service.Impl;
 
 import com.qcby.entity.Article;
 

@@ -13,7 +13,13 @@ public class EmployeeGoodSeviceLmpl implements EmployeeGoodService {
     EmployeeGoodMapper employeeGoodMapper;
     @Override
     public List<EmployeeGood> findByTag() {
-        return employeeGoodMapper.findByTag();
+        List<EmployeeGood> list = employeeGoodMapper.findByTag();
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).getHeader_img()==null){
+                list.get(i).setHeader_img("src/main/resources/img/pengjian.jpg");
+            }
+        }
+        return list;
     }
 
     @Override

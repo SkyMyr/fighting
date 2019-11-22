@@ -90,4 +90,10 @@
       create_at = #{create_at,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="selectCompanyId" parameterType="java.lang.Long" resultType="java.lang.Long">
+    select
+    company_id
+    from pc_admin_company
+    where admin_id = #{admin_id,jdbcType=BIGINT}
+  </select>
 </mapper>

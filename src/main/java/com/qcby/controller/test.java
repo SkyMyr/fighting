@@ -5,6 +5,8 @@ package com.qcby.controller;/**
 import ch.qos.logback.core.net.SyslogOutputStream;
 import com.qcby.entity.CpnDepartment;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,10 +20,12 @@ import java.util.List;
  * @Version 1.0
  **/
 public class test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         System.out.println(new Date().getTime());
         System.out.println(Calendar.getInstance().getTimeInMillis());
         System.out.println(System.currentTimeMillis());
+        FileReader fr = new FileReader("src/main/resources/img/pengjian.jpg");
+        System.out.println(fr.toString());
         String p = "86-18833280565";
         System.out.println(p.substring(0, 3));
         System.out.println(p.substring(3));

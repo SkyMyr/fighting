@@ -2,17 +2,17 @@ package com.qcby.model;
 //注册
 public class Register {
     private String url;//网址
-    private int countryId;//网址编号
+    private int countryId;
     private int provinceId;
     private int cityId;
-    private String countryName;
-    private String provinceName;
-    private String cityName;
-    private String address;
-    private String mobile;
-    private String password;
+    private String countryName;//国家
+    private String provinceName;//省份
+    private String cityName;//城市
+    private String address;//地址
+    private String mobile;//电话
+    private String password;//密码
     private String couponCode;//注册优惠码
-    private String loginName;
+    private String loginName;//姓名/登录名，实际登陆用手机号
     private int type;//类型
     private int status;//状态
     private long createAt;//创建时间
@@ -21,7 +21,7 @@ public class Register {
     private String email;
     private String schoolName;
     private String college;//学院
-    private String companyName;
+    private String companyName;//公司名称
     private String code1;//短信验证码
 
     public String getCode1() {

@@ -334,6 +334,30 @@
             success: function (data) {
                 for (var i=0;i<data.data.length;i++){
                     var responseBean=data.data;
+                    //性别转换
+                    var genderlist;
+                    if(responseBean[i].gender==1){
+                        genderlist="女"
+                    }else if(responseBean[i].gender==0){
+                        genderlist="男"
+                    }else{
+                        genderlist="请正确填写"
+                    }
+                    //部门转换
+                    var departments;
+                    switch (responseBean[i].department_id) {
+                        case 1:
+                            departments="市场部";
+                            break;
+                        case 2:
+                            departments="技术部";
+                            break;
+                        case 3:
+                            departments="运维部";
+                            break;
+                        case 4:
+                            departments="后勤部";
+                    }
                     var useStaus;
                     switch(responseBean[i].sms_status){
                         case 1:

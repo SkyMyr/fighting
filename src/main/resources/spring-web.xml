@@ -16,7 +16,7 @@
     <!-- 激活组件扫描功能,扫描aop的相关组件组件 -->
     <!--<context:component-scan base-package="org.seckill.aop"/>-->
     <!-- 启动对@AspectJ注解的支持 -->
-    <!--<aop:aspectj-autoproxy proxy-target-class="false"/>-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
 
     <!-- 配置SpringMVC -->
     <!-- 1.开启SpringMVC注解模式 -->
