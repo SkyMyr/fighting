@@ -142,6 +142,7 @@
                     <nav>
                         <ul class="nav">
                             <li ><a href="addhr.html" class=""><span>添加员工</span></a></li>
+                            <!--<li ><a href="addDepartment.html" class=""><span>添加部门</span></a></li>-->
                             <li ><a href="screen.html"  class=""> <span>筛选</span> </a></li> 
                             <li onclick="show2();"><a href="javascript:;"  class=""> <span>部门</span> <i class="icon-submenu lnr fright"><img src="assets/images/jt_right.png"></i></a></li> 
                             <!--                        <li style="width:9%">
@@ -377,8 +378,8 @@
                         '<ul class="myr">'
                         +'<li style="width:11%"><label class="control-inline fancy-checkbox" ><input type="checkbox"><span><img src="assets/images/gantanhao2.png" width="5" height="18"></span></label></li>'
                         +'<a href="studentdetails.html?id='+responseBean[i].update_at+'">'+'<li style="width:12%"><div class="biaoge_pic"><img src="'+responseBean[i].header_img+'"></div>'+responseBean[i].user_name+'</li> </a>'
-                        +'<li style="width:6%">'+responseBean[i].gender+'</li>'
-                        +'<li style="width:9%">'+responseBean[i].department_id+'</li>'
+                        +'<li style="width:6%">'+genderlist+'</li>'
+                        +'<li style="width:9%">'+departments+'</li>'
                         +'<a href="gooddeeds.html"><li style="width:10%">'+responseBean[i].helper_number+'</li></a>'
                         +'<a href="gooddeeds1.html"><li style="width:12%">'+responseBean[i].service_time+'</li></a>'
                         +'<a href="days.html"> <li style="width:6%">'+responseBean[i].status+'</li></a>'

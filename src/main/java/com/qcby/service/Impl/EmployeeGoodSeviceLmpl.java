@@ -15,8 +15,8 @@ public class EmployeeGoodSeviceLmpl implements EmployeeGoodService {
     public List<EmployeeGood> findByTag() {
         List<EmployeeGood> list = employeeGoodMapper.findByTag();
         for (int i = 0; i < list.size(); i++) {
-            if(list.get(i).getHeader_img()==null){
-                list.get(i).setHeader_img("src/main/resources/img/pengjian.jpg");
+            if(list.get(i).getHeader_img()==null || list.get(i).getHeader_img().equals("")){
+                list.get(i).setHeader_img("assets/img/defaultHeader.png");
             }
         }
         return list;
